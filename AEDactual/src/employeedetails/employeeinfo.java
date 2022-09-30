@@ -18,7 +18,24 @@ public class employeeinfo {
     private String level;
     private String Teaminfo;
     private String Positiontitle;
-    private String Position;
+    private int contactnumber;
+    private String email;
+
+    public int getContactnumber() {
+        return contactnumber;
+    }
+
+    public void setContactnumber(int contactnumber) {
+        this.contactnumber = contactnumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public char getName() {
         return name;
