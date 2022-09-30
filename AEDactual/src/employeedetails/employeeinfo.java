@@ -18,6 +18,7 @@ public class employeeinfo {
     private String level;
     private String Teaminfo;
     private String Positiontitle;
+    private String Position;
 
     public char getName() {
         return name;
