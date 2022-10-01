@@ -118,6 +118,9 @@ public class MainJFrame extends javax.swing.JFrame {
       //  ViewJPanel cPanel = new ViewPanel(history);
        // SplitPane.setRightComponent(viewPanel);
        
+       ViewJPanel viewPanel = new ViewJPanel(history);
+        SplitPane.setRightComponent(viewPanel);
+       
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed

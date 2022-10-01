@@ -6,6 +6,7 @@ package ui;
 
 import employeedetails.Employeehistory;
 import employeedetails.employeeinfo;
+import javax.swing.JOptionPane;
 /**
  *
  * @author shriyapandita
@@ -77,6 +78,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         });
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         lblDate.setText("Employee Start Date");
 
@@ -208,7 +214,19 @@ public class CreateJPanel extends javax.swing.JPanel {
        // use this to create new data and add to the history 
        // not manually add to array list. add new method to the emp history 
       
-        String name = txtName.getText(); 
+       
+       
+        
+        
+        
+            
+   
+        
+    }//GEN-LAST:event_txtIdActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+         String name = txtName.getText(); 
         int id = Integer.parseInt(txtId.getText()); 
         int age = Integer.parseInt(txtAge.getText());
         String gender = txtGender.getText();
@@ -234,18 +252,24 @@ public class CreateJPanel extends javax.swing.JPanel {
         ei.setContactnumber(phone);
         ei.setEmail(email);
         
+        //inform user with a message pop up after saving the details 
+        JOptionPane.showMessageDialog(this, "New Employee record added");
+        
+        //clear out the text boxes after entering by settung ti enoty strungs
+        txtName.setText("");
+        txtId.setText("");
+        txtAge.setText("");
+        txtGender.setText("");
+        txtDate.setText("");
+        txtLevel.setText("");
+        txtTeam.setText("");
+        txtPosition.setText("");
+        txtPhone.setText("");
+        txtEmail.setText("");
         
         
         
-        
-       
-        
-        
-        
-            
-   
-        
-    }//GEN-LAST:event_txtIdActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
