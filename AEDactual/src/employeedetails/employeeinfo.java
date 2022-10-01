@@ -10,10 +10,10 @@ package employeedetails;
  */
 public class employeeinfo {
     
-    private char name;
+    private String name;
     private int employeeid;
     private int age;
-    private char gender;
+    private String gender;
     private String startdate;
     private String level;
     private String Teaminfo;
@@ -37,11 +37,11 @@ public class employeeinfo {
         this.email = email;
     }
 
-    public char getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(char name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -61,11 +61,11 @@ public class employeeinfo {
         this.age = age;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

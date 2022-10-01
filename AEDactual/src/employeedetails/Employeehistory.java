@@ -28,5 +28,13 @@ public class Employeehistory {
         this.history = history;
     }
     
+    // creating new method within employee history, creates new emp records and adds the empty emp to the new history and then returns through reference to allow to put the data. 
+    
+    public employeeinfo addNewEmployee(){
+        
+        employeeinfo newEmp = new employeeinfo();
+        history.add(newEmp);
+        return newEmp;
+    }
     
 }

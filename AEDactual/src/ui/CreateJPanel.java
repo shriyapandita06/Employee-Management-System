@@ -5,6 +5,7 @@
 package ui;
 
 import employeedetails.Employeehistory;
+import employeedetails.employeeinfo;
 /**
  *
  * @author shriyapandita
@@ -14,12 +15,12 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    
+    // pushing whole reference to vital sign history
     Employeehistory history;
-    public CreateJPanel() {
+    public CreateJPanel(Employeehistory history) {
         
         initComponents();
-        //this.history =history;
+        this.history =history;
         // pushing the data 
     }
 
@@ -200,6 +201,50 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
         // TODO add your handling code here:
+        
+        //first extract information:
+        
+       // 
+       // use this to create new data and add to the history 
+       // not manually add to array list. add new method to the emp history 
+      
+        String name = txtName.getText(); 
+        int id = Integer.parseInt(txtId.getText()); 
+        int age = Integer.parseInt(txtAge.getText());
+        String gender = txtGender.getText();
+        String date = txtDate.getText();
+        String level = txtLevel.getText();
+        String team = txtTeam.getText();
+        String title = txtPosition.getText();
+        int phone = Integer.parseInt(txtPhone.getText());
+        String email = txtEmail.getText();
+        
+        
+        
+        employeeinfo ei = history.addNewEmployee();
+        
+        ei.setName(name);
+        ei.setEmployeeid(id);
+        ei.setAge(age);
+        ei.setGender(gender);
+        ei.setStartdate(date);
+        ei.setLevel(level);
+        ei.setTeaminfo(team);
+        ei.setPositiontitle(title);
+        ei.setContactnumber(phone);
+        ei.setEmail(email);
+        
+        
+        
+        
+        
+       
+        
+        
+        
+            
+   
+        
     }//GEN-LAST:event_txtIdActionPerformed
 
 

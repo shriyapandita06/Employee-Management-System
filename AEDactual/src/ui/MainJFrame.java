@@ -115,14 +115,15 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-        
+      //  ViewJPanel cPanel = new ViewPanel(history);
+       // SplitPane.setRightComponent(viewPanel);
        
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         
-        CreateJPanel createPanel = new CreateJPanel(); 
+        CreateJPanel createPanel = new CreateJPanel(history); 
          SplitPane.setRightComponent(createPanel);
         
     }//GEN-LAST:event_btnCreateActionPerformed
