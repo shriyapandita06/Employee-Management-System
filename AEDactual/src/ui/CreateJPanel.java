@@ -5,7 +5,7 @@
 package ui;
 
 import employeedetails.Employeehistory;
-import employeedetails.employeeinfo;
+import employeedetails.Employeeinfo;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -271,7 +271,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        employeeinfo ei = history.addNewEmployee();
+        Employeeinfo ei = history.addNewEmployee();
         
         try{
             
@@ -375,7 +375,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         
         
         
-      //  employeeinfo ei = history.addNewEmployee();
+      //  Employeeinfo ei = history.addNewEmployee();
         
       //  ei.setName(name);
       //  ei.setEmployeeid(id);

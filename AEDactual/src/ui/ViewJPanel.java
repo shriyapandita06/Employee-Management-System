@@ -5,7 +5,7 @@
 package ui;
 
 import employeedetails.Employeehistory;
-import employeedetails.employeeinfo;
+import employeedetails.Employeeinfo;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ImageIcon;
@@ -277,7 +277,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         
         
-        employeeinfo selectedEmployee = (employeeinfo) model.getValueAt(selectedRowIndex,0);
+        Employeeinfo selectedEmployee = (Employeeinfo) model.getValueAt(selectedRowIndex,0);
         
         history.deleteEmployee(selectedEmployee);
         JOptionPane.showMessageDialog(this, "Employee record deleted");
@@ -299,7 +299,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         
 
-        employeeinfo selectedEmployee = (employeeinfo) model.getValueAt(selectedRowIndex,0);
+        Employeeinfo selectedEmployee = (Employeeinfo) model.getValueAt(selectedRowIndex,0);
         
         txtName.setText(String.valueOf(selectedEmployee.getName()));
         txtId.setText(String.valueOf(selectedEmployee.getEmployeeid()));
@@ -363,7 +363,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
         model.setRowCount(0);
         
-        for (employeeinfo ei : history.getHistory()){
+        for (Employeeinfo ei : history.getHistory()){
             
             Object [] row =new Object[10];
             //row[0]=ei.getName();

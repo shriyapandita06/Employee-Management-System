@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author shriyapandita
  */
-public class employeeinfo {
+public class Employeeinfo {
     
     private String name;
     private int employeeid;

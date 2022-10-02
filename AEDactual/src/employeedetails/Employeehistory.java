@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Employeehistory {
     
-    private ArrayList<employeeinfo> history;
+    private ArrayList<Employeeinfo> history;
     
     public Employeehistory(){
         
@@ -20,47 +20,47 @@ public class Employeehistory {
                                             
     }
 
-    public ArrayList<employeeinfo> getHistory() {
+    public ArrayList<Employeeinfo> getHistory() {
         return history;
     }
 
-    public void setHistory(ArrayList<employeeinfo> history) {
+    public void setHistory(ArrayList<Employeeinfo> history) {
         this.history = history;
     }
     
     // creating new method within employee history, creates new emp records and adds the empty emp to the new history and then returns through reference to allow to put the data. 
     
-    public employeeinfo addNewEmployee(){
+    public Employeeinfo addNewEmployee(){
         
-        employeeinfo newEmp = new employeeinfo();
+        Employeeinfo newEmp = new Employeeinfo();
         history.add(newEmp);
         return newEmp;
     }
     
-    public void deleteEmployee(employeeinfo ei)
+    public void deleteEmployee(Employeeinfo ei)
     {
         history.remove(ei);
     }
     
-    public void updateEmployee(int id, employeeinfo emp){
+    public void updateEmployee(int id, Employeeinfo emp){
         for (int i = 0; i < history.size(); i++){
             if (history.get(i).getEmployeeid() == id){
                 history.set(i, emp);
             }
         }
-        for ( employeeinfo e : history){
+        for ( Employeeinfo e : history){
             if (e.getEmployeeid() == id){
                 history.set(history.indexOf(e), emp);
             }
         }
     }
-   // public void updateEmployee(employeeinfo ue)
+   // public void updateEmployee(Employeeinfo ue)
    // {
        // history.add();
   //  }
-    //public employeeinfo SearchEmployee(int id){
+    //public Employeeinfo SearchEmployee(int id){
         
-       // for ( employeeinfo e : history){
+       // for ( Employeeinfo e : history){
          //   if (e.getEmployeeid() == id)
           //  
             

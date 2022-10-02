@@ -5,7 +5,7 @@
 package ui;
 
 import employeedetails.Employeehistory;
-import employeedetails.employeeinfo;
+import employeedetails.Employeeinfo;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -26,7 +26,9 @@ public class SearchJPanel extends javax.swing.JPanel {
     public SearchJPanel(Employeehistory history) {
         initComponents();
         
+        
         this.history = history;
+        populateEmployeeTable();
     }
 
     /**
@@ -50,7 +52,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         txtPosition = new javax.swing.JTextField();
         lblPosition = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEmployee = new javax.swing.JTable();
+        tblEmployeeList = new javax.swing.JTable();
         btnSearch = new javax.swing.JButton();
         BtnbyID = new javax.swing.JButton();
         BtnbyLevel = new javax.swing.JButton();
@@ -78,7 +80,7 @@ public class SearchJPanel extends javax.swing.JPanel {
 
         lblPosition.setText("Position Title");
 
-        tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
+        tblEmployeeList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -98,7 +100,7 @@ public class SearchJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblEmployee);
+        jScrollPane1.setViewportView(tblEmployeeList);
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -239,9 +241,10 @@ public class SearchJPanel extends javax.swing.JPanel {
             String empname = txtName.getText();
             
             // creating new array list 
-            ArrayList<employeeinfo> filterbyname = new ArrayList<employeeinfo>();
+            ArrayList<Employeeinfo> filterbyname = new ArrayList<Employeeinfo>();
             
-            for(employeeinfo emp : history.getHistory()){
+            for(Employeeinfo emp : history.getHistory()){
+                System.out.println(emp);
                 if(emp.getName().contains(empname))
                 {
                     filterbyname.add(emp);
@@ -250,12 +253,12 @@ public class SearchJPanel extends javax.swing.JPanel {
             
             populateEmployeebyFilters(filterbyname);
             txtName.setText("");
-            //String Employeeid = txtId.getText();
-            //String Level = txtLevel.getText();
-           // String Teaminfo = txtTeam.getText();
-           // String Positiontitle = txtPosition.getText();
+//            String Employeeid = txtId.getText();
+//            String Level = txtLevel.getText();
+//            String Teaminfo = txtTeam.getText();
+//            String Positiontitle = txtPosition.getText();
             
-           //employeeinfo search_obj = new employeeinfo(); 
+           //employeeinfo search_obj = new Employeeinfo(); 
           
         
         
@@ -264,13 +267,26 @@ public class SearchJPanel extends javax.swing.JPanel {
     private void BtnbyIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnbyIDActionPerformed
         // TODO add your handling code here:
         
-        String id =txtId.getText();    
-        
-        ArrayList<employeeinfo> filterbyname = new ArrayList<employeeinfo>();
-        
-      //  for (employeeinfo e: history.getHistory()){
+        String id =txtId.getText(); 
+//        String teamname = txtTeam.getText();
+            
+            // creating new array list 
+            ArrayList<Employeeinfo> searchResults = new ArrayList<Employeeinfo>();
+            
+            for(Employeeinfo emp : history.getHistory()){
+                if(Integer.toString(emp.getEmployeeid()).contains(id))
+                {
+                    searchResults.add(emp);
+                }
+            }
+            
+            populateEmployeebyFilters(searchResults);
+            txtId.setText("");
+//        ArrayList<employeeinfo> searchResults = new ArrayList<employeeinfo>();
+//        
+      //  for (Employeeinfo e: history.getHistory()){
         //    if(e.id equals(String.valueOf(id())){
-         //      filterbyname.add(e); 
+         //      searchResults.add(e); 
                
     }//GEN-LAST:event_BtnbyIDActionPerformed
 
@@ -282,32 +298,43 @@ public class SearchJPanel extends javax.swing.JPanel {
             String teamname = txtTeam.getText();
             
             // creating new array list 
-            ArrayList<employeeinfo> filterbyname = new ArrayList<employeeinfo>();
+            ArrayList<Employeeinfo> searchResults = new ArrayList<Employeeinfo>();
             
-            for(employeeinfo emp : history.getHistory()){
-                if(emp.getName().contains(teamname))
+            for(Employeeinfo emp : history.getHistory()){
+                if(emp.getTeaminfo().contains(teamname))
                 {
-                    filterbyname.add(emp);
+                    searchResults.add(emp);
                 }
             }
             
-            populateEmployeebyFilters(filterbyname);
-            txtName.setText("");
+            populateEmployeebyFilters(searchResults);
+            txtTeam.setText("");
     }//GEN-LAST:event_BtnbyTeamActionPerformed
 
     private void BtnViewdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnViewdetailsActionPerformed
         // TODO add your handling code here:
         
-        int selectedRowIndex = tblEmployee.getSelectedRow();
+        int selectedRowIndex = tblEmployeeList.getSelectedRow();
         if (selectedRowIndex <0)
         {
             JOptionPane.showMessageDialog(this, "Please select a row to view");
             return;
         }
         
-        DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
-        employeeinfo selectedEmployee = (employeeinfo) model.getValueAt(selectedRowIndex,0);
         
+        //DefaultTableModel model = (DefaultTableModel) tblEmployeeList.getModel();
+//        Employee selectedEmployee = (Employee) model.getValueAt(selectedRowIndex,0 );
+//        
+//        txtAge.setText(String.valueOf(selectedEmployee.getAge()));
+//        txtGender.setText(selectedEmployee.getGender());
+//        txtTeamInfo.setText(selectedEmployee.getTeamInfo());
+//        txtCellPhoneNumber.setText(String.valueOf(selectedEmployee.getCellPhoneNumber()));
+//        txtEmailAddress.setText(selectedEmployee.getEmailAddress());
+//        lblDisplayPhoto.setIcon(selectedEmployee.getPhoto());
+//             
+//        DefaultTableModel model = (DefaultTableModel) tblEmployeeList.getModel();
+//        Employeeinfo selectedEmployee = (Employeeinfo) model.getValueAt(selectedRowIndex,0);
+//       
 
         //txtTeamInfo.setText(selectedEmployee.getTeamInfo());
         //txtCellPhoneNumber.setText(String.valueOf(selectedEmployee.getCellPhoneNumber()));
@@ -320,16 +347,16 @@ public class SearchJPanel extends javax.swing.JPanel {
         String teamlevel = txtLevel.getText();
             
             // creating new array list 
-            ArrayList<employeeinfo> filterbyname = new ArrayList<employeeinfo>();
+            ArrayList<Employeeinfo> searchResults = new ArrayList<Employeeinfo>();
             
-            for(employeeinfo emp : history.getHistory()){
-                if(emp.getName().contains(teamlevel))
+            for(Employeeinfo emp : history.getHistory()){
+                if(emp.getLevel().contains(teamlevel))
                 {
-                    filterbyname.add(emp);
+                    searchResults.add(emp);
                 }
             }
             
-            populateEmployeebyFilters(filterbyname);
+            populateEmployeebyFilters(searchResults);
             txtLevel.setText("");
         
     }//GEN-LAST:event_BtnbyLevelActionPerformed
@@ -339,17 +366,17 @@ public class SearchJPanel extends javax.swing.JPanel {
         String Position = txtPosition.getText();
             
             // creating new array list 
-            ArrayList<employeeinfo> filterbyname = new ArrayList<employeeinfo>();
+            ArrayList<Employeeinfo> searchResults = new ArrayList<Employeeinfo>();
             
-            for(employeeinfo emp : history.getHistory()){
-                if(emp.getName().contains(Position))
+            for(Employeeinfo emp : history.getHistory()){
+                if(emp.getPositiontitle().contains(Position))
                 {
-                    filterbyname.add(emp);
+                    searchResults.add(emp);
                 }
             }
             
-            populateEmployeebyFilters(filterbyname);
-            txtName.setText("");
+            populateEmployeebyFilters(searchResults);
+            txtPosition.setText("");
     }//GEN-LAST:event_BtnbyPosActionPerformed
 
 
@@ -367,7 +394,7 @@ public class SearchJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPosition;
     private javax.swing.JLabel lblTeam;
-    private javax.swing.JTable tblEmployee;
+    private javax.swing.JTable tblEmployeeList;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLevel;
     private javax.swing.JTextField txtName;
@@ -377,13 +404,13 @@ public class SearchJPanel extends javax.swing.JPanel {
 
     
     // Creating new array to populate values on searching 
-    private void populateEmployeebyFilters(ArrayList<employeeinfo> filterbyname) {
+    private void populateEmployeebyFilters(ArrayList<Employeeinfo> filterbyname) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     
-        DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblEmployeeList.getModel();
         model.setRowCount(0);
         
-        for (employeeinfo ei : filterbyname){
+        for (Employeeinfo ei : filterbyname){
             
             Object [] row =new Object[10];
             //row[0]=ei.getName();
@@ -403,5 +430,9 @@ public class SearchJPanel extends javax.swing.JPanel {
     
    
    
+    }
+
+    private void populateEmployeeTable() {
+         // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
