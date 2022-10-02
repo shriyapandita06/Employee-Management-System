@@ -44,6 +44,11 @@ public class employeeinfo {
     public void setName(String name) {
         this.name = name;
     }
+    
+    @Override
+    public String toString(){
+            return name;
+        }
 
     public int getEmployeeid() {
         return employeeid;
@@ -99,6 +104,8 @@ public class employeeinfo {
 
     public void setPositiontitle(String Positiontitle) {
         this.Positiontitle = Positiontitle;
+        
+        
     }
    
 }
