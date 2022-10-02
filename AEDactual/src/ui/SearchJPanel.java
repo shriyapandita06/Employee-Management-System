@@ -7,6 +7,7 @@ package ui;
 import employeedetails.Employeehistory;
 import employeedetails.employeeinfo;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -55,6 +56,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         BtnbyLevel = new javax.swing.JButton();
         BtnbyTeam = new javax.swing.JButton();
         BtnbyPos = new javax.swing.JButton();
+        BtnViewdetails = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -113,10 +115,32 @@ public class SearchJPanel extends javax.swing.JPanel {
         });
 
         BtnbyLevel.setText("Search by Level");
+        BtnbyLevel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnbyLevelActionPerformed(evt);
+            }
+        });
 
         BtnbyTeam.setText("Search by Team");
+        BtnbyTeam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnbyTeamActionPerformed(evt);
+            }
+        });
 
         BtnbyPos.setText("Search by Position");
+        BtnbyPos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnbyPosActionPerformed(evt);
+            }
+        });
+
+        BtnViewdetails.setText("View Data");
+        BtnViewdetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnViewdetailsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -125,34 +149,38 @@ public class SearchJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(341, 341, 341)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(txtLevel, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(txtTeam, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(txtPosition))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(BtnbyID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnbyLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnbyTeam, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnbyPos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(341, 341, 341)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(50, 50, 50)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                                    .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                                    .addComponent(txtLevel, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                                    .addComponent(txtTeam, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                                    .addComponent(txtPosition))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(BtnbyID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(BtnbyLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(BtnbyTeam, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(BtnbyPos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(356, 356, 356)
+                                .addComponent(BtnViewdetails)))
+                        .addGap(0, 313, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,9 +215,11 @@ public class SearchJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BtnbyPos)))
-                .addGap(91, 91, 91)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnViewdetails)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -233,10 +263,98 @@ public class SearchJPanel extends javax.swing.JPanel {
 
     private void BtnbyIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnbyIDActionPerformed
         // TODO add your handling code here:
+        
+        String id =txtId.getText();    
+        
+        ArrayList<employeeinfo> filterbyname = new ArrayList<employeeinfo>();
+        
+      //  for (employeeinfo e: history.getHistory()){
+        //    if(e.id equals(String.valueOf(id())){
+         //      filterbyname.add(e); 
+               
     }//GEN-LAST:event_BtnbyIDActionPerformed
+
+    private void BtnbyTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnbyTeamActionPerformed
+        // TODO add your handling code here:
+                                                
+        // TODO add your handling code here:
+        
+            String teamname = txtTeam.getText();
+            
+            // creating new array list 
+            ArrayList<employeeinfo> filterbyname = new ArrayList<employeeinfo>();
+            
+            for(employeeinfo emp : history.getHistory()){
+                if(emp.getName().contains(teamname))
+                {
+                    filterbyname.add(emp);
+                }
+            }
+            
+            populateEmployeebyFilters(filterbyname);
+            txtName.setText("");
+    }//GEN-LAST:event_BtnbyTeamActionPerformed
+
+    private void BtnViewdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnViewdetailsActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedRowIndex = tblEmployee.getSelectedRow();
+        if (selectedRowIndex <0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+        employeeinfo selectedEmployee = (employeeinfo) model.getValueAt(selectedRowIndex,0);
+        
+
+        //txtTeamInfo.setText(selectedEmployee.getTeamInfo());
+        //txtCellPhoneNumber.setText(String.valueOf(selectedEmployee.getCellPhoneNumber()));
+        //txtEmailAddress.setText(selectedEmployee.getEmailAddress());
+        //lblDisplayPhoto.setIcon(selectedEmployee.getPhoto());
+    }//GEN-LAST:event_BtnViewdetailsActionPerformed
+
+    private void BtnbyLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnbyLevelActionPerformed
+        // TODO add your handling code here:
+        String teamlevel = txtLevel.getText();
+            
+            // creating new array list 
+            ArrayList<employeeinfo> filterbyname = new ArrayList<employeeinfo>();
+            
+            for(employeeinfo emp : history.getHistory()){
+                if(emp.getName().contains(teamlevel))
+                {
+                    filterbyname.add(emp);
+                }
+            }
+            
+            populateEmployeebyFilters(filterbyname);
+            txtLevel.setText("");
+        
+    }//GEN-LAST:event_BtnbyLevelActionPerformed
+
+    private void BtnbyPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnbyPosActionPerformed
+        // TODO add your handling code here:
+        String Position = txtPosition.getText();
+            
+            // creating new array list 
+            ArrayList<employeeinfo> filterbyname = new ArrayList<employeeinfo>();
+            
+            for(employeeinfo emp : history.getHistory()){
+                if(emp.getName().contains(Position))
+                {
+                    filterbyname.add(emp);
+                }
+            }
+            
+            populateEmployeebyFilters(filterbyname);
+            txtName.setText("");
+    }//GEN-LAST:event_BtnbyPosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnViewdetails;
     private javax.swing.JButton BtnbyID;
     private javax.swing.JButton BtnbyLevel;
     private javax.swing.JButton BtnbyPos;

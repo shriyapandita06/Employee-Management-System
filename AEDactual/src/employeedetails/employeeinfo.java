@@ -4,6 +4,8 @@
  */
 package employeedetails;
 
+import javax.swing.ImageIcon;
+import java.util.Date;
 /**
  *
  * @author shriyapandita
@@ -14,18 +16,19 @@ public class employeeinfo {
     private int employeeid;
     private int age;
     private String gender;
-    private String startdate;
+    private Date startdate;
     private String level;
     private String Teaminfo;
     private String Positiontitle;
-    private int contactnumber;
+    private long contactnumber;
     private String email;
+    private ImageIcon photo;
 
-    public int getContactnumber() {
+    public long getContactnumber() {
         return contactnumber;
     }
 
-    public void setContactnumber(int contactnumber) {
+    public void setContactnumber(long contactnumber) {
         this.contactnumber = contactnumber;
     }
 
@@ -74,11 +77,11 @@ public class employeeinfo {
         this.gender = gender;
     }
 
-    public String getStartdate() {
+    public Date getStartdate() {
         return startdate;
     }
 
-    public void setStartdate(String startdate) {
+    public void setStartdate(Date startdate) {
         this.startdate = startdate;
     }
 
@@ -107,5 +110,21 @@ public class employeeinfo {
         
         
     }
+
+    public ImageIcon getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(ImageIcon photo) {
+        this.photo = photo;
+    }
    
+    public static boolean isNumeric(String str) { 
+    try {  
+        Integer.valueOf(str);  
+        return true;
+    } catch(NumberFormatException e){  
+        return false;  
+    }  
+    }
 }

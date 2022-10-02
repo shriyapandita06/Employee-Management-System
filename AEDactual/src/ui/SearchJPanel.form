@@ -19,41 +19,47 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="341" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="161" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblID" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="lblName" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="lblLevel" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="lblTeam" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
-                          <Component id="lblPosition" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="341" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="161" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblID" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="lblName" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="lblLevel" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="lblTeam" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="lblPosition" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtName" pref="270" max="32767" attributes="0"/>
+                                  <Component id="txtId" pref="270" max="32767" attributes="0"/>
+                                  <Component id="txtLevel" pref="270" max="32767" attributes="0"/>
+                                  <Component id="txtTeam" pref="270" max="32767" attributes="0"/>
+                                  <Component id="txtPosition" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="BtnbyID" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="BtnbyLevel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="BtnbyTeam" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnSearch" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="BtnbyPos" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="356" max="-2" attributes="0"/>
+                              <Component id="BtnViewdetails" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtName" pref="270" max="32767" attributes="0"/>
-                          <Component id="txtId" pref="270" max="32767" attributes="0"/>
-                          <Component id="txtLevel" pref="270" max="32767" attributes="0"/>
-                          <Component id="txtTeam" pref="270" max="32767" attributes="0"/>
-                          <Component id="txtPosition" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="BtnbyID" alignment="0" max="32767" attributes="0"/>
-                          <Component id="BtnbyLevel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="BtnbyTeam" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnSearch" alignment="1" max="32767" attributes="0"/>
-                          <Component id="BtnbyPos" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="313" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="720" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="136" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -98,9 +104,11 @@
                       <Component id="BtnbyPos" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="153" max="-2" attributes="0"/>
-              <EmptySpace pref="94" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="213" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="BtnViewdetails" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="112" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -203,16 +211,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Search by Level"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnbyLevelActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="BtnbyTeam">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search by Team"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnbyTeamActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="BtnbyPos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search by Position"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnbyPosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="BtnViewdetails">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View Data"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnViewdetailsActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
