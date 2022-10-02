@@ -16,7 +16,7 @@ public class Employeehistory {
     
     public Employeehistory(){
         
-        this.history = new ArrayList<employeeinfo>();
+        this.history = new ArrayList<>();
                                             
     }
 
@@ -41,4 +41,34 @@ public class Employeehistory {
     {
         history.remove(ei);
     }
-}
+    
+    public void updateEmployee(int id, employeeinfo emp){
+        for (int i = 0; i < history.size(); i++){
+            if (history.get(i).getEmployeeid() == id){
+                history.set(i, emp);
+            }
+        }
+        for ( employeeinfo e : history){
+            if (e.getEmployeeid() == id){
+                history.set(history.indexOf(e), emp);
+            }
+        }
+    }
+   // public void updateEmployee(employeeinfo ue)
+   // {
+       // history.add();
+  //  }
+    //public employeeinfo SearchEmployee(int id){
+        
+       // for ( employeeinfo e : history){
+         //   if (e.getEmployeeid() == id)
+          //  
+            
+        
+        
+            
+        }
+    //public void updateEmployee() {
+     //   throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   //}
+   
