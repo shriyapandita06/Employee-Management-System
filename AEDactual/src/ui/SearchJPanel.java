@@ -58,7 +58,6 @@ public class SearchJPanel extends javax.swing.JPanel {
         BtnbyLevel = new javax.swing.JButton();
         BtnbyTeam = new javax.swing.JButton();
         BtnbyPos = new javax.swing.JButton();
-        BtnViewdetails = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -71,6 +70,11 @@ public class SearchJPanel extends javax.swing.JPanel {
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
+            }
+        });
+        txtId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtIdKeyReleased(evt);
             }
         });
 
@@ -137,13 +141,6 @@ public class SearchJPanel extends javax.swing.JPanel {
             }
         });
 
-        BtnViewdetails.setText("View Data");
-        BtnViewdetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnViewdetailsActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -176,10 +173,7 @@ public class SearchJPanel extends javax.swing.JPanel {
                                     .addComponent(BtnbyLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(BtnbyTeam, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(BtnbyPos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(356, 356, 356)
-                                .addComponent(BtnViewdetails)))
+                                    .addComponent(BtnbyPos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 313, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
@@ -219,9 +213,7 @@ public class SearchJPanel extends javax.swing.JPanel {
                         .addComponent(BtnbyPos)))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnViewdetails)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -311,37 +303,6 @@ public class SearchJPanel extends javax.swing.JPanel {
             txtTeam.setText("");
     }//GEN-LAST:event_BtnbyTeamActionPerformed
 
-    private void BtnViewdetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnViewdetailsActionPerformed
-        // TODO add your handling code here:
-        
-        int selectedRowIndex = tblEmployeeList.getSelectedRow();
-        if (selectedRowIndex <0)
-        {
-            JOptionPane.showMessageDialog(this, "Please select a row to view");
-            return;
-        }
-        
-        
-        //DefaultTableModel model = (DefaultTableModel) tblEmployeeList.getModel();
-//        Employee selectedEmployee = (Employee) model.getValueAt(selectedRowIndex,0 );
-//        
-//        txtAge.setText(String.valueOf(selectedEmployee.getAge()));
-//        txtGender.setText(selectedEmployee.getGender());
-//        txtTeamInfo.setText(selectedEmployee.getTeamInfo());
-//        txtCellPhoneNumber.setText(String.valueOf(selectedEmployee.getCellPhoneNumber()));
-//        txtEmailAddress.setText(selectedEmployee.getEmailAddress());
-//        lblDisplayPhoto.setIcon(selectedEmployee.getPhoto());
-//             
-//        DefaultTableModel model = (DefaultTableModel) tblEmployeeList.getModel();
-//        Employeeinfo selectedEmployee = (Employeeinfo) model.getValueAt(selectedRowIndex,0);
-//       
-
-        //txtTeamInfo.setText(selectedEmployee.getTeamInfo());
-        //txtCellPhoneNumber.setText(String.valueOf(selectedEmployee.getCellPhoneNumber()));
-        //txtEmailAddress.setText(selectedEmployee.getEmailAddress());
-        //lblDisplayPhoto.setIcon(selectedEmployee.getPhoto());
-    }//GEN-LAST:event_BtnViewdetailsActionPerformed
-
     private void BtnbyLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnbyLevelActionPerformed
         // TODO add your handling code here:
         String teamlevel = txtLevel.getText();
@@ -379,9 +340,17 @@ public class SearchJPanel extends javax.swing.JPanel {
             txtPosition.setText("");
     }//GEN-LAST:event_BtnbyPosActionPerformed
 
+    private void txtIdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyReleased
+        // TODO add your handling code here:
+        String employeeId = txtId.getText();
+          if(!Employeeinfo.isNumeric(employeeId)){
+            JOptionPane.showMessageDialog(this, "Please enter Employee Id in digit only!");
+            txtId.setText("");
+        }
+    }//GEN-LAST:event_txtIdKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnViewdetails;
     private javax.swing.JButton BtnbyID;
     private javax.swing.JButton BtnbyLevel;
     private javax.swing.JButton BtnbyPos;

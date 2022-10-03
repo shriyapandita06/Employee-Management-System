@@ -89,8 +89,19 @@ public class UpdateJPanel extends javax.swing.JPanel {
                 txtIdActionPerformed(evt);
             }
         });
+        txtId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtIdKeyReleased(evt);
+            }
+        });
 
         lblID.setText("Enter Employee ID to update ");
+
+        txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAgeKeyReleased(evt);
+            }
+        });
 
         btnView.setText("Fetch data to update");
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -531,6 +542,24 @@ public class UpdateJPanel extends javax.swing.JPanel {
             lblPhotoUrl.setText("Image Not Added");
         }
     }//GEN-LAST:event_btnPhotoActionPerformed
+
+    private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
+        // TODO add your handling code here:
+        String age = txtAge.getText();
+        if(!Employeeinfo.isNumeric(age)){
+            JOptionPane.showMessageDialog(this, "Please enter age in digit only!");
+            txtAge.setText("");
+        }
+    }//GEN-LAST:event_txtAgeKeyReleased
+
+    private void txtIdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyReleased
+        // TODO add your handling code here:
+        String employeeId = txtId.getText();
+          if(!Employeeinfo.isNumeric(employeeId)){
+            JOptionPane.showMessageDialog(this, "Please enter Employee Id in digit only!");
+            txtId.setText("");
+        }
+    }//GEN-LAST:event_txtIdKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
