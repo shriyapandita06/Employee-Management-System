@@ -31,6 +31,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
      */
     
     Employeehistory history;
+    boolean flag = false;
     
     public UpdateJPanel(Employeehistory history) {
         initComponents();
@@ -296,6 +297,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
 
         
         int employeeId = Integer.parseInt( txtId.getText());
+        flag = false;
         
         for (Employeeinfo ei: history.getHistory()){
             
@@ -321,8 +323,13 @@ public class UpdateJPanel extends javax.swing.JPanel {
                 lblPhotoUrl.setText(ei.getPhoto().toString());
                 
                 return;
-            }            
+            }   
+            
         }
+                if(flag == false)
+                {
+                JOptionPane.showMessageDialog(this, "Employee Id does not exist!");
+                }
 //        int selectedRowIndex = tblEmployee.getSelectedRow();
 //        if (selectedRowIndex <0)
 //        {
@@ -561,29 +568,29 @@ private void populateTable() {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
    
         
-        DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
-        model.setRowCount(0);
+        //DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+        //model.setRowCount(0);
         
-        for (Employeeinfo ei : history.getHistory()){
-            
-            Object [] row =new Object[10];
-            //row[0]=ei.getName();
-            row[0]=ei; 
-            row[1]=ei.getEmployeeid();
-            row[2]=ei.getAge();
-            row[3]=ei.getGender();
-            row[4]=ei.getStartdate();
-            row[5]=ei.getLevel();
-            row[6]=ei.getTeaminfo();
-            row[7]=ei.getPositiontitle();
-            row[8]=ei.getContactnumber();
-            row[9]=ei.getEmail();
-                   
-            model.addRow(row);
-            
-            
-            
-        }
+//        for (Employeeinfo ei : history.getHistory()){
+//            
+//            Object [] row =new Object[10];
+//            //row[0]=ei.getName();
+//            row[0]=ei; 
+//            row[1]=ei.getEmployeeid();
+//            row[2]=ei.getAge();
+//            row[3]=ei.getGender();
+//            row[4]=ei.getStartdate();
+//            row[5]=ei.getLevel();
+//            row[6]=ei.getTeaminfo();
+//            row[7]=ei.getPositiontitle();
+//            row[8]=ei.getContactnumber();
+//            row[9]=ei.getEmail();
+//                   
+//            model.addRow(row);
+//            
+//            
+//            
+//        }
 }
 }
 
