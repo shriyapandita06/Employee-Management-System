@@ -69,7 +69,7 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("VIEW EMPLOYEE INFORMATION");
+        jLabel1.setText("View Employee Information");
 
         tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

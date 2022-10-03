@@ -277,7 +277,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CREATE EMPLOYEE FORM"/>
+        <Property name="text" type="java.lang.String" value="Create Employee Form"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="ComboBoxGender">

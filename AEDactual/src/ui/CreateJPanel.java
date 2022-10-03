@@ -136,7 +136,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         });
 
         lblTitle.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblTitle.setText("CREATE EMPLOYEE FORM");
+        lblTitle.setText("Create Employee Form");
 
         ComboBoxGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female ", "Other" }));
         ComboBoxGender.addActionListener(new java.awt.event.ActionListener() {

@@ -59,7 +59,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         BtnbyTeam = new javax.swing.JButton();
         BtnbyPos = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Search Employee");
 
