@@ -6,6 +6,9 @@ package model;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -22,5 +25,11 @@ public class DoctorDirectory {
     public void setDoctors(Set<Doctor> doctors) {
         this.doctors = doctors;
     }
+    
+    public void addNewDoctor(Person doctor)
+    {
+      //  doctor.add((Doctor) doctor);
+    }  
+    
 }
 

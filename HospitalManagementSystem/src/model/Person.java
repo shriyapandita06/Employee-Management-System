@@ -10,7 +10,7 @@ package model;
  */
 public class Person {
     
-    private static int personId; 
+   private static int personId; 
    private String name;
    private long cellPhoneNumber;
    private String emailId;

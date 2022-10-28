@@ -5,7 +5,8 @@
 package model;
 
 import java.util.Date;
-
+import java.util.HashMap;
+import java.util.Map;
 /**
  *
  * @author shriyapandita
@@ -16,11 +17,11 @@ public class Doctor extends Person{
     private Date practicingFrom;
     private DoctorSpecialization doctorSpecialization;
 
-    public Doctor(String name, long cellPhoneNumber, String emailId, int age, String gender, House house,int doctorId,Date practicingFrom,DoctorSpecialization doctorSpecialization) {
+    public Doctor(String name, long cellPhoneNumber, String emailId, int age, String gender,int doctorId, House house, Date practicingFrom,DoctorSpecialization doctorSpecialization) {
         super(name, cellPhoneNumber, emailId, age, gender, house);
         this.doctorId = doctorId;
         this.practicingFrom = practicingFrom;
-        this.doctorSpecialization = this.doctorSpecialization;
+        this.doctorSpecialization = doctorSpecialization;
     }
 
     public int getDoctorId() {
