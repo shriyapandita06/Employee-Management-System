@@ -20,8 +20,8 @@ public class Patient extends Person{
     private Map<Integer,EncounterHistory> patientHistoryMap=new HashMap<>();
     
 
-    public Patient(String name, long cellPhoneNumber, String emailId, int age, String gender, House house, int patiendId, float height, float weight) {
-        super(name,cellPhoneNumber,emailId,age,gender,house);
+    public Patient(String name, long cellPhoneNumber, String emailId, int age, String gender, House house, int patiendId, float height, float weight, String password) {
+        super(name,cellPhoneNumber,emailId,age,gender,house, password);
         this.patientId =  patiendId;
         this.height = height;
         this.weight = weight;

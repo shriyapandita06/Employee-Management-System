@@ -178,7 +178,7 @@ public class SystemJFrame extends javax.swing.JFrame {
 
     private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
         // TODO add your handling code here:
-        SystemDoctorWorkPanel systemDoctor = new SystemDoctorWorkPanel();
+        SystemDoctorWorkPanel systemDoctor = new SystemDoctorWorkPanel(personDirectory,doctorDirectory);
         jSplitPaneSystem.setRightComponent(systemDoctor);
     }//GEN-LAST:event_btnDoctorActionPerformed
 

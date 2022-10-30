@@ -359,6 +359,8 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
                     Random random=new Random();
                     int doctorID=random.nextInt((9999 - 100) + 1) + 10;
                     
+                    String password = name + String.valueOf(random.nextInt((9999 - 100) + 1)+ 10);
+                    
                     Date practisingDate = (Date) txtPractisingFrom.getValue();
                             
 //                    Date practisingFrom = null;  
@@ -367,15 +369,14 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
 //                        } catch (ParseException ex) {
 //                            Logger.getLogger(SystemCreateDoctor.class.getName()).log(Level.SEVERE, null, ex);
 //                        }
-                        
-                    DoctorSpecialization specialization = DoctorSpecialization.valueOf(comboSpecialization.getSelectedItem().toString() );
+                        DoctorSpecialization specialization = DoctorSpecialization.valueOf(comboSpecialization.getSelectedItem().toString() );
 
-                    Person doctor = new Doctor(name,cellPhoneNumber,emailId,age,gender,house,doctorID,practisingDate,specialization);
+                    Person doctor = new Doctor(name,cellPhoneNumber,emailId,age,gender,house,doctorID,practisingDate,specialization,password);
          
                     personDirectory.addNewPerson(doctor);
                     doctorDirectory.addNewDoctor(doctor);
 
-                    JOptionPane.showMessageDialog(this,"Doctor Registered Successfully.Your New Doctor Id is:"+doctorID+",Please save this Doctor Id for furture reference.");
+                    JOptionPane.showMessageDialog(this,"Doctor Registered Successfully.Your New Doctor Id is:"+doctorID+" and password: "+password+",Please save this Doctor Id for furture reference.");
 
                 }
                 else{
@@ -398,9 +399,9 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
             doctorDirectory.getDoctors().remove(doctorDirectory.getDoctors().size() - 1);
         }
 
-    }//GEN-LAST:event_btnCreateDoctorActionPerformed
-
-    private boolean RegexValidation() {
+    }                                     
+                    
+private boolean RegexValidation() {
         if(!txtName.getText().matches("^[a-zA-Z ]+$"))
         {
             txtName.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
@@ -557,7 +558,21 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
             comboCity.addItem(cities[count++].toString());
         }
        initCommunityCmbx();
-    }
+    
+                   
+            
+       
+        
+
+    }//GEN-LAST:event_btnCreateDoctorActionPerformed
+
+    
+    
+    
+    
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateDoctor;

@@ -370,11 +370,13 @@ public class SystemCreatePatient extends javax.swing.JPanel {
                     Random random=new Random();
                     int patientID=random.nextInt((9999 - 100) + 1) + 10;
                      
-                    Person patient = new Patient(name,cellPhoneNumber,emailId,age,gender,house,patientID ,height ,weight);
+                    String password = name + String.valueOf(random.nextInt((9999 - 100) + 1)+ 10);
+                    
+                    Person patient = new Patient(name,cellPhoneNumber,emailId,age,gender,house,patientID ,height ,weight, password);
                     personDirectory.addNewPerson(patient);
                     patientDirectory.addNewPatient(patient);
                     
-                    JOptionPane.showMessageDialog(this,"Patient Registered Successfully.Your New Patient Id is:"+patientID+",Please save this Patient Id for furture appointments.");
+                    JOptionPane.showMessageDialog(this,"Patient Registered Successfully.Your New Patient Id is:"+patientID+" and password: "+password+",Please save this Patient Id for furture appointments.");
                                     
 
                 }

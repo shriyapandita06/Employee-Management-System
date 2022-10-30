@@ -37,4 +37,7 @@ public class House {
     public void setCommunity(Community community) {
         this.community = community;
     }
+  
+    
+    
 }

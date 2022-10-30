@@ -9,7 +9,7 @@ package model;
  * @author shriyapandita
  */
 public class System {
-        private City city;
+    private City city;
     private PersonDirectory personDirectory;
     private PatientDirectory patientDirectory;
 
@@ -36,4 +36,5 @@ public class System {
     public void setPatientDirectory(PatientDirectory patientDirectory) {
         this.patientDirectory = patientDirectory;
     }
+    
 }

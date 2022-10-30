@@ -6,10 +6,12 @@ package userinterface.SystemWorkArea.Doctor;
 
 import java.text.SimpleDateFormat;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Doctor;
 import model.DoctorDirectory;
 import model.DoctorSpecialization;
+import model.Patient;
 import model.PersonDirectory;
 import userinterface.SystemWorkArea.Patient.*;
 
@@ -23,13 +25,17 @@ public class SystemViewDoctor extends javax.swing.JPanel {
      * Creates new form SystemCreatePatient
      */
     
-    PersonDirectory personDirectory;
     DoctorDirectory doctorDirectory;
+    PersonDirectory personDirectory;
+    
     Doctor doctor;
     public SystemViewDoctor(PersonDirectory personDirectory, DoctorDirectory doctorDirectory) {
         initComponents();
         this.doctorDirectory=doctorDirectory;
         this.personDirectory=personDirectory;
+        
+        System.out.println(" Doctor constructor " + doctorDirectory);
+        
         populateData();
     }
 
@@ -137,6 +143,20 @@ public class SystemViewDoctor extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
 
+      /*  int selectedRowIndex = tblDoctorList.getSelectedRow();
+
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tblDoctorList.getModel();
+        Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex,0 );
+      //  DoctorDirectory.deleteDoctor(selectedDoctor);
+        
+        JOptionPane.showMessageDialog(this, "Doctor deleted successfully!");
+        populateData();
+*/
         //        int selectedRowIndex = tblEmployeeList.getSelectedRow();
         //
         //        if(selectedRowIndex<0){

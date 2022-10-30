@@ -14,6 +14,10 @@ import java.util.Map;
  * @author shriyapandita
  */
 public class PersonDirectory {
+    
+    /*
+    Person Directory contains an ArrayList of all the Person_.
+     */
     List<Person> persons = new ArrayList<>();
 
 //    Adding dummy data for testing purpose
@@ -29,7 +33,9 @@ public class PersonDirectory {
         house.setHouseNum(75);
         house.setStreet("Saint Alphonsus Street");
         
-        Person person = new Person("Shreyas",Long.parseLong("8422097015"),"email@gmail.com",29,"Male",house);
+        
+        
+        Person person = new Person("Shreyas",Long.parseLong("8422097015"),"email@gmail.com",29,"Male",house,"Shreyas1100");
 
         persons.add(person);
     }

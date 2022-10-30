@@ -19,10 +19,10 @@ public class SystemDoctorWorkPanel extends javax.swing.JPanel {
     /**
      * Creates new form SystemPatient
      */
-    public SystemDoctorWorkPanel() {
+    public SystemDoctorWorkPanel(PersonDirectory personDirectory,DoctorDirectory doctorDirectory ) {
         initComponents();
-        personDirectory = new PersonDirectory();
-        doctorDirectory = new DoctorDirectory();
+        this.personDirectory = personDirectory;
+        this.doctorDirectory = doctorDirectory;
               
         SystemViewDoctor systemViewDoctor = new SystemViewDoctor(personDirectory,doctorDirectory);
         splitPane.setRightComponent(systemViewDoctor );

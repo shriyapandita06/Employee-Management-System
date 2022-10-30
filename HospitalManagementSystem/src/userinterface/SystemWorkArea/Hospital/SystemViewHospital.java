@@ -194,10 +194,10 @@ public class SystemViewHospital extends javax.swing.JPanel {
             }
             tblHospitalList.setModel(model);
             
-       }
-       catch(Exception e)
-       {
-           System.out.println(e);
-       }    
+      }
+      catch(Exception e)
+      {
+          System.out.println(e);
+      }    
     }
 }

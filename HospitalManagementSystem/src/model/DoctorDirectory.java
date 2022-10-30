@@ -4,11 +4,11 @@
  */
 package model;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -17,6 +17,27 @@ import java.util.Map;
 public class DoctorDirectory {
     
     private Set<Doctor> doctors = new HashSet<>();
+
+    public DoctorDirectory() {
+        
+        House house = new House();
+        Community community = new Community();
+                    
+        house.setHouseNum(75);
+        house.setStreet("Saint Aphonsus Street");
+                    
+        Map<String,String>communities=new HashMap<>();
+        communities.put("Boston","Northeastern University");
+        community.setCommunity(communities);
+        house.setCommunity(community);
+       
+       // Doctor d = new Doctor("Shriya",Long.parseLong("8422097015"), "tg@g.com", 22, "Female", house, 1989, new Date(), DoctorSpecialization.DiagnosticRadiology,"s11");
+       Doctor d = new Doctor("Shreyas",Long.parseLong("8422097015"), "tg@g.com", 22, "Male", house, 1989, new Date(), DoctorSpecialization.DiagnosticRadiology,"s11");
+        this.doctors.add(d);
+    }
+    
+    
+    
 
     public Set<Doctor> getDoctors() {
         return doctors;
@@ -28,8 +49,15 @@ public class DoctorDirectory {
     
     public void addNewDoctor(Person doctor)
     {
-       doctors.add((Doctor) doctor);
+        doctors.add((Doctor) doctor);
     }  
+
+    @Override
+    public String toString() {
+        return "DoctorDirectory{" + "doctors=" + doctors + '}';
+    }
+    
+    
+    
     
 }
-

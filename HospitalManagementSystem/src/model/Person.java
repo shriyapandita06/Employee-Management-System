@@ -11,20 +11,30 @@ package model;
 public class Person {
     
    private static int personId; 
+
+    public static int getPersonId() {
+        return personId;
+    }
+
+    public static void setPersonId(int aPersonId) {
+        personId = aPersonId;
+    }
    private String name;
    private long cellPhoneNumber;
    private String emailId;
    private int age;
    private String gender;
    private House house;
+   private String password;
 
-    public Person(String name, long cellPhoneNumber, String emailId, int age, String gender, House house) {
+    public Person(String name, long cellPhoneNumber, String emailId, int age, String gender, House house, String password) {
         this.name = name;
         this.cellPhoneNumber = cellPhoneNumber;
         this.emailId = emailId;
         this.age = age;
         this.gender = gender;
         this.house = house;
+        this.password = password;
     }
    
    static {
@@ -78,5 +88,15 @@ public class Person {
     public void setHouse(House house) {
         this.house = house;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
   
 }
