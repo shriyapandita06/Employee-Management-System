@@ -16,7 +16,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class HospitalHospitalWorkPanel extends javax.swing.JPanel {
 
@@ -60,10 +60,12 @@ public class HospitalHospitalWorkPanel extends javax.swing.JPanel {
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        controlPanel.setBackground(new java.awt.Color(160, 132, 202));
+        controlPanel.setBackground(new java.awt.Color(255, 204, 204));
         controlPanel.setPreferredSize(new java.awt.Dimension(150, 609));
         controlPanel.setVerifyInputWhenFocusTarget(false);
 
+        btnViewHospital.setBackground(new java.awt.Color(102, 0, 51));
+        btnViewHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnViewHospital.setText("View Hospital");
         btnViewHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +73,8 @@ public class HospitalHospitalWorkPanel extends javax.swing.JPanel {
             }
         });
 
+        btnCreateHospital.setBackground(new java.awt.Color(102, 0, 51));
+        btnCreateHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateHospital.setText("Create Hospital");
         btnCreateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +82,8 @@ public class HospitalHospitalWorkPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdateHospital.setBackground(new java.awt.Color(102, 0, 51));
+        btnUpdateHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateHospital.setText("Update Hospital");
         btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +122,8 @@ public class HospitalHospitalWorkPanel extends javax.swing.JPanel {
 
         splitPane.setLeftComponent(controlPanel);
 
-        patientWorkArea.setBackground(new java.awt.Color(191, 172, 224));
+        patientWorkArea.setBackground(new java.awt.Color(102, 0, 51));
+        patientWorkArea.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout patientWorkAreaLayout = new javax.swing.GroupLayout(patientWorkArea);
         patientWorkArea.setLayout(patientWorkAreaLayout);

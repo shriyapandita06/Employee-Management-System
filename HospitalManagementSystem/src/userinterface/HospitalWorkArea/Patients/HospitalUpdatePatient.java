@@ -21,7 +21,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class HospitalUpdatePatient extends javax.swing.JPanel {
 
@@ -83,12 +83,16 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
         lblGender = new javax.swing.JLabel();
         lblEmailID = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(191, 172, 224));
+        setBackground(new java.awt.Color(102, 0, 51));
 
+        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Update Patient");
 
+        lblSearchPatient.setBackground(new java.awt.Color(102, 0, 51));
+        lblSearchPatient.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchPatient.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchPatient.setText("Search Patient by ID:");
 
@@ -105,10 +109,14 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setBackground(new java.awt.Color(102, 0, 51));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Personal Information");
 
+        lblName.setBackground(new java.awt.Color(102, 0, 51));
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblName.setText("Name :");
 
@@ -118,6 +126,8 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
+        lblHeight.setBackground(new java.awt.Color(102, 0, 51));
+        lblHeight.setForeground(new java.awt.Color(255, 255, 255));
         lblHeight.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblHeight.setText("Height :");
 
@@ -127,6 +137,8 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
+        lblWeight.setBackground(new java.awt.Color(102, 0, 51));
+        lblWeight.setForeground(new java.awt.Color(255, 255, 255));
         lblWeight.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblWeight.setText("Weight :");
 
@@ -144,10 +156,14 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
+        lblContactInfo.setBackground(new java.awt.Color(102, 0, 51));
         lblContactInfo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblContactInfo.setForeground(new java.awt.Color(255, 255, 255));
         lblContactInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblContactInfo.setText("Contact Information");
 
+        lblHouseNo.setBackground(new java.awt.Color(102, 0, 51));
+        lblHouseNo.setForeground(new java.awt.Color(255, 255, 255));
         lblHouseNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblHouseNo.setText("House No :");
 
@@ -157,9 +173,12 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
+        lblStreet.setForeground(new java.awt.Color(255, 255, 255));
         lblStreet.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblStreet.setText("Street :");
 
+        lblCity.setBackground(new java.awt.Color(102, 0, 51));
+        lblCity.setForeground(new java.awt.Color(255, 255, 255));
         lblCity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCity.setText("City :");
 
@@ -169,14 +188,18 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
+        lblState.setForeground(new java.awt.Color(255, 255, 255));
         lblState.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblState.setText("State :");
 
         comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NY", "MA", "CA", "TX" }));
 
+        lblCommunity.setBackground(new java.awt.Color(102, 0, 51));
+        lblCommunity.setForeground(new java.awt.Color(255, 255, 255));
         lblCommunity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCommunity.setText("Community :");
 
+        lblCellPhoneNo.setForeground(new java.awt.Color(255, 255, 255));
         lblCellPhoneNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCellPhoneNo.setText("Cell Phone Number :");
 
@@ -192,6 +215,8 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
+        btnUpdatePatient.setBackground(new java.awt.Color(102, 0, 51));
+        btnUpdatePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdatePatient.setText("Update Patient");
         btnUpdatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,12 +224,16 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
+        lblAge.setForeground(new java.awt.Color(255, 255, 255));
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblAge.setText("Age :");
 
+        lblGender.setForeground(new java.awt.Color(255, 255, 255));
         lblGender.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblGender.setText("Gender :");
 
+        lblEmailID.setBackground(new java.awt.Color(102, 0, 51));
+        lblEmailID.setForeground(new java.awt.Color(255, 255, 255));
         lblEmailID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblEmailID.setText("Email ID :");
 
@@ -241,7 +270,7 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
                                     .addComponent(comboGender, 0, 167, Short.MAX_VALUE)))))
                     .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSearchPatient, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                        .addComponent(lblSearchPatient, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)

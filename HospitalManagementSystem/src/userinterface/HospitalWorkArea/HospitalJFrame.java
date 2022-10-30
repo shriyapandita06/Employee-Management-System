@@ -21,7 +21,7 @@ import userinterface.MainJFrame;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class HospitalJFrame extends javax.swing.JFrame {
 
@@ -76,9 +76,12 @@ public class HospitalJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        controlPanel.setBackground(new java.awt.Color(100, 92, 170));
+        controlPanel.setBackground(new java.awt.Color(102, 0, 51));
+        controlPanel.setForeground(new java.awt.Color(255, 255, 255));
         controlPanel.setPreferredSize(new java.awt.Dimension(200, 600));
 
+        btnHospitals.setBackground(new java.awt.Color(102, 0, 51));
+        btnHospitals.setForeground(new java.awt.Color(255, 255, 255));
         btnHospitals.setText("Hospitals");
         btnHospitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +89,8 @@ public class HospitalJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDoctors.setBackground(new java.awt.Color(102, 0, 51));
+        btnDoctors.setForeground(new java.awt.Color(255, 255, 255));
         btnDoctors.setText("Doctors");
         btnDoctors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +98,8 @@ public class HospitalJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnPatients.setBackground(new java.awt.Color(102, 0, 51));
+        btnPatients.setForeground(new java.awt.Color(255, 255, 255));
         btnPatients.setText("Patients");
         btnPatients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +107,8 @@ public class HospitalJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEncounters.setBackground(new java.awt.Color(102, 0, 51));
+        btnEncounters.setForeground(new java.awt.Color(255, 255, 255));
         btnEncounters.setText("Encounters");
         btnEncounters.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +116,8 @@ public class HospitalJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(102, 0, 51));
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

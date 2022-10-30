@@ -14,7 +14,7 @@ import userinterface.MainJFrame;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class PatientJFrame extends javax.swing.JFrame {
 
@@ -69,9 +69,12 @@ public class PatientJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        controlPanel.setBackground(new java.awt.Color(100, 92, 170));
+        controlPanel.setBackground(new java.awt.Color(102, 0, 51));
+        controlPanel.setForeground(new java.awt.Color(255, 255, 255));
         controlPanel.setPreferredSize(new java.awt.Dimension(200, 600));
 
+        btnHosp.setBackground(new java.awt.Color(102, 0, 51));
+        btnHosp.setForeground(new java.awt.Color(255, 255, 255));
         btnHosp.setText("Hospitals");
         btnHosp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +82,8 @@ public class PatientJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDoctors.setBackground(new java.awt.Color(102, 0, 51));
+        btnDoctors.setForeground(new java.awt.Color(255, 255, 255));
         btnDoctors.setText("Doctors");
         btnDoctors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +91,8 @@ public class PatientJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnPersonalInfo.setBackground(new java.awt.Color(102, 0, 51));
+        btnPersonalInfo.setForeground(new java.awt.Color(255, 255, 255));
         btnPersonalInfo.setText("Personal Info");
         btnPersonalInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +100,8 @@ public class PatientJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAppointments.setBackground(new java.awt.Color(102, 0, 51));
+        btnAppointments.setForeground(new java.awt.Color(255, 255, 255));
         btnAppointments.setText("Appointments");
         btnAppointments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

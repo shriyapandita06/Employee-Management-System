@@ -15,7 +15,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class SystemViewPatient extends javax.swing.JPanel {
 
@@ -51,8 +51,10 @@ public class SystemViewPatient extends javax.swing.JPanel {
         tblPatientList = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(191, 172, 224));
+        setBackground(new java.awt.Color(102, 0, 51));
 
+        lblSearchPatient.setBackground(new java.awt.Color(102, 0, 51));
+        lblSearchPatient.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchPatient.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchPatient.setText("Search Patient by Name:");
 
@@ -62,6 +64,8 @@ public class SystemViewPatient extends javax.swing.JPanel {
             }
         });
 
+        btnSearchPatient.setBackground(new java.awt.Color(102, 0, 51));
+        btnSearchPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchPatient.setText("Search");
         btnSearchPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +73,9 @@ public class SystemViewPatient extends javax.swing.JPanel {
             }
         });
 
+        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Patient");
 
@@ -94,6 +100,8 @@ public class SystemViewPatient extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblPatientList);
 
+        btnDelete.setBackground(new java.awt.Color(102, 0, 51));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +132,7 @@ public class SystemViewPatient extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(30, 30, 30)
                 .addComponent(lblTitle)
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)

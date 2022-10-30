@@ -21,7 +21,7 @@ import model.VitalSigns;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class SystemViewEncounter extends javax.swing.JPanel {
 
@@ -54,7 +54,7 @@ public class SystemViewEncounter extends javax.swing.JPanel {
         tblEncountersList = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(191, 172, 224));
+        setBackground(new java.awt.Color(102, 0, 51));
 
         txtSearchEncounters.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,13 +62,19 @@ public class SystemViewEncounter extends javax.swing.JPanel {
             }
         });
 
+        lblSearchEnctounter.setBackground(new java.awt.Color(102, 0, 51));
+        lblSearchEnctounter.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchEnctounter.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchEnctounter.setText("Search Encounter By Patient Id :");
 
+        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Encounters");
 
+        btnSearchEncounter.setBackground(new java.awt.Color(102, 0, 51));
+        btnSearchEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchEncounter.setText("Search");
         btnSearchEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +103,8 @@ public class SystemViewEncounter extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblEncountersList);
 
+        btnDelete.setBackground(new java.awt.Color(102, 0, 51));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

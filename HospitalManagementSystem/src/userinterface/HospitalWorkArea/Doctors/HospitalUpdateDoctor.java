@@ -28,7 +28,7 @@ import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class HospitalUpdateDoctor extends javax.swing.JPanel {
 
@@ -92,16 +92,23 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
         lblHosp = new javax.swing.JLabel();
         txtHospId = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(191, 172, 224));
+        setBackground(new java.awt.Color(102, 0, 51));
+        setForeground(new java.awt.Color(255, 255, 255));
 
+        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Update Doctor");
 
+        lblDoctorInfo.setBackground(new java.awt.Color(102, 0, 51));
         lblDoctorInfo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblDoctorInfo.setForeground(new java.awt.Color(255, 255, 255));
         lblDoctorInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDoctorInfo.setText("Doctor Information");
 
+        lblName.setBackground(new java.awt.Color(102, 0, 51));
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblName.setText("Name :");
 
@@ -111,9 +118,13 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
             }
         });
 
+        lblSpecialization.setBackground(new java.awt.Color(102, 0, 51));
+        lblSpecialization.setForeground(new java.awt.Color(255, 255, 255));
         lblSpecialization.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSpecialization.setText("Specialization");
 
+        lblPractsingFrom.setBackground(new java.awt.Color(102, 0, 51));
+        lblPractsingFrom.setForeground(new java.awt.Color(255, 255, 255));
         lblPractsingFrom.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblPractsingFrom.setText("Practising From :");
 
@@ -127,19 +138,29 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
             }
         });
 
+        lblGender.setBackground(new java.awt.Color(102, 0, 51));
+        lblGender.setForeground(new java.awt.Color(255, 255, 255));
         lblGender.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblGender.setText("Gender :");
 
+        lblAge.setBackground(new java.awt.Color(102, 0, 51));
+        lblAge.setForeground(new java.awt.Color(255, 255, 255));
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblAge.setText("Age :");
 
+        jLabel1.setBackground(new java.awt.Color(102, 0, 51));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Contact Information");
 
+        lblHouseNo.setBackground(new java.awt.Color(102, 0, 51));
+        lblHouseNo.setForeground(new java.awt.Color(255, 255, 255));
         lblHouseNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblHouseNo.setText("House No :");
 
+        lblCity.setBackground(new java.awt.Color(102, 0, 51));
+        lblCity.setForeground(new java.awt.Color(255, 255, 255));
         lblCity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCity.setText("City :");
 
@@ -149,9 +170,13 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
             }
         });
 
+        lblCommunity.setBackground(new java.awt.Color(102, 0, 51));
+        lblCommunity.setForeground(new java.awt.Color(255, 255, 255));
         lblCommunity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCommunity.setText("Community :");
 
+        lblEmailID.setBackground(new java.awt.Color(102, 0, 51));
+        lblEmailID.setForeground(new java.awt.Color(255, 255, 255));
         lblEmailID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblEmailID.setText("Email ID :");
 
@@ -168,6 +193,8 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
             }
         });
 
+        lblCellPhoneNo.setBackground(new java.awt.Color(102, 0, 51));
+        lblCellPhoneNo.setForeground(new java.awt.Color(255, 255, 255));
         lblCellPhoneNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCellPhoneNo.setText("Cell Phone Number :");
 
@@ -177,11 +204,15 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
             }
         });
 
+        lblState.setBackground(new java.awt.Color(102, 0, 51));
+        lblState.setForeground(new java.awt.Color(255, 255, 255));
         lblState.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblState.setText("State :");
 
         comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NY", "MA", "CA", "TX" }));
 
+        lblStreet.setBackground(new java.awt.Color(102, 0, 51));
+        lblStreet.setForeground(new java.awt.Color(255, 255, 255));
         lblStreet.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblStreet.setText("Street :");
 
@@ -191,6 +222,8 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
             }
         });
 
+        lblSearchDoctor.setBackground(new java.awt.Color(102, 0, 51));
+        lblSearchDoctor.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchDoctor.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchDoctor.setText("Search Doctor by ID:");
 
@@ -207,6 +240,8 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
             }
         });
 
+        lblHosp.setBackground(new java.awt.Color(102, 0, 51));
+        lblHosp.setForeground(new java.awt.Color(255, 255, 255));
         lblHosp.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblHosp.setText("Hospital Id :");
 

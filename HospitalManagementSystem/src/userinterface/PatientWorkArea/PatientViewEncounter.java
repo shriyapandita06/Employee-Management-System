@@ -21,7 +21,7 @@ import model.VitalSigns;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class PatientViewEncounter extends javax.swing.JPanel {
 
@@ -51,9 +51,11 @@ public class PatientViewEncounter extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEncountersList = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(191, 172, 224));
+        setBackground(new java.awt.Color(102, 0, 51));
 
+        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Encounters");
 

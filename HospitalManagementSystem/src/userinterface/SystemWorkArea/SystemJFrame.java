@@ -19,7 +19,7 @@ import userinterface.SystemWorkArea.Patient.SystemPatientWorkPanel;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class SystemJFrame extends javax.swing.JFrame {
 
@@ -74,9 +74,12 @@ public class SystemJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        controlPanel.setBackground(new java.awt.Color(100, 92, 170));
+        controlPanel.setBackground(new java.awt.Color(102, 0, 51));
+        controlPanel.setForeground(new java.awt.Color(255, 255, 255));
         controlPanel.setPreferredSize(new java.awt.Dimension(180, 600));
 
+        btnPatient.setBackground(new java.awt.Color(102, 0, 51));
+        btnPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnPatient.setText("Patient");
         btnPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +87,8 @@ public class SystemJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDoctor.setBackground(new java.awt.Color(102, 0, 51));
+        btnDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnDoctor.setText("Doctor");
         btnDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +96,8 @@ public class SystemJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnHospital.setBackground(new java.awt.Color(102, 0, 51));
+        btnHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnHospital.setText("Hospital");
         btnHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +105,8 @@ public class SystemJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEncounters.setBackground(new java.awt.Color(102, 0, 51));
+        btnEncounters.setForeground(new java.awt.Color(255, 255, 255));
         btnEncounters.setText("Encounters");
         btnEncounters.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +114,8 @@ public class SystemJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(102, 0, 51));
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +145,7 @@ public class SystemJFrame extends javax.swing.JFrame {
                     .addGroup(controlPanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

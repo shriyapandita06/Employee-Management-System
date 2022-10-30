@@ -17,7 +17,7 @@ import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class HospitalViewHospital extends javax.swing.JPanel {
 
@@ -47,12 +47,17 @@ public class HospitalViewHospital extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHospitalList = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(191, 172, 224));
+        setBackground(new java.awt.Color(102, 0, 51));
+        setForeground(new java.awt.Color(255, 255, 255));
 
+        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Hospital");
 
+        lblSearchHospital.setBackground(new java.awt.Color(102, 0, 51));
+        lblSearchHospital.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchHospital.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchHospital.setText("Search Hospital by Name:");
 
@@ -62,6 +67,8 @@ public class HospitalViewHospital extends javax.swing.JPanel {
             }
         });
 
+        btnSearchHospital.setBackground(new java.awt.Color(102, 0, 51));
+        btnSearchHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchHospital.setText("Search");
         btnSearchHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

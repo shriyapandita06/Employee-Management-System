@@ -18,7 +18,7 @@ import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class SystemCreateHospital extends javax.swing.JPanel {
 
@@ -57,12 +57,16 @@ public class SystemCreateHospital extends javax.swing.JPanel {
         comboCity = new javax.swing.JComboBox<>();
         comboCommunity = new javax.swing.JComboBox<>();
 
-        setBackground(new java.awt.Color(191, 172, 224));
+        setBackground(new java.awt.Color(102, 0, 51));
 
+        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Create Hospital");
 
+        lblHospName.setBackground(new java.awt.Color(102, 0, 51));
+        lblHospName.setForeground(new java.awt.Color(255, 255, 255));
         lblHospName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblHospName.setText("Hospital Name :");
 
@@ -72,6 +76,8 @@ public class SystemCreateHospital extends javax.swing.JPanel {
             }
         });
 
+        lblHospitalAddress.setBackground(new java.awt.Color(102, 0, 51));
+        lblHospitalAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblHospitalAddress.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblHospitalAddress.setText("Hospital Address :");
 
@@ -81,6 +87,8 @@ public class SystemCreateHospital extends javax.swing.JPanel {
             }
         });
 
+        lblContactNo.setBackground(new java.awt.Color(102, 0, 51));
+        lblContactNo.setForeground(new java.awt.Color(255, 255, 255));
         lblContactNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblContactNo.setText("Contact Number :");
 
@@ -90,9 +98,13 @@ public class SystemCreateHospital extends javax.swing.JPanel {
             }
         });
 
+        lblCommunity.setBackground(new java.awt.Color(102, 0, 51));
+        lblCommunity.setForeground(new java.awt.Color(255, 255, 255));
         lblCommunity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCommunity.setText("Community :");
 
+        btnCreateHospital.setBackground(new java.awt.Color(102, 0, 51));
+        btnCreateHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateHospital.setText("Create Hospital");
         btnCreateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +112,8 @@ public class SystemCreateHospital extends javax.swing.JPanel {
             }
         });
 
+        lblCity.setBackground(new java.awt.Color(102, 0, 51));
+        lblCity.setForeground(new java.awt.Color(255, 255, 255));
         lblCity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCity.setText("City :");
 
