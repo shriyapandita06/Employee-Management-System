@@ -13,7 +13,7 @@ import userinterface.SystemWorkArea.Patient.SystemViewPatient;
 
 /**
  *
- * @author shriyapandita
+ * @author Tejas
  */
 public class SystemPatientWorkPanel extends javax.swing.JPanel {
 
@@ -22,10 +22,10 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
     /**
      * Creates new form SystemPatient
      */
-    public SystemPatientWorkPanel() {
+    public SystemPatientWorkPanel(PersonDirectory personDirectory,PatientDirectory patientDirectory) {
         initComponents();
-        personDirectory = new PersonDirectory();
-        patientDirectory=new PatientDirectory();
+        this.personDirectory = personDirectory;
+        this.patientDirectory = patientDirectory;
               
         SystemViewPatient systemViewPatient = new SystemViewPatient(patientDirectory,personDirectory);
         splitPane.setRightComponent(systemViewPatient );
@@ -51,10 +51,12 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        controlPanel.setBackground(new java.awt.Color(160, 132, 202));
+        controlPanel.setBackground(new java.awt.Color(255, 204, 204));
         controlPanel.setPreferredSize(new java.awt.Dimension(150, 609));
         controlPanel.setVerifyInputWhenFocusTarget(false);
 
+        btnViewPatient.setBackground(new java.awt.Color(102, 0, 51));
+        btnViewPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnViewPatient.setText("View Patient");
         btnViewPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +64,8 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
             }
         });
 
+        btnCreatePatient.setBackground(new java.awt.Color(102, 0, 51));
+        btnCreatePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnCreatePatient.setText("Create Patient");
         btnCreatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +73,8 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdatePatient.setBackground(new java.awt.Color(102, 0, 51));
+        btnUpdatePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdatePatient.setText("Update Patient");
         btnUpdatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,20 +95,25 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
                 .addComponent(btnUpdatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(77, Short.MAX_VALUE))
         );
+
+        controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreatePatient, btnUpdatePatient, btnViewPatient});
+
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnViewPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCreatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(btnViewPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCreatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        controlPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreatePatient, btnUpdatePatient, btnViewPatient});
 
         splitPane.setLeftComponent(controlPanel);
 
-        patientWorkArea.setBackground(new java.awt.Color(191, 172, 224));
+        patientWorkArea.setBackground(new java.awt.Color(102, 0, 51));
 
         javax.swing.GroupLayout patientWorkAreaLayout = new javax.swing.GroupLayout(patientWorkArea);
         patientWorkArea.setLayout(patientWorkAreaLayout);
@@ -112,7 +123,7 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
         );
         patientWorkAreaLayout.setVerticalGroup(
             patientWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
+            .addGap(0, 553, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(patientWorkArea);

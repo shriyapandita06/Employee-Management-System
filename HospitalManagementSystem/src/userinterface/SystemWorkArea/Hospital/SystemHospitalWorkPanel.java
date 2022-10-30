@@ -6,9 +6,12 @@ package userinterface.SystemWorkArea.Hospital;
 
 import userinterface.SystemWorkArea.Encounters.*;
 import userinterface.SystemWorkArea.Doctor.*;
-import userinterface.SystemWorkArea.Patient.SystemCreatePatient;
-import userinterface.SystemWorkArea.Patient.SystemUpdatePatient;
-import userinterface.SystemWorkArea.Patient.SystemViewPatient;
+import model.DoctorDirectory;
+import model.EncounterHistory;
+import model.HospitalDirectory;
+import model.PatientDirectory;
+import model.PersonDirectory;
+
 
 /**
  *
@@ -16,24 +19,24 @@ import userinterface.SystemWorkArea.Patient.SystemViewPatient;
  */
 public class SystemHospitalWorkPanel extends javax.swing.JPanel {
 
+//    PatientDirectory patientDirectory;
+//    EncounterHistory encounterHistory;
+//    DoctorDirectory doctorDirectory;
+        
+      HospitalDirectory hosptialDirectory;  
+    
     /**
      * Creates new form SystemPatient
      */
     public SystemHospitalWorkPanel() {
         initComponents();
-        
-        SystemViewHospital systemViewHospital = new SystemViewHospital();
-        tabPatient.setComponentAt(0, systemViewHospital);
-        tabPatient.setTitleAt(0, "View Hospital");
-        
-        SystemCreateHospital systemCreateHospital = new SystemCreateHospital();
-        tabPatient.setComponentAt(1, systemCreateHospital);
-        tabPatient.setTitleAt(1, "Create Hospital");
-        
-        SystemUpdateHospital systemUpdateHospital = new SystemUpdateHospital();
-        tabPatient.setComponentAt(2, systemUpdateHospital);
-        tabPatient.setTitleAt(2, "Update Encounter");
+//        patientDirectory = new PatientDirectory();
+//        encounterHistory = new EncounterHistory();
+//        doctorDirectory = new DoctorDirectory();
+        hosptialDirectory = new HospitalDirectory();
               
+        SystemViewHospital systemViewHospital = new SystemViewHospital(hosptialDirectory);
+        splitPane.setRightComponent(systemViewHospital );
     }
 
     /**
@@ -45,73 +48,125 @@ public class SystemHospitalWorkPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tabPatient = new javax.swing.JTabbedPane();
-        tabViewPatient = new javax.swing.JPanel();
-        tabCreatePatient = new javax.swing.JPanel();
-        tabUpdatePatient = new javax.swing.JPanel();
+        splitPane = new javax.swing.JSplitPane();
+        controlPanel = new javax.swing.JPanel();
+        btnViewHospital = new javax.swing.JButton();
+        btnCreateHospital = new javax.swing.JButton();
+        btnUpdateHospital = new javax.swing.JButton();
+        patientWorkArea = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(160, 132, 202));
 
-        tabPatient.setBackground(new java.awt.Color(0, 153, 153));
+        splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        javax.swing.GroupLayout tabViewPatientLayout = new javax.swing.GroupLayout(tabViewPatient);
-        tabViewPatient.setLayout(tabViewPatientLayout);
-        tabViewPatientLayout.setHorizontalGroup(
-            tabViewPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        controlPanel.setBackground(new java.awt.Color(160, 132, 202));
+        controlPanel.setPreferredSize(new java.awt.Dimension(150, 609));
+        controlPanel.setVerifyInputWhenFocusTarget(false);
+
+        btnViewHospital.setText("View Hospital");
+        btnViewHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewHospitalActionPerformed(evt);
+            }
+        });
+
+        btnCreateHospital.setText("Create Hospital");
+        btnCreateHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateHospitalActionPerformed(evt);
+            }
+        });
+
+        btnUpdateHospital.setText("Update Hospital");
+        btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateHospitalActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
+        controlPanel.setLayout(controlPanelLayout);
+        controlPanelLayout.setHorizontalGroup(
+            controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(controlPanelLayout.createSequentialGroup()
+                .addContainerGap(105, Short.MAX_VALUE)
+                .addComponent(btnViewHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(btnCreateHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(btnUpdateHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
+        controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreateHospital, btnUpdateHospital, btnViewHospital});
+
+        controlPanelLayout.setVerticalGroup(
+            controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnViewHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCreateHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdateHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        controlPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreateHospital, btnViewHospital});
+
+        splitPane.setLeftComponent(controlPanel);
+
+        patientWorkArea.setBackground(new java.awt.Color(191, 172, 224));
+
+        javax.swing.GroupLayout patientWorkAreaLayout = new javax.swing.GroupLayout(patientWorkArea);
+        patientWorkArea.setLayout(patientWorkAreaLayout);
+        patientWorkAreaLayout.setHorizontalGroup(
+            patientWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 700, Short.MAX_VALUE)
         );
-        tabViewPatientLayout.setVerticalGroup(
-            tabViewPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+        patientWorkAreaLayout.setVerticalGroup(
+            patientWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 504, Short.MAX_VALUE)
         );
 
-        tabPatient.addTab("tab1", tabViewPatient);
-
-        javax.swing.GroupLayout tabCreatePatientLayout = new javax.swing.GroupLayout(tabCreatePatient);
-        tabCreatePatient.setLayout(tabCreatePatientLayout);
-        tabCreatePatientLayout.setHorizontalGroup(
-            tabCreatePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        tabCreatePatientLayout.setVerticalGroup(
-            tabCreatePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
-        );
-
-        tabPatient.addTab("tab2", tabCreatePatient);
-
-        javax.swing.GroupLayout tabUpdatePatientLayout = new javax.swing.GroupLayout(tabUpdatePatient);
-        tabUpdatePatient.setLayout(tabUpdatePatientLayout);
-        tabUpdatePatientLayout.setHorizontalGroup(
-            tabUpdatePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        tabUpdatePatientLayout.setVerticalGroup(
-            tabUpdatePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
-        );
-
-        tabPatient.addTab("tab3", tabUpdatePatient);
+        splitPane.setRightComponent(patientWorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabPatient)
+            .addComponent(splitPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabPatient)
+            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
         );
-
-        tabPatient.getAccessibleContext().setAccessibleName("tabPatient");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCreateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateHospitalActionPerformed
+        // TODO add your handling code here:
+        SystemCreateHospital systemCreateHospital = new SystemCreateHospital(hosptialDirectory);
+        splitPane.setRightComponent(systemCreateHospital);
+    }//GEN-LAST:event_btnCreateHospitalActionPerformed
+
+    private void btnViewHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewHospitalActionPerformed
+        // TODO add your handling code here:
+        SystemViewHospital systemViewHospital = new SystemViewHospital(hosptialDirectory);
+        splitPane.setRightComponent(systemViewHospital );
+    }//GEN-LAST:event_btnViewHospitalActionPerformed
+
+    private void btnUpdateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateHospitalActionPerformed
+        // TODO add your handling code here:
+        SystemUpdateHospital systemUpdateHospital = new SystemUpdateHospital(hosptialDirectory);
+        splitPane.setRightComponent(systemUpdateHospital);
+    }//GEN-LAST:event_btnUpdateHospitalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel tabCreatePatient;
-    private javax.swing.JTabbedPane tabPatient;
-    private javax.swing.JPanel tabUpdatePatient;
-    private javax.swing.JPanel tabViewPatient;
+    private javax.swing.JButton btnCreateHospital;
+    private javax.swing.JButton btnUpdateHospital;
+    private javax.swing.JButton btnViewHospital;
+    private javax.swing.JPanel controlPanel;
+    private javax.swing.JPanel patientWorkArea;
+    private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }

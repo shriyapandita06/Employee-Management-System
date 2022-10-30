@@ -13,14 +13,14 @@ import java.util.Set;
  */
 public class HospitalDirectory {
     
-    private Set<Patient> patients = new HashSet<>();
+    private Set<Hospital> hospitals = new HashSet<>();
 
-    public Set<Patient> getPatients() {
-        return patients;
-    }
-
-    public void setPatients(Set<Patient> patients) {
-        this.patients = patients;
+    public Set<Hospital> getHospitals() {
+        return hospitals;
     }
     
+    public void setHospitals(Hospital hospital) {
+        this.hospitals.add(hospital);
+    }
+
 }

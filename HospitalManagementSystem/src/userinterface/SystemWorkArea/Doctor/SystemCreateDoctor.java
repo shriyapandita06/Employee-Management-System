@@ -4,21 +4,25 @@
  */
 package userinterface.SystemWorkArea.Doctor;
 
+import java.awt.Color;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import javax.swing.JOptionPane;
-import java.awt.Color;
-import java.awt.event.ItemEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
-import model.DoctorDirectory;
-import model.PersonDirectory;
+import javax.swing.JOptionPane;
 import model.City;
 import model.Community;
 import model.Doctor;
+import model.DoctorDirectory;
+import model.DoctorSpecialization;
 import model.House;
-import model.Patient;
 import model.Person;
+import model.PersonDirectory;
 import userinterface.SystemWorkArea.Patient.*;
 
 /**
@@ -27,19 +31,20 @@ import userinterface.SystemWorkArea.Patient.*;
  */
 public class SystemCreateDoctor extends javax.swing.JPanel {
 
-    
-    DoctorDirectory doctorDirectory;
-    PersonDirectory personDirectory;
-    boolean emptyValidationStatus = true;
-    boolean validationCheck = true;
     /**
      * Creates new form SystemCreatePatient
      */
-    public SystemCreateDoctor(DoctorDirectory doctorDirectory, PersonDirectory personDirectory) {
+    
+    PersonDirectory personDirectory;
+    DoctorDirectory doctorDirectory;
+    boolean emptyValidationStatus = true;
+    boolean validationCheck = true;
+    public SystemCreateDoctor(PersonDirectory personDirectory, DoctorDirectory doctorDirectory) {
         initComponents();
-        /*initCityCmbx(); */
-        this.doctorDirectory = doctorDirectory;
         this.personDirectory = personDirectory;
+        this.doctorDirectory = doctorDirectory;
+        initSpecializationCmbx();
+        initCityCmbx();
     }
 
     /**
@@ -52,22 +57,33 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
-        lblDoctorName = new javax.swing.JLabel();
+        lblDoctorInfo = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        lblCellPhoneNo = new javax.swing.JLabel();
-        txtCellPhoneNo = new javax.swing.JTextField();
-        lblEmailId = new javax.swing.JLabel();
-        txtEmailId = new javax.swing.JTextField();
-        lblAge = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
         txtAge = new javax.swing.JTextField();
-        lblGender = new javax.swing.JLabel();
-        lblHeight = new javax.swing.JLabel();
+        lblAge = new javax.swing.JLabel();
         lblSpecialization = new javax.swing.JLabel();
-        btnCreateDoctor = new javax.swing.JButton();
-        txtDate = new javax.swing.JFormattedTextField();
+        comboGender = new javax.swing.JComboBox<>();
+        lblGender = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        ComboBoxSpecialization = new javax.swing.JComboBox<>();
-        ComboBoxGender = new javax.swing.JComboBox<>();
+        lblHouseNo = new javax.swing.JLabel();
+        txtHouseNo = new javax.swing.JTextField();
+        txtStreet = new javax.swing.JTextField();
+        lblStreet = new javax.swing.JLabel();
+        lblCity = new javax.swing.JLabel();
+        lblCommunity = new javax.swing.JLabel();
+        lblEmailID = new javax.swing.JLabel();
+        txtEmailID = new javax.swing.JTextField();
+        comboCommunity = new javax.swing.JComboBox<>();
+        comboCity = new javax.swing.JComboBox<>();
+        lblCellPhoneNo = new javax.swing.JLabel();
+        lblState = new javax.swing.JLabel();
+        comboState = new javax.swing.JComboBox<>();
+        txtCellPhoneNo = new javax.swing.JTextField();
+        btnCreateDoctor = new javax.swing.JButton();
+        comboSpecialization = new javax.swing.JComboBox<>();
+        lblPractsingFrom = new javax.swing.JLabel();
+        txtPractisingFrom = new javax.swing.JFormattedTextField();
 
         setBackground(new java.awt.Color(191, 172, 224));
 
@@ -75,8 +91,9 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Create Doctor");
 
-        lblDoctorName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblDoctorName.setText("Doctor Name :");
+        lblDoctorInfo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblDoctorInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDoctorInfo.setText("Doctor Information");
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,26 +101,8 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
             }
         });
 
-        lblCellPhoneNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblCellPhoneNo.setText("Cell Phone Number :");
-
-        txtCellPhoneNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCellPhoneNoActionPerformed(evt);
-            }
-        });
-
-        lblEmailId.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblEmailId.setText("EmailID :");
-
-        txtEmailId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailIdActionPerformed(evt);
-            }
-        });
-
-        lblAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblAge.setText("Age :");
+        lblName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblName.setText("Name :");
 
         txtAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,14 +110,67 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
             }
         });
 
+        lblAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblAge.setText("Age :");
+
+        lblSpecialization.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblSpecialization.setText("Specialization");
+
+        comboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
+
         lblGender.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblGender.setText("Gender :");
 
-        lblHeight.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblHeight.setText("Practise Start Date :");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Contact Information");
 
-        lblSpecialization.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblSpecialization.setText("Specialization :");
+        lblHouseNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblHouseNo.setText("House No :");
+
+        txtStreet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStreetActionPerformed(evt);
+            }
+        });
+
+        lblStreet.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblStreet.setText("Street :");
+
+        lblCity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblCity.setText("City :");
+
+        lblCommunity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblCommunity.setText("Community :");
+
+        lblEmailID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblEmailID.setText("Email ID :");
+
+        txtEmailID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailIDActionPerformed(evt);
+            }
+        });
+
+        comboCity.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboCityItemStateChanged(evt);
+            }
+        });
+
+        lblCellPhoneNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblCellPhoneNo.setText("Cell Phone Number :");
+
+        lblState.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblState.setText("State :");
+
+        comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NY", "MA", "CA", "TX" }));
+
+        txtCellPhoneNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCellPhoneNoActionPerformed(evt);
+            }
+        });
 
         btnCreateDoctor.setText("Create Doctor");
         btnCreateDoctor.addActionListener(new java.awt.event.ActionListener() {
@@ -127,98 +179,129 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
             }
         });
 
-        txtDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        txtDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDateActionPerformed(evt);
-            }
-        });
+        lblPractsingFrom.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblPractsingFrom.setText("Practising From :");
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("(mm/dd/yyyy)");
-
-        ComboBoxSpecialization.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        ComboBoxGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        txtPractisingFrom.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("MM/dd/yyyy"))));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblDoctorInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblCellPhoneNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblDoctorName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblEmailId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ComboBoxGender, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblEmailID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(comboCity, 0, 171, Short.MAX_VALUE)
+                                        .addComponent(txtHouseNo))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblState, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtStreet)
+                                        .addComponent(comboState, 0, 169, Short.MAX_VALUE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblSpecialization, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                                .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblPractsingFrom, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                                .addComponent(comboSpecialization, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtPractisingFrom))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtAge)
+                                .addComponent(comboGender, 0, 155, Short.MAX_VALUE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCreateDoctor)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnCreateDoctor)
-                                    .addComponent(ComboBoxSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                                .addComponent(lblCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(27, 27, 27)
+                .addComponent(lblDoctorInfo)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblName)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAge)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSpecialization)
+                    .addComponent(lblGender)
+                    .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblDoctorName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBoxGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtPractisingFrom)
+                    .addComponent(lblPractsingFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHeight, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtDate))
+                    .addComponent(txtHouseNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblHouseNo)
+                        .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblStreet)))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblCity)
+                        .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblState)
+                        .addComponent(comboState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblSpecialization, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(ComboBoxSpecialization))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCommunity)
+                    .addComponent(comboCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCellPhoneNo)
+                    .addComponent(txtCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEmailID))
                 .addGap(18, 18, 18)
                 .addComponent(btnCreateDoctor)
-                .addGap(98, 98, 98))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -226,74 +309,96 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void txtCellPhoneNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCellPhoneNoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCellPhoneNoActionPerformed
-
-    private void txtEmailIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailIdActionPerformed
-
     private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAgeActionPerformed
 
+    private void txtStreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStreetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStreetActionPerformed
+
+    private void txtEmailIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailIDActionPerformed
+
+    private void comboCityItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboCityItemStateChanged
+        // TODO add your handling code here:
+        initCommunityCmbx();
+    }//GEN-LAST:event_comboCityItemStateChanged
+
+    private void txtCellPhoneNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCellPhoneNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCellPhoneNoActionPerformed
+
     private void btnCreateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateDoctorActionPerformed
         // TODO add your handling code here:
-        try{
-            if(EmpytyFieldValidation())
-            {
 
-                if(RegexValidation())
-                {
-                    
+        try{
+            if(EmpytyFieldValidation()){
+
+                if(RegexValidation()){
+
                     String name = txtName.getText();
-                    
                     long cellPhoneNumber = Long.parseLong(txtCellPhoneNo.getText());
-                    String emailID = txtEmailId.getText();
+                    String emailId = txtEmailID.getText();
                     int age = Integer.parseInt( txtAge.getText());
-                    String gender = ComboBoxGender.getSelectedItem().toString();
-                    String doctorSpecialization = ComboBoxSpecialization.getSelectedItem().toString();
-                    String practicingFrom = txtDate.getText();
-                    
-                   /* House house = new House();
+                    String gender = comboGender.getSelectedItem().toString();
+
+                    House house = new House();
                     Community community = new Community();
-                    
+
                     house.setHouseNum(Integer.parseInt(txtHouseNo.getText()));
                     house.setStreet(txtStreet.getText());
-                    
-                    Map<String,String>communities=new HashMap<>();
+
+                    Map<String,String> communities=new HashMap<>();
                     communities.put(comboCity.getSelectedItem().toString(),comboCommunity.getSelectedItem().toString());
                     community.setCommunity(communities);
                     house.setCommunity(community);
-                    */
-                   
-                   Random random=new Random();
-                    int doctorId=random.nextInt((9999 - 100) + 1) + 10;
+
+
+                    Random random=new Random();
+                    int doctorID=random.nextInt((9999 - 100) + 1) + 10;
                     
-                    Person doctor = new Doctor(name,cellPhoneNumber,emailID,age,gender,doctorId,practicingFrom, doctorSpecialization);
+                    Date practisingDate = (Date) txtPractisingFrom.getValue();
+                            
+//                    Date practisingFrom = null;  
+//                        try {
+//                            practisingFrom = new SimpleDateFormat("MM/dd/yyyy").parse(practisingDate);
+//                        } catch (ParseException ex) {
+//                            Logger.getLogger(SystemCreateDoctor.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
+                        
+                    DoctorSpecialization specialization = DoctorSpecialization.valueOf(comboSpecialization.getSelectedItem().toString() );
+
+                    Person doctor = new Doctor(name,cellPhoneNumber,emailId,age,gender,house,doctorID,practisingDate,specialization);
+         
                     personDirectory.addNewPerson(doctor);
                     doctorDirectory.addNewDoctor(doctor);
-                    
-                    
-                    //JOptionPane.showMessageDialog(this,"Doctor Registered Successfully.");
-                    JOptionPane.showMessageDialog(this,"Doctor Registered Successfully.Your New Doctor Id is:"+doctorId+",Please save this Doctor Id for furture reference.");
-              }
+
+                    JOptionPane.showMessageDialog(this,"Doctor Registered Successfully.Your New Doctor Id is:"+doctorID+",Please save this Doctor Id for furture reference.");
+
+                }
+                else{
+                    JOptionPane.showMessageDialog(this,"Some Error in entered data.Please check over the red fields to know more.");
+                    validationCheck=true;
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this,"Some Error in entered data. Please check over the red fields to know more.");
+                emptyValidationStatus=true;
             }
         }
-        catch(Exception e)
-                {
-            JOptionPane.showMessageDialog(this,"Patient not registered, Try again");
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this,"Doctor not registered, Try again");
             System.out.println(e.toString());
             emptyValidationStatus=true;
             if(personDirectory.getPersonDirectory().size()>0)
             personDirectory.getPersonDirectory().remove(personDirectory.getPersonDirectory().size() - 1);
-        }      
-    }//GEN-LAST:event_btnCreateDoctorActionPerformed
+            if(doctorDirectory.getDoctors().size()>0)
+            doctorDirectory.getDoctors().remove(doctorDirectory.getDoctors().size() - 1);
+        }
 
-    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDateActionPerformed
+    }//GEN-LAST:event_btnCreateDoctorActionPerformed
 
     private boolean RegexValidation() {
         if(!txtName.getText().matches("^[a-zA-Z ]+$"))
@@ -322,16 +427,16 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
         }
         
         
-        if(!txtEmailId.getText().matches("^[A-Za-z0-9+_.-]+@(.+)$"))
+        if(!txtEmailID.getText().matches("^[A-Za-z0-9+_.-]+@(.+)$"))
         {
-            txtEmailId.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-            txtEmailId.setToolTipText("Please enter a valid Email Address in the form abc@xyy.com");
+            txtEmailID.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+            txtEmailID.setToolTipText("Please enter a valid Email Address in the form abc@xyy.com");
             validationCheck=false;
         }
         
-        if(txtEmailId.getText().matches("^[A-Za-z0-9+_.-]+@(.+)$"))
+        if(txtEmailID.getText().matches("^[A-Za-z0-9+_.-]+@(.+)$"))
         {
-            txtEmailId.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+            txtEmailID.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         }
         
         if(!txtCellPhoneNo.getText().matches("^[0-9]{10}$"))
@@ -345,6 +450,19 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
         {
             txtCellPhoneNo.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         }
+        
+        
+        if(!txtPractisingFrom.getText().matches("^(1[0-2]|0[1-9])/(3[01]" + "|[12][0-9]|0[1-9])/[0-9]{4}$")){
+            txtPractisingFrom.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+            txtPractisingFrom.setToolTipText("Please enter date in format mm/dd/yyyy");
+            validationCheck=false;
+        }
+        
+        if(txtPractisingFrom.getText().matches("^(1[0-2]|0[1-9])/(3[01]" + "|[12][0-9]|0[1-9])/[0-9]{4}$"))
+        {
+            txtPractisingFrom.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+        }
+        
         return validationCheck;
     }
     
@@ -370,6 +488,32 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
         {
             txtAge.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         }
+        
+         
+        if(txtHouseNo.getText().equals(null) || txtHouseNo.getText().trim().isEmpty())
+        {
+            txtHouseNo.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+            txtHouseNo.setToolTipText("This Field Cannot be empty");
+            emptyValidationStatus= false;
+        }
+        if(!txtHouseNo.getText().equals(null) && !txtHouseNo.getText().trim().isEmpty())
+        {
+            txtHouseNo.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+        }
+        
+        
+        if(txtStreet.getText().equals(null)|| txtStreet.getText().trim().isEmpty())
+        {
+            txtStreet.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+            txtStreet.setToolTipText("This Field Cannot be empty");
+            emptyValidationStatus= false;
+        }
+        if(!txtStreet.getText().equals(null) && !txtStreet.getText().trim().isEmpty())
+        {
+            txtStreet.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+           
+        }
+        
         if(txtCellPhoneNo.getText().equals(null) || txtCellPhoneNo.getText().trim().isEmpty())
         {
             txtCellPhoneNo.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
@@ -383,25 +527,66 @@ public class SystemCreateDoctor extends javax.swing.JPanel {
         return emptyValidationStatus;
     }
     
+    private void initSpecializationCmbx() {
+        comboSpecialization.removeAllItems();
+        int count = 0;
+        DoctorSpecialization[] specializations = DoctorSpecialization.values();
+        for (DoctorSpecialization specialization : specializations) {
+            comboSpecialization.addItem(specializations[count++].toString());
+        }
+    }
     
+    private void initCommunityCmbx() {
+        comboCommunity.removeAllItems();
+        int count = 0;
+        var selectedCity=comboCity.getSelectedItem().toString();
+        City city=City.valueOf(selectedCity);
+        Community community=new Community();
+        community.setLstCommunity();
+        String[] communities=community.getLstCommunity().get(city);
+            for (String community_ : communities) {
+                comboCommunity.addItem(communities[count++]);
+            }
+    }
+    
+    private void initCityCmbx() {
+       comboCity.removeAllItems();
+       int count = 0;
+        City[] cities = City.values();
+        for (City city_ : cities) {
+            comboCity.addItem(cities[count++].toString());
+        }
+       initCommunityCmbx();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ComboBoxGender;
-    private javax.swing.JComboBox<String> ComboBoxSpecialization;
     private javax.swing.JButton btnCreateDoctor;
+    private javax.swing.JComboBox<String> comboCity;
+    private javax.swing.JComboBox<String> comboCommunity;
+    private javax.swing.JComboBox<String> comboGender;
+    private javax.swing.JComboBox<String> comboSpecialization;
+    private javax.swing.JComboBox<String> comboState;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCellPhoneNo;
-    private javax.swing.JLabel lblDoctorName;
-    private javax.swing.JLabel lblEmailId;
+    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblCommunity;
+    private javax.swing.JLabel lblDoctorInfo;
+    private javax.swing.JLabel lblEmailID;
     private javax.swing.JLabel lblGender;
-    private javax.swing.JLabel lblHeight;
+    private javax.swing.JLabel lblHouseNo;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPractsingFrom;
     private javax.swing.JLabel lblSpecialization;
+    private javax.swing.JLabel lblState;
+    private javax.swing.JLabel lblStreet;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtCellPhoneNo;
-    private javax.swing.JFormattedTextField txtDate;
-    private javax.swing.JTextField txtEmailId;
+    private javax.swing.JTextField txtEmailID;
+    private javax.swing.JTextField txtHouseNo;
     private javax.swing.JTextField txtName;
+    private javax.swing.JFormattedTextField txtPractisingFrom;
+    private javax.swing.JTextField txtStreet;
     // End of variables declaration//GEN-END:variables
 }

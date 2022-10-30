@@ -14,7 +14,8 @@ import java.util.Map;
  */
 public class Encounter {
     
-    private int encounterId;
+    private int encounterId ;
+    private int doctorId;
     private Map<Date, VitalSigns> patientEncounter = new HashMap<>();
 
     public Map<Date, VitalSigns> getPatientEncounter() {
@@ -32,4 +33,19 @@ public class Encounter {
     public void setEncounterId(int encounterId) {
         this.encounterId = encounterId;
     }
-}
+
+    public int getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    @Override
+    public String toString() {
+        return "Encounter{" + "encounterId=" + encounterId + ", doctorId=" + doctorId + ", patientEncounter=" + patientEncounter + '}';
+    }
+    
+    
+} 

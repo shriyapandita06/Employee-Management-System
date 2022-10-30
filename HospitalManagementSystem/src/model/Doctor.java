@@ -13,11 +13,11 @@ import java.util.Map;
  */
 public class Doctor extends Person{
     
-    private int doctorId;
+     private int doctorId;
     private Date practicingFrom;
     private DoctorSpecialization doctorSpecialization;
 
-    public Doctor(String name, long cellPhoneNumber, String emailId, int age, String gender,int doctorId, House house, Date practicingFrom,DoctorSpecialization doctorSpecialization) {
+    public Doctor(String name, long cellPhoneNumber, String emailId, int age, String gender, House house,int doctorId,Date practicingFrom,DoctorSpecialization doctorSpecialization) {
         super(name, cellPhoneNumber, emailId, age, gender, house);
         this.doctorId = doctorId;
         this.practicingFrom = practicingFrom;

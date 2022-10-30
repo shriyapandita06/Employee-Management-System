@@ -18,9 +18,14 @@ public class EncounterHistory {
         return patientEncounterHistory;
     }
 
-    public void setPatientEncounterHistory(Encounter patientEncounterHistory) {
-        this.patientEncounterHistory.add(patientEncounterHistory);
+    public void setPatientEncounterHistory(Encounter patientEncounter) {
+        this.patientEncounterHistory.add(patientEncounter);
+    }
+
+    @Override
+    public String toString() {
+        return "EncounterHistory{" + "patientEncounterHistory=" + patientEncounterHistory + '}';
     }
     
-    
+     
 }

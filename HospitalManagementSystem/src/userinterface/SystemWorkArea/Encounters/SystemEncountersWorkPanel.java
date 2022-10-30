@@ -5,9 +5,11 @@
 package userinterface.SystemWorkArea.Encounters;
 
 import userinterface.SystemWorkArea.Doctor.*;
-import userinterface.SystemWorkArea.Patient.SystemCreatePatient;
-import userinterface.SystemWorkArea.Patient.SystemUpdatePatient;
-import userinterface.SystemWorkArea.Patient.SystemViewPatient;
+import model.DoctorDirectory;
+import model.EncounterHistory;
+import model.PatientDirectory;
+import model.PersonDirectory;
+
 
 /**
  *
@@ -15,24 +17,19 @@ import userinterface.SystemWorkArea.Patient.SystemViewPatient;
  */
 public class SystemEncountersWorkPanel extends javax.swing.JPanel {
 
+    PatientDirectory patientDirectory;
+    EncounterHistory encounterHistory;
+    DoctorDirectory doctorDirectory;
     /**
      * Creates new form SystemPatient
      */
     public SystemEncountersWorkPanel() {
         initComponents();
-        
-        SystemViewEncounter systemViewEncounter = new SystemViewEncounter();
-        tabPatient.setComponentAt(0, systemViewEncounter);
-        tabPatient.setTitleAt(0, "View Encounter");
-        
-        SystemCreateEncounter systemCreateEncounter = new SystemCreateEncounter();
-        tabPatient.setComponentAt(1, systemCreateEncounter);
-        tabPatient.setTitleAt(1, "Create Encounter");
-        
-        SystemUpdateEncounter systemUpdateEncounter = new SystemUpdateEncounter();
-        tabPatient.setComponentAt(2, systemUpdateEncounter);
-        tabPatient.setTitleAt(2, "Update Encounter");
+        patientDirectory = new PatientDirectory();
+        doctorDirectory = new DoctorDirectory();
               
+        SystemViewEncounter systemViewEncounter = new SystemViewEncounter(patientDirectory);
+        splitPane.setRightComponent(systemViewEncounter );
     }
 
     /**
@@ -44,73 +41,125 @@ public class SystemEncountersWorkPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tabPatient = new javax.swing.JTabbedPane();
-        tabViewPatient = new javax.swing.JPanel();
-        tabCreatePatient = new javax.swing.JPanel();
-        tabUpdatePatient = new javax.swing.JPanel();
+        splitPane = new javax.swing.JSplitPane();
+        controlPanel = new javax.swing.JPanel();
+        btnViewEncounters = new javax.swing.JButton();
+        btnCreateEncounter = new javax.swing.JButton();
+        btnUpdateEncounter = new javax.swing.JButton();
+        patientWorkArea = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(160, 132, 202));
 
-        tabPatient.setBackground(new java.awt.Color(191, 172, 224));
+        splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        javax.swing.GroupLayout tabViewPatientLayout = new javax.swing.GroupLayout(tabViewPatient);
-        tabViewPatient.setLayout(tabViewPatientLayout);
-        tabViewPatientLayout.setHorizontalGroup(
-            tabViewPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        controlPanel.setBackground(new java.awt.Color(160, 132, 202));
+        controlPanel.setPreferredSize(new java.awt.Dimension(150, 609));
+        controlPanel.setVerifyInputWhenFocusTarget(false);
+
+        btnViewEncounters.setText("View Encounters");
+        btnViewEncounters.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewEncountersActionPerformed(evt);
+            }
+        });
+
+        btnCreateEncounter.setText("Create Encounter");
+        btnCreateEncounter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateEncounterActionPerformed(evt);
+            }
+        });
+
+        btnUpdateEncounter.setText("Update Encounter");
+        btnUpdateEncounter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateEncounterActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
+        controlPanel.setLayout(controlPanelLayout);
+        controlPanelLayout.setHorizontalGroup(
+            controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(controlPanelLayout.createSequentialGroup()
+                .addContainerGap(105, Short.MAX_VALUE)
+                .addComponent(btnViewEncounters, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(btnCreateEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(btnUpdateEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
+        controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreateEncounter, btnUpdateEncounter, btnViewEncounters});
+
+        controlPanelLayout.setVerticalGroup(
+            controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnViewEncounters, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCreateEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdateEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        controlPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreateEncounter, btnViewEncounters});
+
+        splitPane.setLeftComponent(controlPanel);
+
+        patientWorkArea.setBackground(new java.awt.Color(191, 172, 224));
+
+        javax.swing.GroupLayout patientWorkAreaLayout = new javax.swing.GroupLayout(patientWorkArea);
+        patientWorkArea.setLayout(patientWorkAreaLayout);
+        patientWorkAreaLayout.setHorizontalGroup(
+            patientWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 700, Short.MAX_VALUE)
         );
-        tabViewPatientLayout.setVerticalGroup(
-            tabViewPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+        patientWorkAreaLayout.setVerticalGroup(
+            patientWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 504, Short.MAX_VALUE)
         );
 
-        tabPatient.addTab("tab1", tabViewPatient);
-
-        javax.swing.GroupLayout tabCreatePatientLayout = new javax.swing.GroupLayout(tabCreatePatient);
-        tabCreatePatient.setLayout(tabCreatePatientLayout);
-        tabCreatePatientLayout.setHorizontalGroup(
-            tabCreatePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        tabCreatePatientLayout.setVerticalGroup(
-            tabCreatePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
-        );
-
-        tabPatient.addTab("tab2", tabCreatePatient);
-
-        javax.swing.GroupLayout tabUpdatePatientLayout = new javax.swing.GroupLayout(tabUpdatePatient);
-        tabUpdatePatient.setLayout(tabUpdatePatientLayout);
-        tabUpdatePatientLayout.setHorizontalGroup(
-            tabUpdatePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        tabUpdatePatientLayout.setVerticalGroup(
-            tabUpdatePatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
-        );
-
-        tabPatient.addTab("tab3", tabUpdatePatient);
+        splitPane.setRightComponent(patientWorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabPatient)
+            .addComponent(splitPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabPatient)
+            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
         );
-
-        tabPatient.getAccessibleContext().setAccessibleName("tabPatient");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCreateEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEncounterActionPerformed
+        // TODO add your handling code here:
+        SystemCreateEncounter systemCreateEncounter = new SystemCreateEncounter(patientDirectory, doctorDirectory);
+        splitPane.setRightComponent(systemCreateEncounter);
+    }//GEN-LAST:event_btnCreateEncounterActionPerformed
+
+    private void btnViewEncountersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewEncountersActionPerformed
+        // TODO add your handling code here:
+        SystemViewEncounter systemViewEncounter = new SystemViewEncounter(patientDirectory);
+        splitPane.setRightComponent(systemViewEncounter );
+    }//GEN-LAST:event_btnViewEncountersActionPerformed
+
+    private void btnUpdateEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEncounterActionPerformed
+        // TODO add your handling code here:
+        SystemUpdateEncounter systemUpdateEncounter = new SystemUpdateEncounter(patientDirectory,doctorDirectory);
+        splitPane.setRightComponent(systemUpdateEncounter);
+    }//GEN-LAST:event_btnUpdateEncounterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel tabCreatePatient;
-    private javax.swing.JTabbedPane tabPatient;
-    private javax.swing.JPanel tabUpdatePatient;
-    private javax.swing.JPanel tabViewPatient;
+    private javax.swing.JButton btnCreateEncounter;
+    private javax.swing.JButton btnUpdateEncounter;
+    private javax.swing.JButton btnViewEncounters;
+    private javax.swing.JPanel controlPanel;
+    private javax.swing.JPanel patientWorkArea;
+    private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }

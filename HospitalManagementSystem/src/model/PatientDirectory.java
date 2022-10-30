@@ -15,6 +15,7 @@ import java.util.Set;
  * @author shriyapandita
  */
 public class PatientDirectory {
+    
     private Set<Patient> patients = new HashSet<>();
     
     public PatientDirectory() {
@@ -52,12 +53,14 @@ public class PatientDirectory {
         
         EncounterMap.put(new Date(), vitalSigns_2);
         encounter.setPatientEncounter(EncounterMap);
+        encounter.setEncounterId(1224);
+       // encounter.
         
         encounterHistory.setPatientEncounterHistory(encounter);
         Map<Integer,EncounterHistory> encounterHistoryMapping =new HashMap<>();
-        encounterHistoryMapping.put(1234, encounterHistory);
-        patient.setPatient(encounterHistoryMapping);
-        
+        encounterHistoryMapping.put(2554, encounterHistory);
+//       patient.setEncounterHistory(encounterHistory);
+        patient.setPatientHistoryMap(encounterHistoryMapping);
         patients.add(patient);
     }
 
@@ -73,5 +76,20 @@ public class PatientDirectory {
     {
         patients.add((Patient) patient);
     }  
+    
+    public Patient getPatientById(int patientId){
+        
+        Patient patient = null;
+        for(Patient p: patients){
+            if(patientId == p.getPatientId()){
+                return p;
+            }
+        }
+       return patient;
+    }
+
+    public void deletePatient(Patient selectedPatient) {
+        patients.remove(selectedPatient);
+    }
     
 }

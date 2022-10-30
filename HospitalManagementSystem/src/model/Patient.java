@@ -12,10 +12,12 @@ import java.util.Map;
  * @author shriyapandita
  */
 public class Patient extends Person{
-    
+
     private int patientId;
     private float height;
     private float weight;
+    
+    private Map<Integer,EncounterHistory> patientHistoryMap=new HashMap<>();
     
 
     public Patient(String name, long cellPhoneNumber, String emailId, int age, String gender, House house, int patiendId, float height, float weight) {
@@ -23,10 +25,8 @@ public class Patient extends Person{
         this.patientId =  patiendId;
         this.height = height;
         this.weight = weight;
-    }
-    
-    Map<Integer,EncounterHistory> patient=new HashMap<>();
-
+        
+    }    
 
     public float getHeight() {
         return height;
@@ -43,14 +43,6 @@ public class Patient extends Person{
     public void setWeight(float weight) {
         this.weight = weight;
     }
-    
-    public Map<Integer, EncounterHistory> getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Map<Integer, EncounterHistory> patient) {
-        this.patient = patient;
-    }
 
     public int getPatientId() {
         return patientId;
@@ -59,6 +51,18 @@ public class Patient extends Person{
     public void setPatientId(int patientId) {
         this.patientId = patientId;
     }
+
+    public Map<Integer,EncounterHistory> getPatientHistoryMap() {
+        return patientHistoryMap;
+    }
+
+    public void setPatientHistoryMap(Map<Integer,EncounterHistory> patientHistoryMap) {
+        this.patientHistoryMap = patientHistoryMap;
+    }
     
+    @Override
+    public String toString(){
+        return String.valueOf(patientId);
+    } 
 
 }

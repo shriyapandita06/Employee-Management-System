@@ -14,17 +14,27 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import model.*;
 
-/**
+/** 
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class LoginJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form LoginJPanel
      */
+    
+    PersonDirectory personDirectory;
+    DoctorDirectory doctorDirectory;
+    PatientDirectory patientDirectory;
+    HospitalDirectory hospitalDirectory;
+
     public LoginJPanel() {
         initComponents();
+        this.personDirectory = new PersonDirectory();
+        this.doctorDirectory = new DoctorDirectory();
+        this.patientDirectory = new PatientDirectory();
+        this.hospitalDirectory = new HospitalDirectory();
     }
 
     /**
@@ -45,13 +55,15 @@ public class LoginJPanel extends javax.swing.JPanel {
         btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
 
-        setBackground(new java.awt.Color(191, 172, 224));
+        setBackground(new java.awt.Color(102, 0, 51));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Hospital Management System");
 
         lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblRole.setForeground(new java.awt.Color(255, 255, 255));
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRole.setText("Role :");
 
@@ -63,6 +75,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         });
 
         lblUsername.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsername.setText("Username :");
 
@@ -73,6 +86,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         });
 
         lblPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPassword.setText("Password :");
 
@@ -159,7 +173,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                         loginStatus = true;
                         JFrame mainFrame = (JFrame) SwingUtilities.getRoot(this);
                         mainFrame.dispose();
-                        SystemJFrame systemFrame = new SystemJFrame(username);             
+                        SystemJFrame systemFrame = new SystemJFrame(username,personDirectory,doctorDirectory,patientDirectory,hospitalDirectory);             
                         systemFrame.main(null);
                     }
                     else{

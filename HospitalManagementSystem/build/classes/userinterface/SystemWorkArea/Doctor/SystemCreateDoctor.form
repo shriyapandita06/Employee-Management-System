@@ -22,52 +22,84 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="57" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lblTitle" alignment="0" min="-2" pref="570" max="-2" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblGender" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                              <Component id="lblAge" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                                  <Component id="lblCellPhoneNo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblDoctorName" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="lblEmailId" alignment="0" max="32767" attributes="0"/>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lblDoctorInfo" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lblTitle" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="lblCity" alignment="1" min="-2" pref="99" max="-2" attributes="0"/>
+                                  <Component id="lblHouseNo" alignment="1" min="-2" pref="99" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lblEmailID" alignment="1" min="-2" pref="99" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="comboCity" alignment="0" pref="171" max="32767" attributes="0"/>
+                                      <Component id="txtHouseNo" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblStreet" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                                      <Component id="lblState" alignment="1" min="-2" pref="123" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtStreet" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="comboState" alignment="0" pref="169" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtEmailID" min="-2" pref="171" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtName" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
-                          <Component id="txtCellPhoneNo" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
-                          <Component id="txtEmailId" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
-                          <Component id="txtAge" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
-                          <Component id="ComboBoxGender" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblSpecialization" alignment="1" pref="99" max="32767" attributes="0"/>
+                              <Component id="lblName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblPractsingFrom" alignment="0" pref="99" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtName" pref="174" max="32767" attributes="0"/>
+                              <Component id="comboSpecialization" max="32767" attributes="0"/>
+                              <Component id="txtPractisingFrom" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblAge" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblGender" alignment="1" pref="125" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtAge" alignment="0" max="32767" attributes="0"/>
+                              <Component id="comboGender" alignment="0" pref="155" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
+                      <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="lblHeight" min="-2" pref="220" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtDate" min="-2" pref="149" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" pref="171" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblSpecialization" min="-2" pref="220" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnCreateDoctor" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ComboBoxSpecialization" min="-2" pref="332" max="-2" attributes="0"/>
-                              </Group>
+                      <Component id="lblCommunity" min="-2" pref="99" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="comboCommunity" min="-2" pref="171" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnCreateDoctor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblCellPhoneNo" min="-2" pref="123" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtCellPhoneNo" min="-2" pref="169" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="73" max="32767" attributes="0"/>
+              <EmptySpace pref="57" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,45 +108,64 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="lblTitle" min="-2" pref="24" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="lblDoctorInfo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAge" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSpecialization" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboSpecialization" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lblDoctorName" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtName" alignment="0" pref="31" max="32767" attributes="0"/>
+                  <Component id="txtPractisingFrom" max="32767" attributes="0"/>
+                  <Component id="lblPractsingFrom" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblCellPhoneNo" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="txtCellPhoneNo" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblEmailId" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="txtEmailId" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAge" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="txtAge" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblGender" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="ComboBoxGender" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblHeight" pref="31" max="32767" attributes="0"/>
-                  <Component id="jLabel1" max="32767" attributes="0"/>
-                  <Component id="txtDate" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtHouseNo" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="lblHouseNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtStreet" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblStreet" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="lblCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="lblState" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboState" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lblSpecialization" pref="31" max="32767" attributes="0"/>
-                  <Component id="ComboBoxSpecialization" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCellPhoneNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCellPhoneNo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtEmailID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblEmailID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnCreateDoctor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -129,10 +180,13 @@
         <Property name="text" type="java.lang.String" value="Create Doctor"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblDoctorName">
+    <Component class="javax.swing.JLabel" name="lblDoctorInfo">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="11"/>
-        <Property name="text" type="java.lang.String" value="Doctor Name :"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Doctor Information"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
@@ -140,26 +194,15 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblCellPhoneNo">
+    <Component class="javax.swing.JLabel" name="lblName">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
-        <Property name="text" type="java.lang.String" value="Cell Phone Number :"/>
+        <Property name="text" type="java.lang.String" value="Name :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCellPhoneNo">
+    <Component class="javax.swing.JTextField" name="txtAge">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCellPhoneNoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblEmailId">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="11"/>
-        <Property name="text" type="java.lang.String" value="EmailID :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtEmailId">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailIdActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAgeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAge">
@@ -168,10 +211,25 @@
         <Property name="text" type="java.lang.String" value="Age :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAge">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAgeActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JLabel" name="lblSpecialization">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+        <Property name="text" type="java.lang.String" value="Specialization"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboGender">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="Male"/>
+            <StringItem index="1" value="Female"/>
+            <StringItem index="2" value="Other"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblGender">
       <Properties>
@@ -179,17 +237,111 @@
         <Property name="text" type="java.lang.String" value="Gender :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblHeight">
+    <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="11"/>
-        <Property name="text" type="java.lang.String" value="Practise Start Date :"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Contact Information"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblSpecialization">
+    <Component class="javax.swing.JLabel" name="lblHouseNo">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
-        <Property name="text" type="java.lang.String" value="Specialization :"/>
+        <Property name="text" type="java.lang.String" value="House No :"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtHouseNo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtStreet">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStreetActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblStreet">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+        <Property name="text" type="java.lang.String" value="Street :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCity">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+        <Property name="text" type="java.lang.String" value="City :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCommunity">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+        <Property name="text" type="java.lang.String" value="Community :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEmailID">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+        <Property name="text" type="java.lang.String" value="Email ID :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtEmailID">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailIDActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboCommunity">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboCity">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="comboCityItemStateChanged"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCellPhoneNo">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+        <Property name="text" type="java.lang.String" value="Cell Phone Number :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblState">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+        <Property name="text" type="java.lang.String" value="State :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboState">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="NY"/>
+            <StringItem index="1" value="MA"/>
+            <StringItem index="2" value="CA"/>
+            <StringItem index="3" value="TX"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCellPhoneNo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCellPhoneNoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCreateDoctor">
       <Properties>
@@ -199,50 +351,28 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateDoctorActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="txtDate">
+    <Component class="javax.swing.JComboBox" name="comboSpecialization">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPractsingFrom">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+        <Property name="text" type="java.lang.String" value="Practising From :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtPractisingFrom">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-          <Format subtype="1" type="1"/>
+          <Format format="MM/dd/yyyy" subtype="-1" type="1"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDateActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="(mm/dd/yyyy)"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="ComboBoxSpecialization">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="ComboBoxGender">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Male"/>
-            <StringItem index="1" value="Female"/>
-            <StringItem index="2" value="Others"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

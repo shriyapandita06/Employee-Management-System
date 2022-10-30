@@ -28,7 +28,7 @@ public class DoctorDirectory {
     
     public void addNewDoctor(Person doctor)
     {
-      //  doctor.add((Doctor) doctor);
+       doctors.add((Doctor) doctor);
     }  
     
 }

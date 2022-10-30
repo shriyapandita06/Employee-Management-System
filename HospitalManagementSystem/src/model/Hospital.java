@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -9,18 +9,19 @@ package model;
  * @author shriyapandita
  */
 public class Hospital {
-    
-    private String HospitalID;
+
+    private int HospitalID;
     private String hospitalName;
     private String hospitalAddress;
     private long contactNumber;
     private Community community;
+    private City city;
     
-    public String getHospitalID() {
+    public int getHospitalID() {
         return HospitalID;
     }
 
-    public void setHospitalID(String HospitalID) {
+    public void setHospitalID(int HospitalID) {
         this.HospitalID = HospitalID;
     }
 
@@ -54,5 +55,13 @@ public class Hospital {
 
     public void setCommunity(Community community) {
         this.community = community;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }

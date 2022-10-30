@@ -8,6 +8,10 @@ import userinterface.SystemWorkArea.Doctor.SystemDoctorWorkPanel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import model.DoctorDirectory;
+import model.HospitalDirectory;
+import model.PatientDirectory;
+import model.PersonDirectory;
 import userinterface.MainJFrame;
 import userinterface.SystemWorkArea.Encounters.SystemEncountersWorkPanel;
 import userinterface.SystemWorkArea.Hospital.SystemHospitalWorkPanel;
@@ -24,10 +28,18 @@ public class SystemJFrame extends javax.swing.JFrame {
      */
     
     public static String username;
+    public static PersonDirectory personDirectory;
+    public static DoctorDirectory doctorDirectory;
+    public static PatientDirectory patientDirectory;
+    public static HospitalDirectory hospitalDirectory;
     
-    public SystemJFrame(String username) {
+    public SystemJFrame(String username, PersonDirectory personDirectory, DoctorDirectory doctorDirectory, PatientDirectory patientDirectory, HospitalDirectory hospitalDirectory) {
         initComponents();
         this.username = username;
+        this.personDirectory = personDirectory;
+        this.patientDirectory = patientDirectory;
+        this.doctorDirectory = doctorDirectory;
+        this.hospitalDirectory = hospitalDirectory;
         
         if(username == null){
             JOptionPane.showMessageDialog(this, "Please login to proceed");
@@ -36,7 +48,7 @@ public class SystemJFrame extends javax.swing.JFrame {
             mainFrame.main(null);
         }
         
-        SystemPatientWorkPanel systemPatient = new SystemPatientWorkPanel();
+        SystemPatientWorkPanel systemPatient = new SystemPatientWorkPanel(personDirectory,patientDirectory);
         jSplitPaneSystem.setRightComponent(systemPatient);
         
     }
@@ -160,7 +172,7 @@ public class SystemJFrame extends javax.swing.JFrame {
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
         // TODO add your handling code here:
-        SystemPatientWorkPanel systemPatient = new SystemPatientWorkPanel();
+        SystemPatientWorkPanel systemPatient = new SystemPatientWorkPanel(personDirectory,patientDirectory);
         jSplitPaneSystem.setRightComponent(systemPatient);
     }//GEN-LAST:event_btnPatientActionPerformed
 
@@ -221,7 +233,7 @@ public class SystemJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               SystemJFrame systemFrame = new SystemJFrame(username);
+               SystemJFrame systemFrame = new SystemJFrame(username,personDirectory,doctorDirectory,patientDirectory,hospitalDirectory);
                systemFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
                systemFrame.setVisible(true);
             }
