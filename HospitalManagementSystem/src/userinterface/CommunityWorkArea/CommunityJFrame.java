@@ -33,8 +33,8 @@ public class CommunityJFrame extends javax.swing.JFrame {
             mainFrame.main(null);
         }
         
-        SystemDoctorWorkPanel systempatient = new SystemDoctorWorkPanel();
-        jSplitPaneSystem.setRightComponent(systempatient);
+     //   SystemDoctorWorkPanel systempatient = new SystemDoctorWorkPanel(username, doctorDirectory);
+     //   jSplitPaneSystem.setRightComponent(systempatient);
         
     }
 

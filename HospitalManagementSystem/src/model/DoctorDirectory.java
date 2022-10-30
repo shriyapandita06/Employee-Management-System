@@ -57,7 +57,9 @@ public class DoctorDirectory {
         return "DoctorDirectory{" + "doctors=" + doctors + '}';
     }
     
-    
+     public void deleteDoctor(Doctor selectedDoctor) {
+        doctors.remove(selectedDoctor);
+    }
     
     
 }

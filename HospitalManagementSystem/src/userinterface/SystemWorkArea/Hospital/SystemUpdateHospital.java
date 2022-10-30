@@ -322,7 +322,7 @@ public class SystemUpdateHospital extends javax.swing.JPanel {
        int count = 0;
         City[] cities = City.values();
         for (City city_ : cities) {
-            comboCity.addItem(cities[count++].toString());
+            comboCity.addItem(city_.toString());//cities[count++].toString());
         }
        initCommunityCmbx();
     }

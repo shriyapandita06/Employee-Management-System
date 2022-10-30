@@ -28,7 +28,7 @@ public class SystemHospitalWorkPanel extends javax.swing.JPanel {
     /**
      * Creates new form SystemPatient
      */
-    public SystemHospitalWorkPanel() {
+    public SystemHospitalWorkPanel(HospitalDirectory hospitalDirectory) {
         initComponents();
 //        patientDirectory = new PatientDirectory();
 //        encounterHistory = new EncounterHistory();

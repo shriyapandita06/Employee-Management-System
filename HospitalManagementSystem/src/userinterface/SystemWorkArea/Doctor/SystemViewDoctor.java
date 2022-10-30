@@ -142,6 +142,19 @@ public class SystemViewDoctor extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+int selectedRowIndex = tblDoctorList.getSelectedRow();
+
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tblDoctorList.getModel();
+        Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex,0 );
+        doctorDirectory.deleteDoctor(selectedDoctor);
+
+        JOptionPane.showMessageDialog(this, "Doctor deleted successfully!");
+        populateData();
 
       /*  int selectedRowIndex = tblDoctorList.getSelectedRow();
 

@@ -201,7 +201,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                         loginStatus = true;
                         JFrame mainFrame = (JFrame) SwingUtilities.getRoot(this);
                         mainFrame.dispose();
-                        HospitalJFrame hospitalFrame = new HospitalJFrame(username);             
+                        HospitalJFrame hospitalFrame = new HospitalJFrame(username, personDirectory,doctorDirectory,patientDirectory,hospitalDirectory );             
                         hospitalFrame.main(null);
                     }
                     else{
@@ -216,8 +216,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                             loginStatus = true;
                             JFrame mainFrame = (JFrame) SwingUtilities.getRoot(this);
                             mainFrame.dispose();
-                            DoctorJFrame doctorFrame = new DoctorJFrame(username);             
-                            doctorFrame.main(null);
+                          //  DoctorJFrame doctorFrame = new DoctorJFrame(username,personDirectory,doctorDirectory,patientDirectory);             
+                          //  doctorFrame.main(null);
                         }
                         else{
                              loginStatus = false;
@@ -232,8 +232,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                             loginStatus = true;
                             JFrame mainFrame = (JFrame) SwingUtilities.getRoot(this);
                             mainFrame.dispose();
-                            PatientJFrame patientFrame = new PatientJFrame(username);             
-                            patientFrame.main(null);
+                         //   PatientJFrame patientFrame = new PatientJFrame(username);             
+                         //   patientFrame.main(null);
                         }
                         else{
                              loginStatus = false;
