@@ -6,11 +6,10 @@ package userinterface.SystemWorkArea.Doctor;
 
 import model.DoctorDirectory;
 import model.PersonDirectory;
-import userinterface.SystemWorkArea.Doctor.*;
 
 /**
  *
- * @author shriyapandita
+ * @author Tejas
  */
 public class SystemDoctorWorkPanel extends javax.swing.JPanel {
 
@@ -19,7 +18,7 @@ public class SystemDoctorWorkPanel extends javax.swing.JPanel {
     /**
      * Creates new form SystemPatient
      */
-    public SystemDoctorWorkPanel(PersonDirectory personDirectory,DoctorDirectory doctorDirectory ) {
+    public SystemDoctorWorkPanel(PersonDirectory personDirectory,DoctorDirectory doctorDirectory) {
         initComponents();
         this.personDirectory = personDirectory;
         this.doctorDirectory = doctorDirectory;

@@ -85,6 +85,8 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
         comboSpecialization = new javax.swing.JComboBox<>();
         lblPractsingFrom = new javax.swing.JLabel();
         txtPractisingFrom = new javax.swing.JFormattedTextField();
+        lblHosp = new javax.swing.JLabel();
+        txtHospId = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(191, 172, 224));
 
@@ -185,6 +187,15 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
 
         txtPractisingFrom.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("MM/dd/yyyy"))));
 
+        lblHosp.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblHosp.setText("Hospital Id :");
+
+        txtHospId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHospIdActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -231,11 +242,13 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(lblAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                                .addComponent(lblGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                .addComponent(lblHosp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtAge)
-                                .addComponent(comboGender, 0, 155, Short.MAX_VALUE)))
+                                .addComponent(comboGender, 0, 155, Short.MAX_VALUE)
+                                .addComponent(txtHospId)))
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -271,7 +284,10 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
                     .addComponent(comboSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPractisingFrom)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtPractisingFrom)
+                        .addComponent(txtHospId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblHosp))
                     .addComponent(lblPractsingFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
@@ -361,7 +377,9 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
                     int doctorID=random.nextInt((9999 - 100) + 1) + 10;
                     
                     Date practisingDate = (Date) txtPractisingFrom.getValue();
-                            
+                    
+                    int hospId = Integer.parseInt(txtHospId.getText());
+                    
 //                    Date practisingFrom = null;  
 //                        try {
 //                            practisingFrom = new SimpleDateFormat("MM/dd/yyyy").parse(practisingDate);
@@ -373,7 +391,7 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
 
                     String password = name + String.valueOf(random.nextInt((9999 - 100) + 1)+ 10);
                     
-                    Person doctor = new Doctor(name,cellPhoneNumber,emailId,age,gender,house,doctorID,practisingDate,specialization, password);
+                    Person doctor = new Doctor(name,cellPhoneNumber,emailId,age,gender,house,doctorID,practisingDate,specialization,hospId, password);
          
                     personDirectory.addNewPerson(doctor);
                     doctorDirectory.addNewDoctor(doctor);
@@ -403,6 +421,10 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnCreateDoctorActionPerformed
 
+    private void txtHospIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHospIdActionPerformed
+
     private boolean RegexValidation() {
         if(!txtName.getText().matches("^[a-zA-Z ]+$"))
         {
@@ -429,6 +451,18 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
             txtAge.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         }
         
+        
+        if(!txtHospId.getText().matches("\\b\\d+\\b"))
+        {
+            txtHospId.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+            txtHospId.setToolTipText("Pleae enter only numbers");
+            validationCheck=false;
+        }
+        
+        if(txtHospId.getText().matches("\\b\\d+\\b"))
+        {
+            txtHospId.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+        }
         
         if(!txtEmailID.getText().matches("^[A-Za-z0-9+_.-]+@(.+)$"))
         {
@@ -492,6 +526,16 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
             txtAge.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         }
         
+        if(txtHospId.getText().equals(null) || txtHospId.getText().trim().isEmpty())
+        {
+            txtHospId.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+            txtHospId.setToolTipText("This Field Cannot be empty");
+            emptyValidationStatus= false;
+        }
+        if(!txtHospId.getText().equals(null) && !txtHospId.getText().trim().isEmpty())
+        {
+            txtHospId.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+        }
          
         if(txtHouseNo.getText().equals(null) || txtHouseNo.getText().trim().isEmpty())
         {
@@ -577,6 +621,7 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
     private javax.swing.JLabel lblDoctorInfo;
     private javax.swing.JLabel lblEmailID;
     private javax.swing.JLabel lblGender;
+    private javax.swing.JLabel lblHosp;
     private javax.swing.JLabel lblHouseNo;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPractsingFrom;
@@ -587,6 +632,7 @@ public class HospitalCreateDoctor extends javax.swing.JPanel {
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtCellPhoneNo;
     private javax.swing.JTextField txtEmailID;
+    private javax.swing.JTextField txtHospId;
     private javax.swing.JTextField txtHouseNo;
     private javax.swing.JTextField txtName;
     private javax.swing.JFormattedTextField txtPractisingFrom;

@@ -4,11 +4,9 @@
  */
 package userinterface.HospitalWorkArea.Hospitals;
 
-import userinterface.SystemWorkArea.Hospital.*;
 import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
@@ -16,7 +14,6 @@ import model.City;
 import model.Community;
 import model.Hospital;
 import model.HospitalDirectory;
-import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
@@ -291,8 +288,17 @@ public class HospitalUpdateHospital extends javax.swing.JPanel {
                 txtHospitalName.setText(h.getHospitalName());
                 txtHospAddress.setText(h.getHospitalAddress());
                 txtContactNo.setText(String.valueOf(h.getContactNumber()));
-                comboCity.setSelectedItem(h.getCity());
-                comboCommunity.setSelectedItem(h.getCommunity());
+                
+                String city = null;
+                String community = null;              
+                Map<String, String> communityMap = h.getCommunity().getCommunity();            
+                for(Map.Entry m: communityMap.entrySet()){  
+                    city = m.getKey().toString();
+                    community = m.getValue().toString();
+                } 
+                
+                comboCity.setSelectedItem(city);
+                comboCommunity.setSelectedItem(community);
                 
             }
         }

@@ -27,8 +27,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="lblSearchEnctounter" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtSearchEncounters" min="-2" pref="246" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtSearchEncounters" min="-2" pref="252" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnSearchEncounter" min="-2" pref="106" max="-2" attributes="0"/>
                   </Group>
                   <Component id="lblTitle" alignment="1" min="-2" pref="570" max="-2" attributes="0"/>
@@ -36,11 +36,6 @@
               <EmptySpace pref="73" max="32767" attributes="0"/>
           </Group>
           <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -51,24 +46,17 @@
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
                   <Component id="lblSearchEnctounter" alignment="2" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="txtSearchEncounters" alignment="2" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="btnSearchEncounter" alignment="2" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="txtSearchEncounters" alignment="2" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="226" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnDelete" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtSearchEncounters">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSearchEncountersActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblSearchEnctounter">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="11"/>
@@ -158,13 +146,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnDelete">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Delete"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="txtSearchEncounters">
     </Component>
   </SubComponents>
 </Form>

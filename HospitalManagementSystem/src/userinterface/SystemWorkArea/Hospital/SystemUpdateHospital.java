@@ -19,7 +19,7 @@ import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
- * @author shriyapandita
+ * @author Tejas
  */
 public class SystemUpdateHospital extends javax.swing.JPanel {
 
@@ -290,8 +290,17 @@ public class SystemUpdateHospital extends javax.swing.JPanel {
                 txtHospitalName.setText(h.getHospitalName());
                 txtHospAddress.setText(h.getHospitalAddress());
                 txtContactNo.setText(String.valueOf(h.getContactNumber()));
-                comboCity.setSelectedItem(h.getCity());
-                comboCommunity.setSelectedItem(h.getCommunity());
+                
+                String city = null;
+                String community = null;              
+                Map<String, String> communityMap = h.getCommunity().getCommunity();            
+                for(Map.Entry m: communityMap.entrySet()){  
+                    city = m.getKey().toString();
+                    community = m.getValue().toString();
+                } 
+                
+                comboCity.setSelectedItem(city);
+                comboCommunity.setSelectedItem(community);
                 
             }
         }
@@ -322,7 +331,7 @@ public class SystemUpdateHospital extends javax.swing.JPanel {
        int count = 0;
         City[] cities = City.values();
         for (City city_ : cities) {
-            comboCity.addItem(city_.toString());//cities[count++].toString());
+            comboCity.addItem(cities[count++].toString());
         }
        initCommunityCmbx();
     }

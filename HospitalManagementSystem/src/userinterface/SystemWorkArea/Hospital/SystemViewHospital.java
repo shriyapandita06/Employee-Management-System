@@ -7,6 +7,7 @@ package userinterface.SystemWorkArea.Hospital;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Community;
 import model.Hospital;
@@ -15,7 +16,7 @@ import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
- * @author shriyapandita
+ * @author Tejas
  */
 public class SystemViewHospital extends javax.swing.JPanel {
 
@@ -62,6 +63,11 @@ public class SystemViewHospital extends javax.swing.JPanel {
         });
 
         btnSearchHospital.setText("Search");
+        btnSearchHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchHospitalActionPerformed(evt);
+            }
+        });
 
         tblHospitalList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,25 +141,34 @@ public class SystemViewHospital extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
 
-            //  int selectedRowIndex = tblEmployeeList.getSelectedRow();
+                int selectedRowIndex = tblHospitalList.getSelectedRow();
         
-        //        if(selectedRowIndex<0){
-            //            JOptionPane.showMessageDialog(this, "Please select a row to delete");
-            //            return;
-            //        }
-        //
-        //        DefaultTableModel model = (DefaultTableModel) tblEmployeeList.getModel();
-        //        Employee selectedEmployee = (Employee) model.getValueAt(selectedRowIndex,0 );
-        //        employeeList.deleteEmployee(selectedEmployee);
-        //
-        //        JOptionPane.showMessageDialog(this, "Employee deleted successfully!");
-        //
-        //        populateEmployeeTable();
-        //        txtTeamInfo.setText("");
-        //        txtCellPhoneNumber.setText("");
-        //        txtEmailAddress.setText("");
-        //        lblDisplayPhoto.setIcon(null);
+                if(selectedRowIndex<0){
+                        JOptionPane.showMessageDialog(this, "Please select a row to delete");
+                        return;
+                    }
+        
+                DefaultTableModel model = (DefaultTableModel) tblHospitalList.getModel();
+                Hospital selectedHospital = (Hospital) model.getValueAt(selectedRowIndex,0 );
+                hospitalDirectory.deleteHospital(selectedHospital);
+        
+                JOptionPane.showMessageDialog(this, "Hospital deleted successfully!");
+        
+                PopulateData();
+
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnSearchHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchHospitalActionPerformed
+        // TODO add your handling code here:
+        
+        if(txtSearchHospital.getText().trim().isEmpty()|| txtSearchHospital.getText()==null)
+        {
+            JOptionPane.showMessageDialog(this,"Please Enter a valid Hospital Name");
+            return;
+        }
+        
+        populateDataByHospitalName();
+    }//GEN-LAST:event_btnSearchHospitalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -164,7 +179,7 @@ public class SystemViewHospital extends javax.swing.JPanel {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblHospitalList;
     private javax.swing.JTextField txtSearchHospital;
-    // End of variables declaration                   }//GEN-END:variables
+    // End of variables declaration//GEN-END:variables
 
     private void PopulateData() {
        try{
@@ -174,7 +189,6 @@ public class SystemViewHospital extends javax.swing.JPanel {
               
                 for(Hospital h: hospitals){           
                     
-                    int hospitalId = h.getHospitalID();
                     String hospName = h.getHospitalName();
                     String hospAddress = h.getHospitalAddress();
                     Community community = h.getCommunity();
@@ -189,15 +203,59 @@ public class SystemViewHospital extends javax.swing.JPanel {
                     }  
                     
                     model.addRow(new Object[]
-                        {hospitalId,hospName,hospAddress,city,communityName});       
+                        {h,hospName,hospAddress,city,communityName});       
                 }
             }
             tblHospitalList.setModel(model);
             
-      }
-      catch(Exception e)
-      {
-          System.out.println(e);
-      }    
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       }    
+    }
+    
+    private void populateDataByHospitalName(){
+        try{
+            Set<Hospital> hospitals = hospitalDirectory.getHospitals();
+            DefaultTableModel model = new DefaultTableModel(new Object[]{ "Hospital Id", "Hospital Name", "Hospital Address", "City","Community"}, 0);
+            if(hospitals!= null && !hospitals.isEmpty()){
+              
+                for(Hospital h: hospitals){           
+                    
+                    String searchHosp = txtSearchHospital.getText();
+                    
+                    if(h.getHospitalName().toLowerCase().contains(searchHosp.toLowerCase())){
+                    
+                        int hospitalId = h.getHospitalID();
+                        String hospName = h.getHospitalName();
+                        String hospAddress = h.getHospitalAddress();
+                        Community community = h.getCommunity();
+                        String city = null;
+                        String communityName = null;
+
+                        Map<String,String> communityMap = community.getCommunity();
+
+                        for(Map.Entry m: communityMap.entrySet()){  
+                            city = m.getKey().toString();
+                            communityName = m.getValue().toString();
+                        }  
+
+                        model.addRow(new Object[]
+                            {hospitalId,hospName,hospAddress,city,communityName}); 
+
+                    }
+                          
+                }
+            }
+            tblHospitalList.setModel(model);
+            
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       } 
+    
+    
     }
 }

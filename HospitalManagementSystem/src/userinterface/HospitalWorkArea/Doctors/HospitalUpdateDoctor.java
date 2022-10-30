@@ -89,6 +89,8 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
         lblSearchDoctor = new javax.swing.JLabel();
         txtSearchDoctor = new javax.swing.JTextField();
         btnSearchDoctor = new javax.swing.JButton();
+        lblHosp = new javax.swing.JLabel();
+        txtHospId = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(191, 172, 224));
 
@@ -205,6 +207,9 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
             }
         });
 
+        lblHosp.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblHosp.setText("Hospital Id :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -272,11 +277,13 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblHosp, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtAge)
-                                        .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(comboGender, 0, 155, Short.MAX_VALUE)
+                                        .addComponent(txtHospId)))
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -291,7 +298,7 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
                     .addComponent(lblSearchDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSearchDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchDoctor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lblDoctorInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -307,7 +314,10 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
                     .addComponent(lblGender))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPractisingFrom)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtPractisingFrom)
+                        .addComponent(txtHospId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblHosp))
                     .addComponent(lblPractsingFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1)
@@ -338,7 +348,7 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
                     .addComponent(lblEmailID))
                 .addGap(18, 18, 18)
                 .addComponent(btnUpdateDoctor)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -387,6 +397,7 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
                     DoctorSpecialization specialization = DoctorSpecialization.valueOf(comboSpecialization.getSelectedItem().toString() );
                     
                     String practisingDate = txtPractisingFrom.getText();
+                    int hospId = Integer.parseInt(txtHospId.getText());
                             
                     Date practisingFrom = null;  
                         try {
@@ -408,6 +419,7 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
                             d.setHouse(house);
                             d.setDoctorSpecialization(specialization);
                             d.setPracticingFrom(practisingFrom);
+                            d.setHospitalId(hospId);
                         }
                     }
                     
@@ -466,7 +478,7 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
                 }
                 
                 txtPractisingFrom.setText(practisingFromDate);
-
+                txtHospId.setText(String.valueOf(d.getHospitalId()));
                 txtHouseNo.setText(String.valueOf(d.getHouse().getHouseNum()));
                 txtStreet.setText(String.valueOf(d.getHouse().getStreet()));
 
@@ -515,6 +527,17 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
             txtAge.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         }
         
+        if(!txtHospId.getText().matches("\\b\\d+\\b"))
+        {
+            txtHospId.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+            txtHospId.setToolTipText("Pleae enter only numbers");
+            validationCheck=false;
+        }
+        
+        if(txtHospId.getText().matches("\\b\\d+\\b"))
+        {
+            txtHospId.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+        }
         
         if(!txtEmailID.getText().matches("^[A-Za-z0-9+_.-]+@(.+)$"))
         {
@@ -578,6 +601,16 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
             txtAge.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
         }
         
+        if(txtHospId.getText().equals(null) || txtHospId.getText().trim().isEmpty())
+        {
+            txtHospId.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+            txtHospId.setToolTipText("This Field Cannot be empty");
+            emptyValidationStatus= false;
+        }
+        if(!txtHospId.getText().equals(null) && !txtHospId.getText().trim().isEmpty())
+        {
+            txtHospId.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+        }
          
         if(txtHouseNo.getText().equals(null) || txtHouseNo.getText().trim().isEmpty())
         {
@@ -664,6 +697,7 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
     private javax.swing.JLabel lblDoctorInfo;
     private javax.swing.JLabel lblEmailID;
     private javax.swing.JLabel lblGender;
+    private javax.swing.JLabel lblHosp;
     private javax.swing.JLabel lblHouseNo;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPractsingFrom;
@@ -675,6 +709,7 @@ public class HospitalUpdateDoctor extends javax.swing.JPanel {
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtCellPhoneNo;
     private javax.swing.JTextField txtEmailID;
+    private javax.swing.JTextField txtHospId;
     private javax.swing.JTextField txtHouseNo;
     private javax.swing.JTextField txtName;
     private javax.swing.JFormattedTextField txtPractisingFrom;

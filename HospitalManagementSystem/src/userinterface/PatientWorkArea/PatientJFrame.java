@@ -209,6 +209,7 @@ public class PatientJFrame extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**

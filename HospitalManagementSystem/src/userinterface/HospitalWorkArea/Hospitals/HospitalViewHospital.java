@@ -8,6 +8,7 @@ import userinterface.SystemWorkArea.Hospital.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Community;
 import model.Hospital;
@@ -45,7 +46,6 @@ public class HospitalViewHospital extends javax.swing.JPanel {
         btnSearchHospital = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHospitalList = new javax.swing.JTable();
-        btnDelete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(191, 172, 224));
 
@@ -63,6 +63,11 @@ public class HospitalViewHospital extends javax.swing.JPanel {
         });
 
         btnSearchHospital.setText("Search");
+        btnSearchHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchHospitalActionPerformed(evt);
+            }
+        });
 
         tblHospitalList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,13 +90,6 @@ public class HospitalViewHospital extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblHospitalList);
 
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,10 +103,6 @@ public class HospitalViewHospital extends javax.swing.JPanel {
                 .addComponent(btnSearchHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
             .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDelete)
-                .addGap(42, 42, 42))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
@@ -123,9 +117,7 @@ public class HospitalViewHospital extends javax.swing.JPanel {
                     .addComponent(txtSearchHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(44, 44, 44))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -133,32 +125,20 @@ public class HospitalViewHospital extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchHospitalActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void btnSearchHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchHospitalActionPerformed
         // TODO add your handling code here:
-
-        //        int selectedRowIndex = tblEmployeeList.getSelectedRow();
-        //
-        //        if(selectedRowIndex<0){
-            //            JOptionPane.showMessageDialog(this, "Please select a row to delete");
-            //            return;
-            //        }
-        //
-        //        DefaultTableModel model = (DefaultTableModel) tblEmployeeList.getModel();
-        //        Employee selectedEmployee = (Employee) model.getValueAt(selectedRowIndex,0 );
-        //        employeeList.deleteEmployee(selectedEmployee);
-        //
-        //        JOptionPane.showMessageDialog(this, "Employee deleted successfully!");
-        //
-        //        populateEmployeeTable();
-        //        txtTeamInfo.setText("");
-        //        txtCellPhoneNumber.setText("");
-        //        txtEmailAddress.setText("");
-        //        lblDisplayPhoto.setIcon(null);
-    }//GEN-LAST:event_btnDeleteActionPerformed
+        
+        if(txtSearchHospital.getText().trim().isEmpty()|| txtSearchHospital.getText()==null)
+        {
+            JOptionPane.showMessageDialog(this,"Please Enter a valid Hospital Name");
+            return;
+        }
+        
+        populateDataByHospitalName();
+    }//GEN-LAST:event_btnSearchHospitalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearchHospital;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSearchHospital;
@@ -200,5 +180,49 @@ public class HospitalViewHospital extends javax.swing.JPanel {
        {
            System.out.println(e);
        }    
+    }
+    
+    private void populateDataByHospitalName(){
+        try{
+            Set<Hospital> hospitals = hospitalDirectory.getHospitals();
+            DefaultTableModel model = new DefaultTableModel(new Object[]{ "Hospital Id", "Hospital Name", "Hospital Address", "City","Community"}, 0);
+            if(hospitals!= null && !hospitals.isEmpty()){
+              
+                for(Hospital h: hospitals){           
+                    
+                    String searchHosp = txtSearchHospital.getText();
+                    
+                    if(h.getHospitalName().toLowerCase().contains(searchHosp.toLowerCase())){
+                    
+                        int hospitalId = h.getHospitalID();
+                        String hospName = h.getHospitalName();
+                        String hospAddress = h.getHospitalAddress();
+                        Community community = h.getCommunity();
+                        String city = null;
+                        String communityName = null;
+
+                        Map<String,String> communityMap = community.getCommunity();
+
+                        for(Map.Entry m: communityMap.entrySet()){  
+                            city = m.getKey().toString();
+                            communityName = m.getValue().toString();
+                        }  
+
+                        model.addRow(new Object[]
+                            {hospitalId,hospName,hospAddress,city,communityName}); 
+
+                    }
+                          
+                }
+            }
+            tblHospitalList.setModel(model);
+            
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       } 
+    
+    
     }
 }

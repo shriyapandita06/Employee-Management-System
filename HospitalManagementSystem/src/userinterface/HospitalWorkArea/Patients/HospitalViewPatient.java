@@ -50,7 +50,6 @@ public class HospitalViewPatient extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPatientList = new javax.swing.JTable();
-        btnDelete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(191, 172, 224));
 
@@ -64,6 +63,11 @@ public class HospitalViewPatient extends javax.swing.JPanel {
         });
 
         btnSearchPatient.setText("Search");
+        btnSearchPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchPatientActionPerformed(evt);
+            }
+        });
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -90,13 +94,6 @@ public class HospitalViewPatient extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblPatientList);
 
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,17 +101,12 @@ public class HospitalViewPatient extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(80, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(88, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnDelete)
-                        .addContainerGap())))
+                .addComponent(lblSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
             .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -129,9 +121,7 @@ public class HospitalViewPatient extends javax.swing.JPanel {
                     .addComponent(btnSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(50, 50, 50))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -139,28 +129,20 @@ public class HospitalViewPatient extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchPatientActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void btnSearchPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPatientActionPerformed
         // TODO add your handling code here:
-
-        int selectedRowIndex = tblPatientList.getSelectedRow();
-
-        if(selectedRowIndex<0){
-            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+        
+        if(txtSearchPatient.getText().trim().isEmpty()|| txtSearchPatient.getText()==null)
+        {
+            JOptionPane.showMessageDialog(this,"Please Enter a valid Patient Name");
             return;
         }
-
-        DefaultTableModel model = (DefaultTableModel) tblPatientList.getModel();
-        Patient selectedPatient = (Patient) model.getValueAt(selectedRowIndex,0 );
-        patientDirectory.deletePatient(selectedPatient);
-
-        JOptionPane.showMessageDialog(this, "Patient deleted successfully!");
-        populateData();
-
-    }//GEN-LAST:event_btnDeleteActionPerformed
+        
+        populateDataByPatientName();
+    }//GEN-LAST:event_btnSearchPatientActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearchPatient;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSearchPatient;
@@ -189,6 +171,44 @@ public class HospitalViewPatient extends javax.swing.JPanel {
                 {patient,patient.getName(), 
                     patient.getAge(),patient.getGender(),patient.getHeight(),patient.getWeight(), patient.getCellPhoneNumber(),patient.getEmailId(),patient.getHouse().getHouseNum()+" "+ patient.getHouse().getStreet(),
                     city,community});
+
+            });
+                
+            tblPatientList.setModel(model);
+            }
+            else{
+                tblPatientList.setModel(model);
+            }
+        }
+        catch(Exception e){
+            System.out.println("Exception occured in populating patients data");
+        }
+    }
+    
+     private void populateDataByPatientName() {
+        try{
+            var x = patientDirectory.getPatients();
+            DefaultTableModel model = new DefaultTableModel(new Object[]{ "Patient Id", "Patient Name", "Contact Number", "Age","Height","Weight","Email", "Contact", "Address", "City", "Community"}, 0);
+            if(x!=null && !x.isEmpty())
+            {
+                x.forEach(patient -> {
+                String searchPatientName = txtSearchPatient.getText();
+                if(patient.getName().toLowerCase().contains(searchPatientName.toLowerCase())){
+                    
+                    String city = null;
+                    String community = null;              
+                    Map<String, String> communityMap = patient.getHouse().getCommunity().getCommunity();            
+                    for(Map.Entry m: communityMap.entrySet()){  
+                        city = m.getKey().toString();
+                        community = m.getValue().toString();
+                    }  
+
+                    model.addRow(new Object[]
+                    {patient,patient.getName(), 
+                        patient.getAge(),patient.getGender(),patient.getHeight(),patient.getWeight(), patient.getCellPhoneNumber(),patient.getEmailId(),patient.getHouse().getHouseNum()+" "+ patient.getHouse().getStreet(),
+                        city,community});
+                    
+                }
 
             });
                 

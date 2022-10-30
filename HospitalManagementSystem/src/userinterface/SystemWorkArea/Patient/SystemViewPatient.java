@@ -15,7 +15,7 @@ import model.PersonDirectory;
 
 /**
  *
- * @author shriyapandita
+ * @author Tejas
  */
 public class SystemViewPatient extends javax.swing.JPanel {
 
@@ -51,10 +51,8 @@ public class SystemViewPatient extends javax.swing.JPanel {
         tblPatientList = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 0, 51));
+        setBackground(new java.awt.Color(191, 172, 224));
 
-        lblSearchPatient.setBackground(new java.awt.Color(102, 0, 51));
-        lblSearchPatient.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchPatient.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchPatient.setText("Search Patient by Name:");
 
@@ -64,8 +62,6 @@ public class SystemViewPatient extends javax.swing.JPanel {
             }
         });
 
-        btnSearchPatient.setBackground(new java.awt.Color(102, 0, 51));
-        btnSearchPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchPatient.setText("Search");
         btnSearchPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,11 +69,9 @@ public class SystemViewPatient extends javax.swing.JPanel {
             }
         });
 
-        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("VIEW PATIENT DETAILS");
+        lblTitle.setText("View Patient");
 
         tblPatientList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,8 +94,6 @@ public class SystemViewPatient extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblPatientList);
 
-        btnDelete.setBackground(new java.awt.Color(102, 0, 51));
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,28 +107,26 @@ public class SystemViewPatient extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(622, Short.MAX_VALUE)
-                .addComponent(btnDelete)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(80, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblSearchPatient)
-                        .addGap(18, 18, 18)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(88, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnDelete)
+                        .addContainerGap())))
+            .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(38, 38, 38)
                 .addComponent(lblTitle)
-                .addGap(28, 28, 28)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lblSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSearchPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,38 +164,14 @@ public class SystemViewPatient extends javax.swing.JPanel {
 
     private void btnSearchPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPatientActionPerformed
         // TODO add your handling code here:
-        int patientId = Integer.parseInt( txtSearchPatient.getText());
-         
-         for(Patient p: patientDirectory.getPatients()){
-             
-             if(patientId == p.getPatientId()){
-             /*    txtName.setText(p.getName());
-                 txtAge.setText(String.valueOf(p.getAge()));
-                 comboGender.setSelectedItem(p.getGender());
-                 txtHeight.setText(String.valueOf(p.getHeight()));
-                 txtWeight.setText(String.valueOf(p.getWeight()));
-                 
-                 txtHouseNo.setText(String.valueOf(p.getHouse().getHouseNum()));
-                 txtStreet.setText(String.valueOf(p.getHouse().getStreet()));
-                 
-                String city = null;
-                String community = null;              
-                Map<String, String> communityMap = p.getHouse().getCommunity().getCommunity();            
-                for(Map.Entry m: communityMap.entrySet()){  
-                    city = m.getKey().toString();
-                    community = m.getValue().toString();
-                }  
-                 
-                comboCity.setSelectedItem(city);
-                comboCommunity.setSelectedItem(community);
-                
-                txtEmailID.setText(p.getEmailId());
-                txtCellPhoneNo.setText(String.valueOf(p.getCellPhoneNumber()));
-               */ 
-            
-             }
-                 
-         }
+        
+        if(txtSearchPatient.getText().trim().isEmpty()|| txtSearchPatient.getText()==null)
+        {
+            JOptionPane.showMessageDialog(this,"Please Enter a valid Patient Name");
+            return;
+        }
+        
+        populateDataByPatientName();
     }//GEN-LAST:event_btnSearchPatientActionPerformed
 
 
@@ -239,6 +205,44 @@ public class SystemViewPatient extends javax.swing.JPanel {
                 {patient,patient.getName(), 
                     patient.getAge(),patient.getGender(),patient.getHeight(),patient.getWeight(), patient.getCellPhoneNumber(),patient.getEmailId(),patient.getHouse().getHouseNum()+" "+ patient.getHouse().getStreet(),
                     city,community});
+
+            });
+                
+            tblPatientList.setModel(model);
+            }
+            else{
+                tblPatientList.setModel(model);
+            }
+        }
+        catch(Exception e){
+            System.out.println("Exception occured in populating patients data");
+        }
+    }
+    
+    private void populateDataByPatientName() {
+        try{
+            var x = patientDirectory.getPatients();
+            DefaultTableModel model = new DefaultTableModel(new Object[]{ "Patient Id", "Patient Name", "Contact Number", "Age","Height","Weight","Email", "Contact", "Address", "City", "Community"}, 0);
+            if(x!=null && !x.isEmpty())
+            {
+                x.forEach(patient -> {
+                String searchPatientName = txtSearchPatient.getText();
+                if(patient.getName().toLowerCase().contains(searchPatientName.toLowerCase())){
+                    
+                    String city = null;
+                    String community = null;              
+                    Map<String, String> communityMap = patient.getHouse().getCommunity().getCommunity();            
+                    for(Map.Entry m: communityMap.entrySet()){  
+                        city = m.getKey().toString();
+                        community = m.getValue().toString();
+                    }  
+
+                    model.addRow(new Object[]
+                    {patient,patient.getName(), 
+                        patient.getAge(),patient.getGender(),patient.getHeight(),patient.getWeight(), patient.getCellPhoneNumber(),patient.getEmailId(),patient.getHouse().getHouseNum()+" "+ patient.getHouse().getStreet(),
+                        city,community});
+                    
+                }
 
             });
                 

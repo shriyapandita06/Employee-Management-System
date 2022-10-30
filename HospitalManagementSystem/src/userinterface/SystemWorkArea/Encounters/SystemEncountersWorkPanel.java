@@ -13,20 +13,19 @@ import model.PersonDirectory;
 
 /**
  *
- * @author shriyapandita
+ * @author Tejas
  */
 public class SystemEncountersWorkPanel extends javax.swing.JPanel {
 
     PatientDirectory patientDirectory;
-    EncounterHistory encounterHistory;
     DoctorDirectory doctorDirectory;
     /**
      * Creates new form SystemPatient
      */
-    public SystemEncountersWorkPanel() {
+    public SystemEncountersWorkPanel(PatientDirectory patientDirectory, DoctorDirectory doctorDirectory) {
         initComponents();
-        patientDirectory = new PatientDirectory();
-        doctorDirectory = new DoctorDirectory();
+        this.patientDirectory = patientDirectory;
+        this.doctorDirectory = doctorDirectory;
               
         SystemViewEncounter systemViewEncounter = new SystemViewEncounter(patientDirectory);
         splitPane.setRightComponent(systemViewEncounter );

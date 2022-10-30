@@ -207,10 +207,7 @@ public class HospitalJFrame extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        JFrame jFrame = (JFrame) SwingUtilities.getRoot(this);
-        jFrame.dispose();
-        MainJFrame mainFrame = new MainJFrame();             
-        mainFrame.main(null);
+        dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Encounter;
 import model.EncounterHistory;
@@ -20,7 +21,7 @@ import model.VitalSigns;
 
 /**
  *
- * @author shriyapandita
+ * @author Tejas
  */
 public class SystemViewEncounter extends javax.swing.JPanel {
 
@@ -149,28 +150,50 @@ public class SystemViewEncounter extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
 
-        //        int selectedRowIndex = tblEmployeeList.getSelectedRow();
-        //
-        //        if(selectedRowIndex<0){
-            //            JOptionPane.showMessageDialog(this, "Please select a row to delete");
-            //            return;
-            //        }
-        //
-        //        DefaultTableModel model = (DefaultTableModel) tblEmployeeList.getModel();
-        //        Employee selectedEmployee = (Employee) model.getValueAt(selectedRowIndex,0 );
-        //        employeeList.deleteEmployee(selectedEmployee);
-        //
-        //        JOptionPane.showMessageDialog(this, "Employee deleted successfully!");
-        //
-        //        populateEmployeeTable();
-        //        txtTeamInfo.setText("");
-        //        txtCellPhoneNumber.setText("");
-        //        txtEmailAddress.setText("");
-        //        lblDisplayPhoto.setIcon(null);
+                int selectedRowIndex = tblEncountersList.getSelectedRow();
+        
+                if(selectedRowIndex<0){
+                        JOptionPane.showMessageDialog(this, "Please select a row to delete");
+                        return;
+                    }
+
+                DefaultTableModel model = (DefaultTableModel) tblEncountersList.getModel();
+                
+                Encounter selectedEncounter = (Encounter) model.getValueAt(selectedRowIndex,0 );
+                
+                
+                var patients = patientDirectory.getPatients();
+                
+                if(patients!=null && !patients.isEmpty()){
+                
+                     for(Patient patient: patients){
+                     
+                         for (Map.Entry<Integer, EncounterHistory> pair : patient.getPatientHistoryMap().entrySet()){
+                         
+                            pair.getValue().getPatientEncounterHistory().remove(selectedEncounter);
+                            
+                         }
+                         
+                     }
+                }
+                
+                populateEncountersData();
+                JOptionPane.showMessageDialog(this, "Encounter deleted successfully!");
+
+
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSearchEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchEncounterActionPerformed
         // TODO add your handling code here:
+        
+        if(txtSearchEncounters.getText().trim().isEmpty()|| txtSearchEncounters.getText()==null)
+        {
+            JOptionPane.showMessageDialog(this,"Please Enter a valid Patient Id");
+            return;
+        }
+        
+        populateEncountersByPatientID();
+        
     }//GEN-LAST:event_btnSearchEncounterActionPerformed
 
 
@@ -189,7 +212,7 @@ public class SystemViewEncounter extends javax.swing.JPanel {
         try{
    
             var patients = patientDirectory.getPatients();
-            DefaultTableModel model = new DefaultTableModel(new Object[]{ "PatientID","EncounterID" ,"Encounter Date", "PatientName","DoctorID","Date Of Vitals", "Blood Pressure","Pulse","Temperature"}, 0);
+            DefaultTableModel model = new DefaultTableModel(new Object[]{ "EncounterID","PatientID","Encounter Date", "PatientName","DoctorID","HospitalID","Date Of Vitals", "Blood Pressure","Pulse","Temperature"}, 0);
             if(patients!=null && !patients.isEmpty())
             {
                 
@@ -246,11 +269,96 @@ public class SystemViewEncounter extends javax.swing.JPanel {
                             temperature = vitalSigns.getTemperature();
                             
                             model.addRow(new Object[]
-                            {patientId,encounterId,encounterDate,patientName,doctorId,dateOfVitals,bloodpressure,pulse,temperature});
+                            {e,patientId,encounterDate,patientName,doctorId,e.getHospitalId(),dateOfVitals,bloodpressure,pulse,temperature});
                             
                         }
                         
                     } 
+             
+                }
+                
+            tblEncountersList.setModel(model);
+            }
+            
+        
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
+    private void populateEncountersByPatientID() {
+        try{
+   
+            var patients = patientDirectory.getPatients();
+            DefaultTableModel model = new DefaultTableModel(new Object[]{"EncounterID" , "PatientID","Encounter Date", "PatientName","DoctorID","HospitalId","Date Of Vitals", "Blood Pressure","Pulse","Temperature"}, 0);
+            if(patients!=null && !patients.isEmpty())
+            {
+                
+                for(Patient patient: patients){
+                    
+                    int searchPatientId = Integer.parseInt(txtSearchEncounters.getText());
+                    if(searchPatientId == patient.getPatientId()){
+                    
+                        int patientId=0;
+                        int doctorId =0;
+                        int encounterId =0;
+                        String encounterDate = null;
+                        String dateOfVitals = null;
+                        String patientName=patient.getName();
+
+                        int bloodpressure = 0;
+                        int pulse =0;
+                        int temperature =0;
+
+                        System.out.println(patient.getPatientHistoryMap().entrySet());
+
+                        for (Map.Entry<Integer, EncounterHistory> pair : patient.getPatientHistoryMap().entrySet())
+                        {
+                            patientId= pair.getKey();       
+
+                            ArrayList<Encounter> encounters = pair.getValue().getPatientEncounterHistory();
+
+                            for(Encounter e: encounters){
+                                    encounterId = e.getEncounterId();
+                                    doctorId = e.getDoctorId();
+
+                                        VitalSigns vitalSigns = null;  
+                                        Map<Date, VitalSigns> vitalSignMap = e.getPatientEncounter();
+
+                                        for(Map.Entry m: vitalSignMap.entrySet()){  
+
+                                             try {
+                                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                                                encounterDate = simpleDateFormat.format((Date)m.getKey());
+                                            } catch (Exception ex) {
+                                                System.out.println("Date is null");
+                                                System.out.println(ex);
+                                            }
+
+                                            vitalSigns = (VitalSigns) m.getValue();
+                                        }
+
+                                        try {
+                                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                                            dateOfVitals = simpleDateFormat.format(vitalSigns.getDateOfVitals());
+
+                                        } catch (Exception ex) {
+                                           System.out.println("Date is null");
+                                        }
+
+                                        bloodpressure = vitalSigns.getBloodPressure();
+                                        pulse = vitalSigns.getPulse();
+                                        temperature = vitalSigns.getTemperature();
+
+
+                                        model.addRow(new Object[]
+                                        {e, patientId,encounterDate,patientName,doctorId,e.getHospitalId(),dateOfVitals,bloodpressure,pulse,temperature});
+
+                                }
+
+                            } 
+                    }
              
                 }
                 

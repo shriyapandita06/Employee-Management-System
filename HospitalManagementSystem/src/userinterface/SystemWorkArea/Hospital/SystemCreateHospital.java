@@ -18,7 +18,7 @@ import userinterface.SystemWorkArea.Patient.*;
 
 /**
  *
- * @author shriyapandita
+ * @author Tejas
  */
 public class SystemCreateHospital extends javax.swing.JPanel {
 
@@ -32,7 +32,6 @@ public class SystemCreateHospital extends javax.swing.JPanel {
     public SystemCreateHospital(HospitalDirectory hospitalDirectory) {
         initComponents();
         initCityCmbx();
-        System.out.println("Create hospital constructor " + hospitalDirectory);
         this.hospitalDirectory = hospitalDirectory;
     }
 
@@ -228,7 +227,7 @@ public class SystemCreateHospital extends javax.swing.JPanel {
             }
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(this,"Hospital not registered, Try again");
+            JOptionPane.showMessageDialog(this,"Patient not registered, Try again");
             System.out.println(e.toString());
             emptyValidationStatus=true;
             if(hospitalDirectory.getHospitals().size()>0){

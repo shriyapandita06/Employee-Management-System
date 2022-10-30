@@ -139,7 +139,7 @@ public class PatientViewDoctor extends javax.swing.JPanel {
         System.out.println(doctorDirectory.getDoctors().toString() +" in populate docs");
        try{
             var x = doctorDirectory.getDoctors();
-            DefaultTableModel model = new DefaultTableModel(new Object[]{ "Id", "Doctor Name", "Specialization","Practising From", "Age","Gender","Contact Number" ,"Email", "Address", "City", "Community"}, 0);
+            DefaultTableModel model = new DefaultTableModel(new Object[]{ "Id", "Doctor Name", "Specialization","Practising From", "HospitalId","Age","Gender","Contact Number" ,"Email", "Address", "City", "Community"}, 0);
             if(x!=null && !x.isEmpty())
             {
                 x.forEach(doctor -> {
@@ -161,7 +161,7 @@ public class PatientViewDoctor extends javax.swing.JPanel {
                 }
                     
                 model.addRow(new Object[]
-                {doctor.getDoctorId(),doctor.getName(),doctor.getDoctorSpecialization().toString() ,practisingFromDate,
+                {doctor.getDoctorId(),doctor.getName(),doctor.getDoctorSpecialization().toString() ,practisingFromDate,doctor.getHospitalId(),
                     doctor.getAge(),doctor.getGender(), doctor.getCellPhoneNumber(),doctor.getEmailId(),doctor.getHouse().getHouseNum()+" "+ doctor.getHouse().getStreet(),
                     city,community});
 

@@ -100,11 +100,13 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblAge" min="-2" pref="125" max="-2" attributes="0"/>
                                       <Component id="lblGender" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                      <Component id="lblHosp" min="-2" pref="125" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="txtAge" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="comboGender" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                      <Component id="comboGender" alignment="0" pref="155" max="32767" attributes="0"/>
+                                      <Component id="txtHospId" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jLabel1" min="-2" pref="571" max="-2" attributes="0"/>
@@ -128,7 +130,7 @@
                   <Component id="txtSearchDoctor" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="btnSearchDoctor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lblDoctorInfo" min="-2" pref="20" max="-2" attributes="0"/>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -146,7 +148,11 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="txtPractisingFrom" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="txtPractisingFrom" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtHospId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblHosp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="lblPractsingFrom" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
@@ -185,7 +191,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnUpdateDoctor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -412,6 +418,14 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchDoctorActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblHosp">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+        <Property name="text" type="java.lang.String" value="Hospital Id :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtHospId">
     </Component>
   </SubComponents>
 </Form>
