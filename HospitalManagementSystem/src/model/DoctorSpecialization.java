@@ -9,7 +9,6 @@ package model;
  * @author shriyapandita
  */
 public enum DoctorSpecialization {
-    
     AllergyAndImmunology,
     Dermatology,
     DiagnosticRadiology,
@@ -18,12 +17,6 @@ public enum DoctorSpecialization {
     InternalMedicine,
     Neurology,
     ObstetricsAndGynecology,
-    Ophthalmology,
-    Pathology,
-    Pediatrics,
-    PreventiveMedicine,
-    Psychiatry,
-    RadiationOncology,
-    Surgery,
-    Urology;
+    Ophthalmology;
+    
 }

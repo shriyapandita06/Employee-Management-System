@@ -74,21 +74,15 @@ public class HospitalCreateEncounter extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(191, 172, 224));
 
-        jPanel1.setBackground(new java.awt.Color(102, 0, 51));
+        jPanel1.setBackground(new java.awt.Color(191, 172, 224));
 
-        lblTitle.setBackground(java.awt.Color.magenta);
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Create Encounter");
 
-        lblDate.setBackground(java.awt.Color.magenta);
-        lblDate.setForeground(new java.awt.Color(255, 255, 255));
         lblDate.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblDate.setText("Date :");
 
-        lblPatientId.setBackground(java.awt.Color.magenta);
-        lblPatientId.setForeground(new java.awt.Color(255, 255, 255));
         lblPatientId.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblPatientId.setText("Patient ID :");
 
@@ -98,8 +92,6 @@ public class HospitalCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        lblDoctorId.setBackground(java.awt.Color.magenta);
-        lblDoctorId.setForeground(new java.awt.Color(255, 255, 255));
         lblDoctorId.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblDoctorId.setText("Doctor ID :");
 
@@ -109,8 +101,6 @@ public class HospitalCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        lblBloodPressure.setBackground(java.awt.Color.magenta);
-        lblBloodPressure.setForeground(new java.awt.Color(255, 255, 255));
         lblBloodPressure.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblBloodPressure.setText("Blood Pressure :");
 
@@ -120,8 +110,6 @@ public class HospitalCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        lblPulse.setBackground(java.awt.Color.magenta);
-        lblPulse.setForeground(new java.awt.Color(255, 255, 255));
         lblPulse.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblPulse.setText("Pulse :");
 
@@ -131,8 +119,6 @@ public class HospitalCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        lblWeight.setBackground(java.awt.Color.magenta);
-        lblWeight.setForeground(new java.awt.Color(255, 255, 255));
         lblWeight.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblWeight.setText("Temperature :");
 
@@ -142,8 +128,6 @@ public class HospitalCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        btnCreateEncounter.setBackground(new java.awt.Color(102, 0, 51));
-        btnCreateEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateEncounter.setText("Create Encounter");
         btnCreateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,8 +135,6 @@ public class HospitalCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        btnSearchDoctor.setBackground(new java.awt.Color(102, 0, 51));
-        btnSearchDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchDoctor.setText("Search Doctor");
         btnSearchDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,8 +142,6 @@ public class HospitalCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        btnSearchPatient1.setBackground(new java.awt.Color(102, 0, 51));
-        btnSearchPatient1.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchPatient1.setText("Search Patient");
         btnSearchPatient1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,8 +151,6 @@ public class HospitalCreateEncounter extends javax.swing.JPanel {
 
         txtEncounterDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("MM/dd/yyyy"))));
 
-        lblDoctorId1.setBackground(java.awt.Color.magenta);
-        lblDoctorId1.setForeground(new java.awt.Color(255, 255, 255));
         lblDoctorId1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblDoctorId1.setText("Hospital ID :");
 
@@ -234,14 +212,11 @@ public class HospitalCreateEncounter extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(txtEncounterDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEncounterDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtPatientId, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)

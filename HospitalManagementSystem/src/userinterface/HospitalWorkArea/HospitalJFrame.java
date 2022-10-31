@@ -8,6 +8,7 @@ import userinterface.SystemWorkArea.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import model.Community;
 import model.DoctorDirectory;
 import model.HospitalDirectory;
 import model.PatientDirectory;
@@ -34,14 +35,16 @@ public class HospitalJFrame extends javax.swing.JFrame {
     public static DoctorDirectory doctorDirectory;
     public static PatientDirectory patientDirectory;
     public static HospitalDirectory hospitalDirectory;
+    public static Community community;
     
-    public HospitalJFrame(String username, PersonDirectory personDirectory, DoctorDirectory doctorDirectory, PatientDirectory patientDirectory, HospitalDirectory hospitalDirectory) {
+    public HospitalJFrame(String username, PersonDirectory personDirectory, DoctorDirectory doctorDirectory, PatientDirectory patientDirectory, HospitalDirectory hospitalDirectory, Community community) {
         initComponents();
         this.username = username;
         this.personDirectory = personDirectory;
         this.patientDirectory = patientDirectory;
         this.doctorDirectory = doctorDirectory;
         this.hospitalDirectory = hospitalDirectory;
+        this.community = community;
         
         if(username == null){
             JOptionPane.showMessageDialog(this, "Please login to proceed");
@@ -50,7 +53,7 @@ public class HospitalJFrame extends javax.swing.JFrame {
             mainFrame.main(null);
         }
         
-        HospitalHospitalWorkPanel hospitalWorkPanel = new HospitalHospitalWorkPanel(hospitalDirectory);
+        HospitalHospitalWorkPanel hospitalWorkPanel = new HospitalHospitalWorkPanel(hospitalDirectory, community);
         jSplitPaneSystem.setRightComponent(hospitalWorkPanel);
         
     }
@@ -76,12 +79,9 @@ public class HospitalJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        controlPanel.setBackground(new java.awt.Color(102, 0, 51));
-        controlPanel.setForeground(new java.awt.Color(255, 255, 255));
+        controlPanel.setBackground(new java.awt.Color(100, 92, 170));
         controlPanel.setPreferredSize(new java.awt.Dimension(200, 600));
 
-        btnHospitals.setBackground(new java.awt.Color(102, 0, 51));
-        btnHospitals.setForeground(new java.awt.Color(255, 255, 255));
         btnHospitals.setText("Hospitals");
         btnHospitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,8 +89,6 @@ public class HospitalJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnDoctors.setBackground(new java.awt.Color(102, 0, 51));
-        btnDoctors.setForeground(new java.awt.Color(255, 255, 255));
         btnDoctors.setText("Doctors");
         btnDoctors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,8 +96,6 @@ public class HospitalJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnPatients.setBackground(new java.awt.Color(102, 0, 51));
-        btnPatients.setForeground(new java.awt.Color(255, 255, 255));
         btnPatients.setText("Patients");
         btnPatients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,8 +103,6 @@ public class HospitalJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnEncounters.setBackground(new java.awt.Color(102, 0, 51));
-        btnEncounters.setForeground(new java.awt.Color(255, 255, 255));
         btnEncounters.setText("Encounters");
         btnEncounters.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,8 +110,6 @@ public class HospitalJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(102, 0, 51));
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,19 +186,19 @@ public class HospitalJFrame extends javax.swing.JFrame {
 
     private void btnHospitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalsActionPerformed
         // TODO add your handling code here:
-        HospitalHospitalWorkPanel hospitalWorkPanel = new HospitalHospitalWorkPanel(hospitalDirectory);
+        HospitalHospitalWorkPanel hospitalWorkPanel = new HospitalHospitalWorkPanel(hospitalDirectory, community);
         jSplitPaneSystem.setRightComponent(hospitalWorkPanel);
     }//GEN-LAST:event_btnHospitalsActionPerformed
 
     private void btnDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorsActionPerformed
         // TODO add your handling code here:
-        HospitalDoctorWorkPanel hospitalDoctor = new HospitalDoctorWorkPanel(personDirectory, doctorDirectory);
+        HospitalDoctorWorkPanel hospitalDoctor = new HospitalDoctorWorkPanel(personDirectory, doctorDirectory, community);
         jSplitPaneSystem.setRightComponent(hospitalDoctor);
     }//GEN-LAST:event_btnDoctorsActionPerformed
 
     private void btnPatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientsActionPerformed
         // TODO add your handling code here:
-        HospitalPatientWorkPanel hospitalPatient = new HospitalPatientWorkPanel(personDirectory, patientDirectory);
+        HospitalPatientWorkPanel hospitalPatient = new HospitalPatientWorkPanel(personDirectory, patientDirectory, community);
         jSplitPaneSystem.setRightComponent(hospitalPatient);
     }//GEN-LAST:event_btnPatientsActionPerformed
 
@@ -254,7 +246,7 @@ public class HospitalJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               HospitalJFrame systemFrame = new HospitalJFrame(username,personDirectory, doctorDirectory, patientDirectory, hospitalDirectory);
+               HospitalJFrame systemFrame = new HospitalJFrame(username,personDirectory, doctorDirectory, patientDirectory, hospitalDirectory, community);
                systemFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
                systemFrame.setVisible(true);
             }

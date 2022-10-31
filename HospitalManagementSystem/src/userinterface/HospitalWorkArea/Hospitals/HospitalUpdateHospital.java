@@ -25,11 +25,13 @@ public class HospitalUpdateHospital extends javax.swing.JPanel {
      * Creates new form SystemCreatePatient
      */
     HospitalDirectory hospitalDirectory;
+    Community community;
     boolean validationCheck = true;
     boolean emptyValidationStatus = true;
-    public HospitalUpdateHospital(HospitalDirectory hospitalDirectory) {
+    public HospitalUpdateHospital(HospitalDirectory hospitalDirectory, Community community) {
         initComponents();
         this.hospitalDirectory = hospitalDirectory;
+        this.community = community;
         initCityCmbx();
     }
 
@@ -58,10 +60,8 @@ public class HospitalUpdateHospital extends javax.swing.JPanel {
         txtHospitalSearch = new javax.swing.JTextField();
         btnSearchHospital = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 0, 51));
+        setBackground(new java.awt.Color(191, 172, 224));
 
-        lblHospName.setBackground(new java.awt.Color(102, 0, 51));
-        lblHospName.setForeground(new java.awt.Color(255, 255, 255));
         lblHospName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblHospName.setText("Hospital Name :");
 
@@ -71,8 +71,6 @@ public class HospitalUpdateHospital extends javax.swing.JPanel {
             }
         });
 
-        lblHospitalAddress.setBackground(new java.awt.Color(102, 0, 51));
-        lblHospitalAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblHospitalAddress.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblHospitalAddress.setText("Hospital Address :");
 
@@ -82,8 +80,6 @@ public class HospitalUpdateHospital extends javax.swing.JPanel {
             }
         });
 
-        lblContactNo.setBackground(new java.awt.Color(102, 0, 51));
-        lblContactNo.setForeground(new java.awt.Color(255, 255, 255));
         lblContactNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblContactNo.setText("Contact Number :");
 
@@ -93,8 +89,6 @@ public class HospitalUpdateHospital extends javax.swing.JPanel {
             }
         });
 
-        lblCity.setBackground(new java.awt.Color(102, 0, 51));
-        lblCity.setForeground(new java.awt.Color(255, 255, 255));
         lblCity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCity.setText("City :");
 
@@ -104,13 +98,9 @@ public class HospitalUpdateHospital extends javax.swing.JPanel {
             }
         });
 
-        lblCommunity.setBackground(new java.awt.Color(102, 0, 51));
-        lblCommunity.setForeground(new java.awt.Color(255, 255, 255));
         lblCommunity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCommunity.setText("Community :");
 
-        btnUpdateHospital.setBackground(new java.awt.Color(102, 0, 51));
-        btnUpdateHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateHospital.setText("Update Hospital");
         btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,14 +108,10 @@ public class HospitalUpdateHospital extends javax.swing.JPanel {
             }
         });
 
-        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Update Hospital");
 
-        lblSearchHospital.setBackground(new java.awt.Color(102, 0, 51));
-        lblSearchHospital.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchHospital.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchHospital.setText("Search Hospital by ID:");
 
@@ -135,8 +121,6 @@ public class HospitalUpdateHospital extends javax.swing.JPanel {
             }
         });
 
-        btnSearchHospital.setBackground(new java.awt.Color(102, 0, 51));
-        btnSearchHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchHospital.setText("Search");
         btnSearchHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,33 +133,32 @@ public class HospitalUpdateHospital extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSearchHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblSearchHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtHospitalSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSearchHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
+                    .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCommunity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblHospitalAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblHospName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblContactNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUpdateHospital)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblCommunity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblHospitalAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblHospName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblContactNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnUpdateHospital)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(comboCity, 0, 345, Short.MAX_VALUE)
-                                    .addComponent(txtHospitalName)
-                                    .addComponent(txtHospAddress, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtContactNo, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(comboCommunity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addComponent(comboCity, 0, 345, Short.MAX_VALUE)
+                                .addComponent(txtHospitalName)
+                                .addComponent(txtHospAddress, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtContactNo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(comboCommunity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

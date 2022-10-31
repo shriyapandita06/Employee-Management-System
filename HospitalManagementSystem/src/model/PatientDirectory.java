@@ -30,7 +30,7 @@ public class PatientDirectory {
        community.setCommunity(communities);
        house.setCommunity(community);
         
-        Patient patient=new Patient("Tejas",Long.parseLong("8879385690"),"t@g.com",20,"Male",house,2554,Float.parseFloat("6.5"),88,"t11");
+        Patient patient=new Patient("shriyapandita",Long.parseLong("8879385690"),"t@g.com",20,"Male",house,2554,Float.parseFloat("6.5"),88,"t11");
         EncounterHistory encounterHistory=new EncounterHistory();
         Encounter encounter=new Encounter();
         
@@ -54,7 +54,8 @@ public class PatientDirectory {
         EncounterMap.put(new Date(), vitalSigns_2);
         encounter.setPatientEncounter(EncounterMap);
         encounter.setEncounterId(1224);
-        encounter.setDoctorId(1001);
+        encounter.setDoctorId(1989);
+        encounter.setHospitalId(1001);
         
         encounterHistory.setPatientEncounterHistory(encounter);
         Map<Integer,EncounterHistory> encounterHistoryMapping =new HashMap<>();

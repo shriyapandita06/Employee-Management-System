@@ -60,12 +60,9 @@ public class CommunityJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        controlPanel.setBackground(new java.awt.Color(102, 0, 51));
-        controlPanel.setForeground(new java.awt.Color(255, 255, 255));
+        controlPanel.setBackground(new java.awt.Color(100, 92, 170));
         controlPanel.setPreferredSize(new java.awt.Dimension(200, 600));
 
-        btnCommunities.setBackground(new java.awt.Color(102, 0, 51));
-        btnCommunities.setForeground(new java.awt.Color(255, 255, 255));
         btnCommunities.setText("Add Community");
         btnCommunities.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,8 +81,6 @@ public class CommunityJFrame extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Community Admin");
 
-        btnCommunities1.setBackground(new java.awt.Color(102, 0, 51));
-        btnCommunities1.setForeground(new java.awt.Color(255, 255, 255));
         btnCommunities1.setText("View Community");
         btnCommunities1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

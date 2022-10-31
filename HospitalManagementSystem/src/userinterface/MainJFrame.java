@@ -44,7 +44,7 @@ public class MainJFrame extends javax.swing.JFrame {
         this.personDirectory = new PersonDirectory();
         this.doctorDirectory = new DoctorDirectory();
         this.patientDirectory = new PatientDirectory();
-        this.hospitalDirectory = new HospitalDirectory();  
+        this.hospitalDirectory = new HospitalDirectory();     
         this.community = new Community();
     }
 
@@ -78,9 +78,9 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Hospital Management System");
+        jLabel1.setText("Welcome to Hospital Management System");
 
         lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -118,30 +118,28 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(253, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(200, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRole, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(comboBoxRole, javax.swing.GroupLayout.Alignment.TRAILING, 0, 222, Short.MAX_VALUE))
-                            .addComponent(btnLogin))))
-                .addContainerGap(251, Short.MAX_VALUE))
+                    .addComponent(lblRole, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                    .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(comboBoxRole, javax.swing.GroupLayout.Alignment.TRAILING, 0, 222, Short.MAX_VALUE))
+                    .addComponent(btnLogin))
+                .addContainerGap(200, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(54, 54, 54)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -155,7 +153,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -200,10 +198,9 @@ public class MainJFrame extends javax.swing.JFrame {
                     if(username.equals("s") && password.equals("s")){
                         reset();
                         loginStatus = true;
-//                        JFrame mainFrame = (JFrame) SwingUtilities.getRoot(this);
-//                        mainFrame.dispose();
-                        SystemJFrame systemFrame = new SystemJFrame(username,personDirectory,doctorDirectory,patientDirectory,hospitalDirectory);
-                        systemFrame.main(null);
+                        SystemJFrame systemFrame = new SystemJFrame(username,personDirectory,doctorDirectory,patientDirectory,hospitalDirectory,community);
+                        systemFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+                        systemFrame.setVisible(true);
                     }
                     else{
                         loginStatus = false;
@@ -214,10 +211,9 @@ public class MainJFrame extends javax.swing.JFrame {
                     if(username.equals("c") && password.equals("c")){
                         reset();
                         loginStatus = true;
-//                        JFrame mainFrame = (JFrame) SwingUtilities.getRoot(this);
-//                        mainFrame.dispose();
                         CommunityJFrame communityFrame = new CommunityJFrame(username, community);
-                        communityFrame.main(null);
+                        communityFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        communityFrame.setVisible(true);
                     }
                     else{
                         loginStatus = false;
@@ -228,10 +224,9 @@ public class MainJFrame extends javax.swing.JFrame {
                     if(username.equals("h") && password.equals("h")){
                         reset();
                         loginStatus = true;
-//                        JFrame mainFrame = (JFrame) SwingUtilities.getRoot(this);
-//                        mainFrame.dispose();
-                        HospitalJFrame hospitalFrame = new HospitalJFrame(username,personDirectory, doctorDirectory, patientDirectory, hospitalDirectory);
-                        hospitalFrame.main(null);
+                        HospitalJFrame hospitalFrame = new HospitalJFrame(username,personDirectory, doctorDirectory, patientDirectory, hospitalDirectory, community);
+                        hospitalFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        hospitalFrame.setVisible(true);
                     }
                     else{
                         loginStatus = false;
@@ -245,10 +240,9 @@ public class MainJFrame extends javax.swing.JFrame {
                         if(username.equals(String.valueOf(doctor.getDoctorId())) && password.equals(doctor.getPassword())){
                             reset();
                             loginStatus = true;
-    //                        JFrame mainFrame = (JFrame) SwingUtilities.getRoot(this);
-    //                        mainFrame.dispose();
-                            DoctorJFrame doctorFrame = new DoctorJFrame(username,personDirectory, patientDirectory, doctorDirectory, hospitalDirectory);
-                            doctorFrame.main(null);
+                            DoctorJFrame doctorFrame = new DoctorJFrame(username,personDirectory, patientDirectory, doctorDirectory, hospitalDirectory, community);
+                            doctorFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                            doctorFrame.setVisible(true);
                         }
                         else{
                             loginStatus = false;
@@ -258,21 +252,6 @@ public class MainJFrame extends javax.swing.JFrame {
                 }
                 
                 
-
-//                if(userRole.equals(UserRoles.Doctor)){
-//                    if(username.equals("d") && password.equals("d")){
-//                        reset();
-//                        loginStatus = true;
-////                        JFrame mainFrame = (JFrame) SwingUtilities.getRoot(this);
-////                        mainFrame.dispose();
-//                        DoctorJFrame doctorFrame = new DoctorJFrame(username,personDirectory, patientDirectory, doctorDirectory, hospitalDirectory);
-//                        doctorFrame.main(null);
-//                    }
-//                    else{
-//                        loginStatus = false;
-//                    }
-//                }
-                
                 if(userRole.equals(UserRoles.Patient)){
                     
                     for(Patient patient: patientDirectory.getPatients()){
@@ -281,8 +260,9 @@ public class MainJFrame extends javax.swing.JFrame {
                         reset();
                         loginStatus = true;
                         System.out.println(patientDirectory.getPatients().toString()+ " p patient jfraame call");
-                        PatientJFrame patientFrame = new PatientJFrame(username,personDirectory,patientDirectory,doctorDirectory,hospitalDirectory);
-                        patientFrame.main(null);
+                        PatientJFrame patientFrame = new PatientJFrame(username,personDirectory,patientDirectory,doctorDirectory,hospitalDirectory, community);
+                        patientFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        patientFrame.setVisible(true);
                         }
                         else{
                             loginStatus = false;

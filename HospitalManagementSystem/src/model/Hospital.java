@@ -64,4 +64,9 @@ public class Hospital {
     public void setCity(City city) {
         this.city = city;
     }
+    
+    @Override
+    public String toString(){
+        return String.valueOf(HospitalID);
+    }
 }

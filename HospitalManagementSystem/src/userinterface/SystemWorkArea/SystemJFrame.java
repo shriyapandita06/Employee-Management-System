@@ -8,6 +8,7 @@ import userinterface.SystemWorkArea.Doctor.SystemDoctorWorkPanel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import model.Community;
 import model.DoctorDirectory;
 import model.HospitalDirectory;
 import model.PatientDirectory;
@@ -32,14 +33,16 @@ public class SystemJFrame extends javax.swing.JFrame {
     public static DoctorDirectory doctorDirectory;
     public static PatientDirectory patientDirectory;
     public static HospitalDirectory hospitalDirectory;
+    public static Community community;
     
-    public SystemJFrame(String username, PersonDirectory personDirectory, DoctorDirectory doctorDirectory, PatientDirectory patientDirectory, HospitalDirectory hospitalDirectory) {
+    public SystemJFrame(String username, PersonDirectory personDirectory, DoctorDirectory doctorDirectory, PatientDirectory patientDirectory, HospitalDirectory hospitalDirectory, Community community) {
         initComponents();
         this.username = username;
         this.personDirectory = personDirectory;
         this.patientDirectory = patientDirectory;
         this.doctorDirectory = doctorDirectory;
         this.hospitalDirectory = hospitalDirectory;
+        this.community = community;
         
         if(username == null){
             JOptionPane.showMessageDialog(this, "Please login to proceed");
@@ -48,7 +51,7 @@ public class SystemJFrame extends javax.swing.JFrame {
             mainFrame.main(null);
         }
         
-        SystemPatientWorkPanel systemPatient = new SystemPatientWorkPanel(personDirectory,patientDirectory);
+        SystemPatientWorkPanel systemPatient = new SystemPatientWorkPanel(personDirectory,patientDirectory, community);
         jSplitPaneSystem.setRightComponent(systemPatient);
         
     }
@@ -74,12 +77,9 @@ public class SystemJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        controlPanel.setBackground(new java.awt.Color(102, 0, 51));
-        controlPanel.setForeground(new java.awt.Color(255, 255, 255));
+        controlPanel.setBackground(new java.awt.Color(100, 92, 170));
         controlPanel.setPreferredSize(new java.awt.Dimension(180, 600));
 
-        btnPatient.setBackground(new java.awt.Color(102, 0, 51));
-        btnPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnPatient.setText("Patient");
         btnPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,8 +87,6 @@ public class SystemJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnDoctor.setBackground(new java.awt.Color(102, 0, 51));
-        btnDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnDoctor.setText("Doctor");
         btnDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,8 +94,6 @@ public class SystemJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnHospital.setBackground(new java.awt.Color(102, 0, 51));
-        btnHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnHospital.setText("Hospital");
         btnHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,8 +101,6 @@ public class SystemJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnEncounters.setBackground(new java.awt.Color(102, 0, 51));
-        btnEncounters.setForeground(new java.awt.Color(255, 255, 255));
         btnEncounters.setText("Encounters");
         btnEncounters.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,8 +108,6 @@ public class SystemJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(102, 0, 51));
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +137,7 @@ public class SystemJFrame extends javax.swing.JFrame {
                     .addGroup(controlPanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,19 +188,19 @@ public class SystemJFrame extends javax.swing.JFrame {
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
         // TODO add your handling code here:
-        SystemPatientWorkPanel systemPatient = new SystemPatientWorkPanel(personDirectory,patientDirectory);
+        SystemPatientWorkPanel systemPatient = new SystemPatientWorkPanel(personDirectory,patientDirectory, community);
         jSplitPaneSystem.setRightComponent(systemPatient);
     }//GEN-LAST:event_btnPatientActionPerformed
 
     private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
         // TODO add your handling code here:
-        SystemDoctorWorkPanel systemDoctor = new SystemDoctorWorkPanel(personDirectory,doctorDirectory);
+        SystemDoctorWorkPanel systemDoctor = new SystemDoctorWorkPanel(personDirectory,doctorDirectory, community);
         jSplitPaneSystem.setRightComponent(systemDoctor);
     }//GEN-LAST:event_btnDoctorActionPerformed
 
     private void btnHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalActionPerformed
         // TODO add your handling code here:
-        SystemHospitalWorkPanel systemEncounters = new SystemHospitalWorkPanel(hospitalDirectory);
+        SystemHospitalWorkPanel systemEncounters = new SystemHospitalWorkPanel(hospitalDirectory, community);
         jSplitPaneSystem.setRightComponent(systemEncounters);
     }//GEN-LAST:event_btnHospitalActionPerformed
 
@@ -254,7 +246,7 @@ public class SystemJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               SystemJFrame systemFrame = new SystemJFrame(username,personDirectory,doctorDirectory,patientDirectory,hospitalDirectory);
+               SystemJFrame systemFrame = new SystemJFrame(username,personDirectory,doctorDirectory,patientDirectory,hospitalDirectory, community);
                systemFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
                systemFrame.setVisible(true);
             }

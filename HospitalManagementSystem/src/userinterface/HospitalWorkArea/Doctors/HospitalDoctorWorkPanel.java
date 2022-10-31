@@ -4,6 +4,7 @@
  */
 package userinterface.HospitalWorkArea.Doctors;
 
+import model.Community;
 import userinterface.SystemWorkArea.Doctor.*;
 import model.DoctorDirectory;
 import model.PersonDirectory;
@@ -17,13 +18,15 @@ public class HospitalDoctorWorkPanel extends javax.swing.JPanel {
 
     PersonDirectory personDirectory;
     DoctorDirectory doctorDirectory;
+    Community community;
     /**
      * Creates new form SystemPatient
      */
-    public HospitalDoctorWorkPanel(PersonDirectory personDirectory, DoctorDirectory doctorDirectory) {
+    public HospitalDoctorWorkPanel(PersonDirectory personDirectory, DoctorDirectory doctorDirectory, Community community) {
         initComponents();
         this.personDirectory = personDirectory;
         this.doctorDirectory = doctorDirectory;
+        this.community = community;
               
         HospitalViewDoctor hospitalViewDoctor = new HospitalViewDoctor(personDirectory,doctorDirectory);
         splitPane.setRightComponent(hospitalViewDoctor );
@@ -49,12 +52,10 @@ public class HospitalDoctorWorkPanel extends javax.swing.JPanel {
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        controlPanel.setBackground(new java.awt.Color(255, 204, 204));
+        controlPanel.setBackground(new java.awt.Color(160, 132, 202));
         controlPanel.setPreferredSize(new java.awt.Dimension(150, 609));
         controlPanel.setVerifyInputWhenFocusTarget(false);
 
-        btnViewDoctor.setBackground(new java.awt.Color(102, 0, 51));
-        btnViewDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnViewDoctor.setText("View Doctors");
         btnViewDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,8 +63,6 @@ public class HospitalDoctorWorkPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCreateDoctor.setBackground(new java.awt.Color(102, 0, 51));
-        btnCreateDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateDoctor.setText("Create Doctor");
         btnCreateDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,8 +70,6 @@ public class HospitalDoctorWorkPanel extends javax.swing.JPanel {
             }
         });
 
-        btnUpdateDoctor.setBackground(new java.awt.Color(102, 0, 51));
-        btnUpdateDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateDoctor.setText("Update Doctor");
         btnUpdateDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +108,7 @@ public class HospitalDoctorWorkPanel extends javax.swing.JPanel {
 
         splitPane.setLeftComponent(controlPanel);
 
-        patientWorkArea.setBackground(new java.awt.Color(102, 0, 51));
+        patientWorkArea.setBackground(new java.awt.Color(191, 172, 224));
 
         javax.swing.GroupLayout patientWorkAreaLayout = new javax.swing.GroupLayout(patientWorkArea);
         patientWorkArea.setLayout(patientWorkAreaLayout);
@@ -140,7 +137,7 @@ public class HospitalDoctorWorkPanel extends javax.swing.JPanel {
 
     private void btnCreateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateDoctorActionPerformed
         // TODO add your handling code here:
-        HospitalCreateDoctor hospitalCreateDoctor = new HospitalCreateDoctor(personDirectory, doctorDirectory);
+        HospitalCreateDoctor hospitalCreateDoctor = new HospitalCreateDoctor(personDirectory, doctorDirectory, community);
         splitPane.setRightComponent(hospitalCreateDoctor);
     }//GEN-LAST:event_btnCreateDoctorActionPerformed
 
@@ -152,7 +149,7 @@ public class HospitalDoctorWorkPanel extends javax.swing.JPanel {
 
     private void btnUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateDoctorActionPerformed
         // TODO add your handling code here:
-        HospitalUpdateDoctor hospitalUpdateDoctor = new HospitalUpdateDoctor(personDirectory,doctorDirectory);
+        HospitalUpdateDoctor hospitalUpdateDoctor = new HospitalUpdateDoctor(personDirectory,doctorDirectory, community);
         splitPane.setRightComponent(hospitalUpdateDoctor);
     }//GEN-LAST:event_btnUpdateDoctorActionPerformed
 

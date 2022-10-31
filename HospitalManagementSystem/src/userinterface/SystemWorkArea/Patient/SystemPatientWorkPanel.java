@@ -4,6 +4,7 @@
  */
 package userinterface.SystemWorkArea.Patient;
 
+import model.Community;
 import model.PatientDirectory;
 import model.PersonDirectory;
 import userinterface.SystemWorkArea.Doctor.*;
@@ -19,13 +20,15 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
 
     PersonDirectory personDirectory;
     PatientDirectory patientDirectory;
+    Community community;
     /**
      * Creates new form SystemPatient
      */
-    public SystemPatientWorkPanel(PersonDirectory personDirectory,PatientDirectory patientDirectory) {
+    public SystemPatientWorkPanel(PersonDirectory personDirectory,PatientDirectory patientDirectory,Community community) {
         initComponents();
         this.personDirectory = personDirectory;
         this.patientDirectory = patientDirectory;
+        this.community = community;
               
         SystemViewPatient systemViewPatient = new SystemViewPatient(patientDirectory,personDirectory);
         splitPane.setRightComponent(systemViewPatient );
@@ -51,12 +54,10 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        controlPanel.setBackground(new java.awt.Color(255, 204, 204));
+        controlPanel.setBackground(new java.awt.Color(160, 132, 202));
         controlPanel.setPreferredSize(new java.awt.Dimension(150, 609));
         controlPanel.setVerifyInputWhenFocusTarget(false);
 
-        btnViewPatient.setBackground(new java.awt.Color(102, 0, 51));
-        btnViewPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnViewPatient.setText("View Patient");
         btnViewPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,8 +65,6 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCreatePatient.setBackground(new java.awt.Color(102, 0, 51));
-        btnCreatePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnCreatePatient.setText("Create Patient");
         btnCreatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,8 +72,6 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
             }
         });
 
-        btnUpdatePatient.setBackground(new java.awt.Color(102, 0, 51));
-        btnUpdatePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdatePatient.setText("Update Patient");
         btnUpdatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,8 +110,7 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
 
         splitPane.setLeftComponent(controlPanel);
 
-        patientWorkArea.setBackground(new java.awt.Color(102, 0, 51));
-        patientWorkArea.setForeground(new java.awt.Color(255, 255, 255));
+        patientWorkArea.setBackground(new java.awt.Color(191, 172, 224));
 
         javax.swing.GroupLayout patientWorkAreaLayout = new javax.swing.GroupLayout(patientWorkArea);
         patientWorkArea.setLayout(patientWorkAreaLayout);
@@ -143,7 +139,7 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
 
     private void btnCreatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePatientActionPerformed
         // TODO add your handling code here:
-        SystemCreatePatient systemCreatePatient = new SystemCreatePatient(personDirectory, patientDirectory);
+        SystemCreatePatient systemCreatePatient = new SystemCreatePatient(personDirectory, patientDirectory, community);
         splitPane.setRightComponent(systemCreatePatient);
     }//GEN-LAST:event_btnCreatePatientActionPerformed
 
@@ -155,7 +151,7 @@ public class SystemPatientWorkPanel extends javax.swing.JPanel {
 
     private void btnUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePatientActionPerformed
         // TODO add your handling code here:
-        SystemUpdatePatient systemUpdatePatient = new SystemUpdatePatient(personDirectory,patientDirectory);
+        SystemUpdatePatient systemUpdatePatient = new SystemUpdatePatient(personDirectory,patientDirectory,community);
         splitPane.setRightComponent(systemUpdatePatient);
     }//GEN-LAST:event_btnUpdatePatientActionPerformed
 

@@ -49,11 +49,9 @@ public class PatientViewDoctor extends javax.swing.JPanel {
         txtSearchDoctor = new javax.swing.JTextField();
         btnSearchDoctor = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 0, 51));
+        setBackground(new java.awt.Color(191, 172, 224));
 
-        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Doctors");
 
@@ -78,8 +76,6 @@ public class PatientViewDoctor extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDoctorList);
 
-        lblSearchDoctor.setBackground(new java.awt.Color(102, 0, 51));
-        lblSearchDoctor.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchDoctor.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchDoctor.setText("Search Doctor by Name :");
 
@@ -89,8 +85,6 @@ public class PatientViewDoctor extends javax.swing.JPanel {
             }
         });
 
-        btnSearchDoctor.setBackground(new java.awt.Color(102, 0, 51));
-        btnSearchDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchDoctor.setText("Search");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

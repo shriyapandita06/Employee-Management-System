@@ -71,23 +71,17 @@ public class SystemCreateEncounter extends javax.swing.JPanel {
         lblDoctorId1 = new javax.swing.JLabel();
         txtHospId = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(102, 0, 51));
+        setBackground(new java.awt.Color(191, 172, 224));
 
-        jPanel1.setBackground(new java.awt.Color(102, 0, 51));
+        jPanel1.setBackground(new java.awt.Color(191, 172, 224));
 
-        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Create Encounter");
 
-        lblDate.setBackground(new java.awt.Color(102, 0, 51));
-        lblDate.setForeground(new java.awt.Color(255, 255, 255));
         lblDate.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblDate.setText("Date :");
 
-        lblPatientId.setBackground(new java.awt.Color(102, 0, 51));
-        lblPatientId.setForeground(new java.awt.Color(255, 255, 255));
         lblPatientId.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblPatientId.setText("Patient ID :");
 
@@ -97,8 +91,6 @@ public class SystemCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        lblDoctorId.setBackground(new java.awt.Color(102, 0, 51));
-        lblDoctorId.setForeground(new java.awt.Color(255, 255, 255));
         lblDoctorId.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblDoctorId.setText("Doctor ID :");
 
@@ -108,8 +100,6 @@ public class SystemCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        lblBloodPressure.setBackground(new java.awt.Color(102, 0, 51));
-        lblBloodPressure.setForeground(new java.awt.Color(255, 255, 255));
         lblBloodPressure.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblBloodPressure.setText("Blood Pressure :");
 
@@ -119,8 +109,6 @@ public class SystemCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        lblPulse.setBackground(new java.awt.Color(102, 0, 51));
-        lblPulse.setForeground(new java.awt.Color(255, 255, 255));
         lblPulse.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblPulse.setText("Pulse :");
 
@@ -130,8 +118,6 @@ public class SystemCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        lblWeight.setBackground(new java.awt.Color(102, 0, 51));
-        lblWeight.setForeground(new java.awt.Color(255, 255, 255));
         lblWeight.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblWeight.setText("Temperature :");
 
@@ -141,8 +127,6 @@ public class SystemCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        btnCreateEncounter.setBackground(new java.awt.Color(102, 0, 51));
-        btnCreateEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateEncounter.setText("Create Encounter");
         btnCreateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,8 +134,6 @@ public class SystemCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        btnSearchDoctor.setBackground(new java.awt.Color(102, 0, 51));
-        btnSearchDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchDoctor.setText("Search Doctor");
         btnSearchDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,8 +141,6 @@ public class SystemCreateEncounter extends javax.swing.JPanel {
             }
         });
 
-        btnSearchPatient1.setBackground(new java.awt.Color(102, 0, 51));
-        btnSearchPatient1.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchPatient1.setText("Search Patient");
         btnSearchPatient1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,8 +150,6 @@ public class SystemCreateEncounter extends javax.swing.JPanel {
 
         txtEncounterDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("MM/dd/yyyy"))));
 
-        lblDoctorId1.setBackground(new java.awt.Color(102, 0, 51));
-        lblDoctorId1.setForeground(new java.awt.Color(255, 255, 255));
         lblDoctorId1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblDoctorId1.setText("Hospital ID :");
 

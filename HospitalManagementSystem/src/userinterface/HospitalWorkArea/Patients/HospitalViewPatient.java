@@ -51,10 +51,8 @@ public class HospitalViewPatient extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPatientList = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(102, 0, 51));
+        setBackground(new java.awt.Color(191, 172, 224));
 
-        lblSearchPatient.setBackground(new java.awt.Color(102, 0, 51));
-        lblSearchPatient.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchPatient.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchPatient.setText("Search Patient by Name:");
 
@@ -64,8 +62,6 @@ public class HospitalViewPatient extends javax.swing.JPanel {
             }
         });
 
-        btnSearchPatient.setBackground(new java.awt.Color(102, 0, 51));
-        btnSearchPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchPatient.setText("Search");
         btnSearchPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,9 +69,7 @@ public class HospitalViewPatient extends javax.swing.JPanel {
             }
         });
 
-        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Patient");
 

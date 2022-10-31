@@ -51,12 +51,10 @@ public class SystemEncountersWorkPanel extends javax.swing.JPanel {
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        controlPanel.setBackground(new java.awt.Color(255, 204, 204));
+        controlPanel.setBackground(new java.awt.Color(160, 132, 202));
         controlPanel.setPreferredSize(new java.awt.Dimension(150, 609));
         controlPanel.setVerifyInputWhenFocusTarget(false);
 
-        btnViewEncounters.setBackground(new java.awt.Color(102, 0, 51));
-        btnViewEncounters.setForeground(new java.awt.Color(255, 255, 255));
         btnViewEncounters.setText("View Encounters");
         btnViewEncounters.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,8 +62,6 @@ public class SystemEncountersWorkPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCreateEncounter.setBackground(new java.awt.Color(102, 0, 51));
-        btnCreateEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateEncounter.setText("Create Encounter");
         btnCreateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,8 +69,6 @@ public class SystemEncountersWorkPanel extends javax.swing.JPanel {
             }
         });
 
-        btnUpdateEncounter.setBackground(new java.awt.Color(102, 0, 51));
-        btnUpdateEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateEncounter.setText("Update Encounter");
         btnUpdateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,8 +107,7 @@ public class SystemEncountersWorkPanel extends javax.swing.JPanel {
 
         splitPane.setLeftComponent(controlPanel);
 
-        patientWorkArea.setBackground(new java.awt.Color(102, 0, 51));
-        patientWorkArea.setForeground(new java.awt.Color(255, 255, 255));
+        patientWorkArea.setBackground(new java.awt.Color(191, 172, 224));
 
         javax.swing.GroupLayout patientWorkAreaLayout = new javax.swing.GroupLayout(patientWorkArea);
         patientWorkArea.setLayout(patientWorkAreaLayout);

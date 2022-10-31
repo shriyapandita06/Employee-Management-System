@@ -12,6 +12,7 @@ public class System {
     private City city;
     private PersonDirectory personDirectory;
     private PatientDirectory patientDirectory;
+    private DoctorDirectory doctorDirectory;
 
     public City getCity() {
         return city;
@@ -35,6 +36,14 @@ public class System {
 
     public void setPatientDirectory(PatientDirectory patientDirectory) {
         this.patientDirectory = patientDirectory;
+    }
+
+    public DoctorDirectory getDoctorDirectory() {
+        return doctorDirectory;
+    }
+
+    public void setDoctorDirectory(DoctorDirectory doctorDirectory) {
+        this.doctorDirectory = doctorDirectory;
     }
     
 }

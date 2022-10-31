@@ -10,7 +10,7 @@ import model.Community;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class ViewCommunity extends javax.swing.JPanel {
 
@@ -40,14 +40,12 @@ public class ViewCommunity extends javax.swing.JPanel {
         tblCommunityList = new javax.swing.JTable();
         comboCity = new javax.swing.JComboBox<>();
 
-        setBackground(new java.awt.Color(102, 0, 51));
+        setBackground(new java.awt.Color(191, 172, 224));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Community");
 
-        lblSearchCommunity.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchCommunity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchCommunity.setText("City :");
 

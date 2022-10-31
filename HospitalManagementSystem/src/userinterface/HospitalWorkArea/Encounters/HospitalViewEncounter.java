@@ -54,27 +54,21 @@ public class HospitalViewEncounter extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEncountersList = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(102, 0, 51));
-        setForeground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(191, 172, 224));
 
-        txtSearchEncounters.setForeground(new java.awt.Color(255, 255, 255));
         txtSearchEncounters.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchEncountersActionPerformed(evt);
             }
         });
 
-        lblSearchEnctounter.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchEnctounter.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchEnctounter.setText("Search Encounter By Patient Id :");
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Encounters");
 
-        btnSearchEncounter.setBackground(new java.awt.Color(102, 0, 51));
-        btnSearchEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchEncounter.setText("Search");
         btnSearchEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

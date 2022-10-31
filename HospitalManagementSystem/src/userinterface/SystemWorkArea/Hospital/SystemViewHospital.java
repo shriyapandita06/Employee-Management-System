@@ -47,16 +47,12 @@ public class SystemViewHospital extends javax.swing.JPanel {
         tblHospitalList = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 0, 51));
+        setBackground(new java.awt.Color(191, 172, 224));
 
-        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Hospital");
 
-        lblSearchHospital.setBackground(new java.awt.Color(102, 0, 51));
-        lblSearchHospital.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchHospital.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchHospital.setText("Search Hospital by Name:");
 
@@ -66,8 +62,6 @@ public class SystemViewHospital extends javax.swing.JPanel {
             }
         });
 
-        btnSearchHospital.setBackground(new java.awt.Color(102, 0, 51));
-        btnSearchHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnSearchHospital.setText("Search");
         btnSearchHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,8 +90,6 @@ public class SystemViewHospital extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblHospitalList);
 
-        btnDelete.setBackground(new java.awt.Color(102, 0, 51));
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

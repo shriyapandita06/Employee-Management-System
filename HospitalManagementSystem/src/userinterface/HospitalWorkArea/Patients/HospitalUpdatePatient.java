@@ -31,14 +31,16 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
     
     PersonDirectory personDirectory;
     PatientDirectory patientDirectory;
+    Community community;
     boolean emptyValidationStatus = true;
     boolean validationCheck = true;
     
     
-    public HospitalUpdatePatient(PersonDirectory personDirectory,PatientDirectory patientDirectory) {
+    public HospitalUpdatePatient(PersonDirectory personDirectory,PatientDirectory patientDirectory, Community community) {
         initComponents();
         this.personDirectory = personDirectory;
         this.patientDirectory = patientDirectory;
+        this.community = community;
         initCityCmbx();
     }
 
@@ -71,8 +73,6 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
         lblStreet = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
         comboCity = new javax.swing.JComboBox<>();
-        lblState = new javax.swing.JLabel();
-        comboState = new javax.swing.JComboBox<>();
         lblCommunity = new javax.swing.JLabel();
         comboCommunity = new javax.swing.JComboBox<>();
         lblCellPhoneNo = new javax.swing.JLabel();
@@ -83,16 +83,12 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
         lblGender = new javax.swing.JLabel();
         lblEmailID = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 0, 51));
+        setBackground(new java.awt.Color(191, 172, 224));
 
-        lblTitle.setBackground(new java.awt.Color(102, 0, 51));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Update Patient");
 
-        lblSearchPatient.setBackground(new java.awt.Color(102, 0, 51));
-        lblSearchPatient.setForeground(new java.awt.Color(255, 255, 255));
         lblSearchPatient.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblSearchPatient.setText("Search Patient by ID:");
 
@@ -109,14 +105,10 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(102, 0, 51));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Personal Information");
 
-        lblName.setBackground(new java.awt.Color(102, 0, 51));
-        lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblName.setText("Name :");
 
@@ -126,8 +118,6 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
-        lblHeight.setBackground(new java.awt.Color(102, 0, 51));
-        lblHeight.setForeground(new java.awt.Color(255, 255, 255));
         lblHeight.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblHeight.setText("Height :");
 
@@ -137,8 +127,6 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
-        lblWeight.setBackground(new java.awt.Color(102, 0, 51));
-        lblWeight.setForeground(new java.awt.Color(255, 255, 255));
         lblWeight.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblWeight.setText("Weight :");
 
@@ -156,14 +144,10 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
-        lblContactInfo.setBackground(new java.awt.Color(102, 0, 51));
         lblContactInfo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblContactInfo.setForeground(new java.awt.Color(255, 255, 255));
         lblContactInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblContactInfo.setText("Contact Information");
 
-        lblHouseNo.setBackground(new java.awt.Color(102, 0, 51));
-        lblHouseNo.setForeground(new java.awt.Color(255, 255, 255));
         lblHouseNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblHouseNo.setText("House No :");
 
@@ -173,12 +157,9 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
-        lblStreet.setForeground(new java.awt.Color(255, 255, 255));
         lblStreet.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblStreet.setText("Street :");
 
-        lblCity.setBackground(new java.awt.Color(102, 0, 51));
-        lblCity.setForeground(new java.awt.Color(255, 255, 255));
         lblCity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCity.setText("City :");
 
@@ -188,18 +169,9 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
-        lblState.setForeground(new java.awt.Color(255, 255, 255));
-        lblState.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblState.setText("State :");
-
-        comboState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NY", "MA", "CA", "TX" }));
-
-        lblCommunity.setBackground(new java.awt.Color(102, 0, 51));
-        lblCommunity.setForeground(new java.awt.Color(255, 255, 255));
         lblCommunity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCommunity.setText("Community :");
 
-        lblCellPhoneNo.setForeground(new java.awt.Color(255, 255, 255));
         lblCellPhoneNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCellPhoneNo.setText("Cell Phone Number :");
 
@@ -215,8 +187,6 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
-        btnUpdatePatient.setBackground(new java.awt.Color(102, 0, 51));
-        btnUpdatePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdatePatient.setText("Update Patient");
         btnUpdatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,16 +194,12 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
             }
         });
 
-        lblAge.setForeground(new java.awt.Color(255, 255, 255));
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblAge.setText("Age :");
 
-        lblGender.setForeground(new java.awt.Color(255, 255, 255));
         lblGender.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblGender.setText("Gender :");
 
-        lblEmailID.setBackground(new java.awt.Color(102, 0, 51));
-        lblEmailID.setForeground(new java.awt.Color(255, 255, 255));
         lblEmailID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblEmailID.setText("Email ID :");
 
@@ -292,12 +258,15 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
                                             .addComponent(txtHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblState, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtStreet)
-                                            .addComponent(comboState, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -307,12 +276,8 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(comboCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnUpdatePatient)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(btnUpdatePatient)
+                            .addGap(190, 190, 190))))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -354,19 +319,16 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
                         .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblStreet)))
                 .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCity)
+                    .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblCity)
-                        .addComponent(comboCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblState)
-                        .addComponent(comboState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblCellPhoneNo)
+                        .addComponent(txtCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCommunity)
-                    .addComponent(comboCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCellPhoneNo)
-                    .addComponent(txtCellPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -676,15 +638,11 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
     
     private void initCommunityCmbx() {
         comboCommunity.removeAllItems();
-        int count = 0;
-        var selectedCity=comboCity.getSelectedItem().toString();
-        City city=City.valueOf(selectedCity);
-        Community community=new Community();
-        community.setLstCommunity();
-        String[] communities=community.getLstCommunity().get(city);
-            for (String community_ : communities) {
-                comboCommunity.addItem(communities[count++]);
-            }
+        City selectedCity = City.valueOf(comboCity.getSelectedItem().toString());
+        String[] communityList = community.getLstCommunity().get(selectedCity);
+        for(String community : communityList){
+            comboCommunity.addItem(community);
+        } 
     }
     
     private void initCityCmbx() {
@@ -703,7 +661,6 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> comboCity;
     private javax.swing.JComboBox<String> comboCommunity;
     private javax.swing.JComboBox<String> comboGender;
-    private javax.swing.JComboBox<String> comboState;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCellPhoneNo;
@@ -716,7 +673,6 @@ public class HospitalUpdatePatient extends javax.swing.JPanel {
     private javax.swing.JLabel lblHouseNo;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblSearchPatient;
-    private javax.swing.JLabel lblState;
     private javax.swing.JLabel lblStreet;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblWeight;
