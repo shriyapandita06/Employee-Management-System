@@ -8,6 +8,7 @@ package userinterface;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import model.Community;
 import model.Doctor;
 import model.DoctorDirectory;
 import model.HospitalDirectory;
@@ -24,7 +25,7 @@ import userinterface.SystemWorkArea.SystemJFrame;
 
 /**
  *
- * @author Tejas
+ * @author shriyapandita
  */
 public class MainJFrame extends javax.swing.JFrame {
 
@@ -36,13 +37,15 @@ public class MainJFrame extends javax.swing.JFrame {
     public  DoctorDirectory doctorDirectory;
     public  PatientDirectory patientDirectory;
     public  HospitalDirectory hospitalDirectory;
+    public Community community;
     
     public MainJFrame() {
         initComponents();
         this.personDirectory = new PersonDirectory();
         this.doctorDirectory = new DoctorDirectory();
         this.patientDirectory = new PatientDirectory();
-        this.hospitalDirectory = new HospitalDirectory();        
+        this.hospitalDirectory = new HospitalDirectory();  
+        this.community = new Community();
     }
 
     /**
@@ -213,7 +216,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         loginStatus = true;
 //                        JFrame mainFrame = (JFrame) SwingUtilities.getRoot(this);
 //                        mainFrame.dispose();
-                        CommunityJFrame communityFrame = new CommunityJFrame(username);
+                        CommunityJFrame communityFrame = new CommunityJFrame(username, community);
                         communityFrame.main(null);
                     }
                     else{

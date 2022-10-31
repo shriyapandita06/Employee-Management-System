@@ -14,14 +14,18 @@ public class Doctor extends Person{
     
     private int doctorId;
     private Date practicingFrom;
+    private int hospitalId;
     private DoctorSpecialization doctorSpecialization;
 
-    public Doctor(String name, long cellPhoneNumber, String emailId, int age, String gender, House house,int doctorId,Date practicingFrom,DoctorSpecialization doctorSpecialization, String password) {
+    public Doctor(String name, long cellPhoneNumber, String emailId, int age, String gender, House house,int doctorId,Date practicingFrom,DoctorSpecialization doctorSpecialization,int hospitalId ,String password) {
         super(name, cellPhoneNumber, emailId, age, gender, house,password);
         this.doctorId = doctorId;
         this.practicingFrom = practicingFrom;
         this.doctorSpecialization = doctorSpecialization;
+        this.hospitalId = hospitalId;
     }
+    
+    
 
     public int getDoctorId() {
         return doctorId;
@@ -45,6 +49,19 @@ public class Doctor extends Person{
 
     public void setDoctorSpecialization(DoctorSpecialization doctorSpecialization) {
         this.doctorSpecialization = doctorSpecialization;
+    }
+    
+    @Override
+    public String toString(){
+        return String.valueOf(doctorId);
+    } 
+
+    public int getHospitalId() {
+        return hospitalId;
+    }
+
+    public void setHospitalId(int hospitalId) {
+        this.hospitalId = hospitalId;
     }
     
 }
